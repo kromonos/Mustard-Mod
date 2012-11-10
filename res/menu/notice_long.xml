@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+		android:id="@+id/menu_usertimeline"
+		android:showAsAction="ifRoom"
+	/>
+    <item
+		android:id="@+id/menu_copy2clipboard"
+		android:title="@string/menu_copy2clipboard"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_copy"
+	/>
+    <item
+		android:id="@+id/menu_follow"
+		android:title="@string/menu_sub"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_add"
+	/>
+    <item
+		android:id="@+id/menu_block"
+		android:title="@string/menu_block"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_volume_mute"
+	/>
+
+</menu>

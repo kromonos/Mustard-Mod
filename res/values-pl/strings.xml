@@ -1,0 +1,309 @@
+<!-- 
+/*
+ * MUSTARD: Android's Client for StatusNet
+ * 
+ * Copyright (C) 2009-2010 macno.org, Michele Azzolari
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+  --> 
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"> 
+    <string name="no_dents">Nie znaleziono wpisu...</string> 
+    <string name="title">Tytuł</string> 
+    <string name="status">Co słychać</string> 
+    <string name="update">Wyślij</string> 
+    <string name="upload">Dodaj</string> 
+    
+    <string name="enable_update_location">Pokaż lokalizację?</string> 
+    <string name="confirm">Potwierdź</string> 
+    <string name="confirm_fav">Dodano do ulubionych</string> 
+    <string name="error_fav">Błąd przy dodawaniu do ulubionych</string> 
+    <string name="confirm_unfav">Usunięto z ulubionych</string> 
+    <string name="error_unfav">Błąd przy usuwaniu z ulubionych</string> 
+    <string name="confirm_repeat">Powtórzono wpis</string> 
+    <string name="error_repeat">Błąd przy powtarzniu wiadomości. Wyłącz moduł</string> 
+ 
+    <string name="confirm_sub">Subscribed</string> 
+    <string name="error_sub">Błąd obserwacji</string> 
+    <string name="confirm_unsub">Unsubscribed</string> 
+    
+    <string name="confirm_block">Blocked</string> 
+    <string name="error_block">Bład przy blokowaniu</string> 
+    <string name="confirm_join">Dołączył</string> 
+    
+    <string name="confirm_leave">Left</string> 
+    <string name="error_leave">Błąd przy opuszczaniu grupy</string> 
+ 
+    <string name="error_generic">Sorry, something went wrong..</string> 
+    
+    <string name="error_title_no_network">No network connection</string> 
+    <string name="error_no_network">Nie można wysłać wiadomości (problemy połaczenia z siecią)</string> 
+    <string name="error_no_attachment_supported">Używany serwer StatusNet nie pozwala na dodawanie załaczników</string> 
+    
+    
+    <string name="msg_logout">Are you sure you want to logout?\nYour account will be deleted from mustard</string> 
+    <string name="msg_welcome">Witaj %s!n, chesz obserwować wpisy @mustard ?</string> 
+    <string name="title_welcome">Witaj!</string> 
+    <string name="welcome_label">Witaj %s!</string> 
+    <string name="title_bookmarks">Zakładki</string> 
+    <string name="yes">Tak</string> 
+    <string name="no">Nie</string> 
+    <string name="warning">Ostrzeżenie</string> 
+    <string name="error">Błąd</string> 
+    <string name="error_no_oauth"> 	"
+Przykra sprawa, musztarda nie ma klucza  OAuth dla %s.
+Powiadom emailem  mustard@macno.org
+"</string> 
+    <string name="oauth_wrong_consumer_key">Niewłaściwy klucz. Powiadom  mustard@macno.org</string> 
+	<string name="show">Pokaż</string> 
+	<string name="hide">Ukryj</string> 
+	<string name="close">Zamknij</string> 
+    <string name="always_ask">Zawsze pytaj</string> 
+    <string name="always_sent">Wyślij bez pytania</string> 
+    <string name="shorturl">Krótki URL!</string> 
+    <!-- mustard --> 
+    <string name="username">Nazwa użytkownika</string> 
+    <string name="password">Hasło</string> 
+    <string name="instance">StatusNet URL (np. identi.ca czy blogoo.pl)</string> 
+	<string name="label_force_ssl">Użuj bezpieczy protokół TLS/SSL</string> 
+    <string name="new_password">Nowe hasło</string> 
+	<string name="new_password_hint">Nowe hasło</string> 
+	<string name="new_password_info">Ta funkcja pozwoli na edycję twojego lokalnego hasła.</string>	
+	
+    <string name="lbl_search">Wpisz szukane słowa</string> 
+    <string name="lbl_search_type">Szukaj:</string> 
+ 
+	<string name="lbl_update_password">Edytuj</string> 
+	<string name="lbl_update_avatar">Zmień awatar</string> 
+	
+	<string name="btn_login">Logowanie</string> 
+	<string name="btn_login_oauth">Kliknij obrazek aby użyć OAuth (jeśli dostępne!)</string> 
+    <string name="btn_search">Szukaj</string> 
+    <string name="btn_squeeze">Ściśnij</string> 
+    <string name="btn_test">Test!</string> 
+    <string name="btn_continue">Dalej</string> 
+    
+    <string name="search_users">Użytkownicy</string> 
+    <string name="search_groups">Grupy</string> 
+    <string name="search_notices">Wpisy</string> 
+    <string name="search_tags">Tagi</string> 
+    
+    <string name="user_following">Obserwowani: %s</string> 
+    <string name="user_follower">Obserwatorze: %s</string> 
+    <string name="user_dents">Wpisy: %s</string> 
+    <string name="user_since">Członek od: %s</string> 
+    
+    <string name="send_from_account">Wyślij używając:</string> 
+    <!--  INFO MESSAGES --> 
+    <string name="info_no_dents">Nie znaleziono wpisów</string> 
+    <string name="warning_leave_group">Na pewno chcesz opóścić grupę </string> 
+    <string name="restart_take_effect">Należy zrestartować musztardę aby zapisać zmiany</string> 
+    
+    
+    <!-- ERROR MESSAGES --> 
+    <string name="error_fetch_dents">    "
+Problem z dostarczeniem wpisów.
+Poczekaj i spróbuj ponownie."
+    </string> 
+    <string name="error_fetch_more_dents">Ta strona nie pozwala na więcej funkcji.</string> 
+    <string name="error_group_not_found">Nie ma tu grupy  %s .</string> 
+    <string name="error_user_not_found">Nie ma tu użytkownika %s</string> 
+    <string name="error_no_user_from_status">Nie można odzyskać użytkownika z API</string> 
+    <string name="error_no_notice_from_status">Nie można odzyskać wpisu z API</string> 
+    <string name="error_detecting_locaton">Nie można rozpoznać pozycji</string> 
+    <string name="no_locaton_provider">Nie wybrano dostarczyciela lokalizacji!</string> 
+    <string name="error_duplicate_account">To konto już istnieje! Nadpisać?</string> 
+    <string name="error_invalid_url">Niewłaściwy asdres URL</string> 
+    <string name="error_help_test">Test failed: this is not a statusnet instance</string> 
+    
+    <string name="error_empty_response">Empty response</string> 
+    
+    <string name="error_instance_unkown_version">%1$s seems to be a StatusNet instance too old. Required %2$s</string> 
+    
+    
+    
+    <string name="dark">Dark</string> 
+    
+    
+    <!-- MENU --> 
+    <string name="menu_timeline">Timeline</string> 
+    
+    <string name="menu_delete">Delete</string>    
+    
+    <string name="menu_reply">Reply</string> 
+    
+    <string name="menu_unsub">Unsubscribe</string> 
+    
+    <string name="menu_view_geo">View Location</string> 
+    
+    <string name="menu_unfav">Disfavor</string> 
+    
+    <string name="menu_public">Public Timeline</string> 
+    
+    <string name="menu_favorites">Favorites</string> 
+    
+    <string name="menu_logout">Logout</string> 
+    
+    <string name="menu_search">Search</string> 
+    
+    <string name="menu_back">Back</string> 
+    
+    <string name="menu_add_new">Add new</string> 
+    
+    <string name="menu_avatar">Upload avatar</string> 
+    
+    <string name="menu_oauth_settings">OAuth Settings</string> 
+    
+    <string name="menu_bookmarks">Bookmarks</string> 
+    
+    <string name="menu_account">More..</string> 
+	
+	<string name="menu_leave">Leave</string> 
+ 
+    
+    <string name="timeline_public">Public Timeline</string> 
+    
+    <string name="timeline_friends">%s and friends</string> 
+ 
+    
+    <string name="select_file">Attach a file</string> 
+ 
+	
+	<string name="w_search_title">Searching %s</string> 
+    
+    
+    <string name="status_update_ko_title">Error posting notice!</string> 
+    
+ 
+    <string name="avatar_update_ok">Avatar uploaded!</string> 
+    
+    <string name="avatar_resize_ko">A problem has occurred while resizing your avatar...</string> 
+	
+	<string name="please_wait_resizing"> 
+"
+Resizing image...
+Please wait...
+"
+	</string> 
+	
+	<string name="contacting_site">Contacting site...</string> 
+	
+	<string name="please_wait_opening">Loading..</string> 
+	
+	<!-- Preferences --> 
+	
+	<string name="pref_rows_fetch_default">25</string> 
+	
+	<string name="pref_rows_fetch_summary">This preference allows to set the number of notices to retrieve</string> 
+	
+	
+	<string name="preferences_notifications">Notifications</string> 
+	
+    <string name="pref_check_updates_summary">Check for new mentions when application is not running</string> 
+    
+    <string name="pref_check_updates_interval_summary">Minutes between checks</string> 
+    
+    <string name="pref_check_updates_interval_default">60</string> 
+     
+    <string name="vibrate_summary">Vibrate the phone when new mentions arrive</string> 
+     
+    <string name="pref_ringtone_summary">Ringtone to use when new mentions arrive</string> 
+    
+	
+	<string name="pref_enable_geo_title">Enable?</string> 
+    
+ 
+	<string name="pref_geo_mode_title">Mode</string> 
+	
+	<string name="pref_geo_mode_dialog_title">Choose</string>    
+	
+ 
+	<string name="pref_theme_title">Theme</string> 
+	
+	<string name="pref_theme_dialog_title">Select</string>  
+	
+	
+	<string name="pref_geo_fuzzy_summary">Approximate location by km</string> 
+	<string name="pref_geo_fuzzy_dialog_title">Odległość (km)</string> 
+	<string name="pref_geo_fuzzy_default">10</string> 
+ 
+	
+	<string name="pref_new_repeat_title">New Repeat mode?</string> 
+    
+	<string name="pref_refresh_after_post_title">Refresh after post?</string> 
+	
+	<string name="pref_auto_refresh_title">Auto refresh timeline?</string> 
+	
+	<string name="pref_multi_account_on_post">Choose account while posting?</string> 
+	
+ 
+	<string name="pref_auto_refresh_interval_default">60</string> 
+ 
+	
+	<string name="pref_send_snapshot_title">Enable Snapshot?</string> 
+    
+ 
+	<string name="preferences_layout">Layout</string> 
+	
+    <string name="pref_legacy_layout_summary">Legacy black theme. (Restart mustard to take effect)</string> 
+	<string name="pref_new_button_title">Nowy klawisz?</string> 
+    <string name="pref_new_button_summary">Uruchom nowy klawisz (deaktywuj długi click)</string> 
+ 
+	
+    <string name="new_notices_updates">Masz nowe odpowiedzi</string> 
+    <string name="x_new_mention">Są nowe odpowiedzi</string> 
+    <string name="x_new_mentions">[{0} nowych wiadomości</string> 
+ 
+	<string name="geo_view_on">Zobacz na %s</string> 
+	<string name="geo_title">GeoLokalizacja</string> 
+	<string name="geo_from">Wiadomość wysłana z  %s</string> 
+	
+	<string name="lbl_oauth_refresh_keys">Zmień nowy klucz OAuth Musztardy</string> 
+	<string name="btn_oauth_refresh_keys_value">Odśwież</string> 
+	
+	<string name="btn_oauth_new_keys_value">Fetch</string> 
+ 
+	<string name="lbl_global_settings">Ustawienia ogólne</string> 
+	<string name="lbl_oauth_settings">Ustawienia OAuth </string> 
+	<string name="lbl_settings">Ustawienia Musztardy</string> 
+	
+	 <string name="about_message">    "
+mustard %s is a µblogging client for StatusNet Software developed by @macno
+
+Thanks to @bugabundo, @stav, @fabsh and others for their suggestions.
+Also thanks to !sni team for their support.
+
+This software is dedicated to my beloved son Filippo.
+
+Contributors:
+@brionv@identi.ca
+@shiny@shiny.status.net
+
+Translations:
+German by @eike
+Italian by @macno
+French by @stemp, @jpec
+Portuguese by @apf
+Dutch by @sandersch
+Norvegian by @hz
+Chinese by @lovenemesis
+Spanish by @jjardon
+Polish by @blogoo.pl
+
+
+"
+    </string> 
+</resources>

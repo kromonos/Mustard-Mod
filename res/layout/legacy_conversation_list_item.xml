@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<!--
+		* MUSTARD: Android's Client for StatusNet * * Copyright (C) 2009-2010
+		macno.org, Michele Azzolari * * This program is free software; you can
+		redistribute it and/or modify * it under the terms of the GNU General
+		Public License as published by * the Free Software Foundation; either
+		version 2 of the License, or * (at your option) any later version. * *
+		This program is distributed in the hope that it will be useful, but *
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License * for more details. * * You should have
+		received a copy of the GNU General Public License along * with this
+		program; if not, write to the Free Software Foundation, Inc., * 59
+		Temple Place, Suite 330, Boston, MA 02111-1307 USA
+	-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal" android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+
+	<LinearLayout android:id="@+id/left_column"
+		android:orientation="vertical" android:layout_height="wrap_content"
+		android:layout_width="wrap_content" android:layout_marginTop="4dip"
+		android:layout_marginLeft="4dip">
+
+		<org.mustard.android.view.RemoteImageView
+			android:id="@+id/profile_image" android:layout_alignParentTop="true"
+			android:layout_width="48dp" android:layout_height="48dp" />
+
+	</LinearLayout>
+
+	<LinearLayout android:id="@+id/center_column"
+		android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_marginTop="4dip"
+		android:layout_marginLeft="4dip" android:layout_marginRight="4dip">
+
+		<TextView android:id="@+id/screen_name" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:textSize="14sp" />
+
+		<org.mustard.android.view.MustardStatusTextView
+			android:id="@+id/status" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textColorLink="#FFFFFF" android:textColorHighlight="#8a8a8a"
+			android:layout_marginTop="4dip" android:textSize="16sp" />
+
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+			<TextView android:id="@+id/datetime" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:textStyle="italic"
+				android:textSize="14sp" />
+
+			<TextView android:id="@+id/source" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:textStyle="italic"
+				android:textSize="14sp" android:textColorLink="#FFFFFF" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+
+
+</LinearLayout>

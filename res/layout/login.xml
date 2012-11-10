@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:fillViewport="true"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent">
+
+	<LinearLayout
+		android:orientation="vertical" 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<LinearLayout
+			android:orientation="horizontal" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp">
+			
+			<ImageView
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_marginRight="5dp"
+			    android:layout_marginTop="5dp"
+			    android:src="@drawable/ic_action_user" />
+			
+			<TextView
+				layout_width="wrap_content"
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content" 
+				android:text="@string/lbl_create_account" 
+				android:layout_gravity="center_vertical"
+				style="@style/Text.High"
+				android:textSize="20sp" />
+		</LinearLayout>
+		
+		<TextView android:layout_marginTop="5dp"
+			android:id="@+id/username_label" android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:textStyle="italic"
+			android:textSize="13sp" android:text="@string/username" />
+			
+		<EditText android:id="@+id/edit_username"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="5dp"
+			android:layout_width="fill_parent" 
+			android:imeOptions="actionNext"
+			android:singleLine="true" />
+
+		<TextView android:layout_marginTop="5dp"
+			android:id="@+id/password_label" android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:textStyle="italic"
+			android:textSize="13sp" android:text="@string/password" />
+		<EditText android:id="@+id/edit_password"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="5dp"
+			android:layout_width="fill_parent" 
+			android:singleLine="true"
+			android:inputType="textPassword"
+			android:imeOptions="actionNext" />
+
+		<TextView android:layout_marginTop="5dp"
+			android:id="@+id/instance_label" android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:textStyle="italic"
+			android:textSize="13sp" android:text="@string/instance" />
+
+		<EditText android:id="@+id/edit_instance"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="5dp"
+			android:layout_width="fill_parent" android:singleLine="true"
+			android:inputType="textUri"
+			android:imeOptions="actionDone" />
+
+		<CheckBox android:id="@+id/force_ssl"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/label_force_ssl" android:textStyle="italic"
+			android:textSize="13sp" />
+
+		<Button
+		    android:id="@+id/button_login"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:drawableLeft="@drawable/ic_action_user"
+		    android:drawablePadding="10dp"
+		    android:text="@string/btn_login" />
+
+		<Button
+		    android:id="@+id/button_oauth"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:drawableLeft="@drawable/ic_action_share_2"
+		    android:drawablePadding="10dp"
+		    android:text="@string/lbl_oauth_login" />
+			
+	</LinearLayout>
+
+</ScrollView>

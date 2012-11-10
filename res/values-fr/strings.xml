@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+/*
+ * MUSTARD: Android's Client for StatusNet
+ * 
+ * Copyright (C) 2009-2010 macno.org, Michele Azzolari
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+  -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="no_dents">Pas de statuts trouvés...</string>
+    <string name="title">Titre</string>
+    <string name="status">Quoi de neuf ?</string>
+    <string name="update">Envoyer</string>
+    <string name="upload">Téléverser</string>
+    
+    <string name="enable_update_location">Envoyer la géolocalisation ?</string>
+    <string name="confirm">Confirmer</string>
+    <string name="confirm_fav">Ajouté aux favoris</string>
+    <string name="error_fav">Erreurs lors de l\'ajout aux favoris</string>
+    <string name="confirm_unfav">Supprimé des favoris</string>
+    <string name="error_unfav">Erreur lors de la suppression des favoris</string>
+    <string name="confirm_repeat">Statut répété</string>
+    <string name="error_repeat">Une erreur est survenue en répétant le statut</string>
+
+    <string name="confirm_sub">Souscrit</string>
+    <string name="error_sub">Erreur lors de la souscription</string>
+    <string name="confirm_unsub">Désinscrit</string>
+    <string name="error_unsub">Erreur lors de la désinscription</string>
+    <string name="confirm_block">Bloqué</string>
+    <string name="error_block">Le blocage a provoqué une erreur</string>
+    <string name="confirm_join">Groupe rejoint</string>
+    <string name="error_join">Une erreur est survenue en rejoignant le groupe</string>
+    <string name="confirm_leave">Quitté</string>
+    <string name="error_leave">Une erreur est survenue en quittant le goupe</string>
+    
+
+    <string name="error_generic">Désolé, une erreur est survenue..</string>
+    <string name="error_generic_detail">Désolé, une erreur est survenue..\n%s</string>
+    <string name="error_title_no_network">Pas de connexion réseau</string>
+    <string name="error_no_network">Impossible de mettre à jour votre statut à cause d\'un problème de connexion réseau</string>
+    <string name="error_no_attachment_supported">Le serveur StatusNet ne supporte pas les pièces jointes</string>
+    <string name="error_no_dents_from">Une erreur est survenue en recevant les réponses</string>
+    
+    <string name="msg_logout">Êtes vous sur de vouloir vous déconnecter ?\nVotre comptre sera supprimé de mustard</string>
+    <string name="msg_welcome">Salut %s!\nVoulez vous suivre @mustard ?</string>
+    <string name="title_welcome">Bienvenue !</string>
+    <string name="title_bookmarks">Marque-pages</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="warning">Attention</string>
+    <string name="error">Erreur</string>
+    <string name="error_no_oauth">"
+Désolé, %s ne supporte pas OAuth.
+Essayez d\'envoyer un mail à mustard@macno.org
+"</string>
+	<string name="show">Afficher</string>
+	<string name="hide">Cacher</string>
+	<string name="close">Fermer</string>
+    <string name="always_ask">Toujours demander</string>
+    <string name="always_sent">Envoyer sans confirmation</string>
+    
+    <!-- mustard -->
+    <string name="username">Utilisateur</string>
+    <string name="password">Mot de passe</string>
+    <string name="instance">URL StatusNet (ex: identi.ca ou brainbird.net)</string>
+	<string name="label_force_ssl">Forcer l\'utilisation de TLS/SSL</string>
+	
+	
+    <string name="lbl_search">Entrer mot clé de recherche</string>
+    <string name="lbl_search_type">Rechercher :</string>
+
+	<string name="btn_login">Connexion</string>
+	<string name="btn_login_oauth">Cliquez sur l\'image pour utiliser OAuth (si disponible!)</string>
+    <string name="btn_search">Recherche</string>
+    <string name="btn_squeeze">Squeeze</string>
+    <string name="btn_test">Tester!</string>
+    <string name="btn_continue">Continuer</string>
+    
+    <string name="search_users">Utilisateurs</string>
+    <string name="search_groups">Groupes</string>
+    <string name="search_notices">Statuts</string>
+    <string name="search_tags">Tags</string>
+    
+    <!--  INFO MESSAGES -->
+    <string name="info_no_dents">Pas de statuts trouvés</string>
+    <string name="warning_leave_group">Êtes vous sur de vouloir quitter le groupe </string>
+    
+    <!-- ERROR MESSAGES -->
+    <string name="error_fetch_dents">    "
+Problème lors de la récupérations des statuts.
+Veuillez patienter et réessayer."
+    </string>
+    <string name="error_fetch_more_dents">Désolé, cette page ne supporte plus de fonctions</string>
+    <string name="error_group_not_found">Désolé, le groupe %s n\'existe pas</string>
+    <string name="error_user_not_found">Désolé, l\'utilisateur %s n\'existe pas ici</string>
+    <string name="error_no_user_from_status">Ne peut extraire l\'utilisateur de l\'API</string>
+    <string name="error_no_notice_from_status">Ne peut extraire le statut de l\'API</string>
+    <string name="error_detecting_locaton">Ne peut détecter votre localisation</string>
+    <string name="no_locaton_provider">Aucun pourvoyeur de localisation activé !</string>
+    <string name="error_duplicate_account">Le compte existe déjà!</string>
+    <string name="error_invalid_url">L\'URL n\'est pas correcte</string>
+    <string name="error_help_test">Erreur! Ce n\'est pas une instance StatusNet</string>
+    <string name="error_no_response">Pas de réponse</string>
+    <string name="error_empty_response">Réponse vide</string>
+    <string name="error_wrong_userpass">Le nom d\'utilisateur ou le mot de passe n\'est pas correct</string>
+    <string name="error_instance_unkown_version">%1$s La version du serveur StatusNet est inconnue. Requis : %2$s</string>
+    <string name="error_instance_too_old_version">%1$s La version du serveur StatusNet est trop vieille. Requis : %2$s</string>
+    
+    <!-- MENU -->
+    <string name="menu_timeline">Chronologie</string>
+    <string name="menu_insert">Nouveau Statut</string>
+    <string name="menu_delete">Supprimer</string>    
+    <string name="menu_forward">Faire suivre</string>
+    <string name="menu_reply">Répondre</string>
+    <string name="menu_sub">S\'abonner</string>
+    <string name="menu_unsub">Désabonnement</string>
+    <string name="menu_block">Bloquer</string>
+    <string name="menu_view_geo">Voir localisation </string>
+    <string name="menu_fav">Favoris</string>
+    <string name="menu_unfav">Retirer des favoris</string>
+    <string name="menu_refresh">Actualiser</string>
+    <string name="menu_public">Flux publique</string>
+    <string name="menu_user_tl">Flux de l\'utilisateur</string>
+    <string name="menu_favorites">Favoris</string>
+    <string name="menu_mentions">Réponses</string>
+    <string name="menu_logout">Déconnexion</string>
+    <string name="menu_switch">Changer de compte</string>
+    <string name="menu_search">Recherche</string>
+    <string name="menu_about">À propos</string>
+    <string name="menu_back">Retour</string>
+    <string name="menu_choose_account">Choisir un compte</string>
+    <string name="menu_add_new">Ajouter un nouveau</string>
+    <string name="menu_friends">Flux personnel</string>
+    <string name="menu_avatar">Téléverser un avatar</string>
+    <string name="menu_settings">Préférences</string>
+    <string name="menu_bookmarks">Marque-pages</string>
+    <string name="menu_bookmark_this_page">Marquer cette page</string>
+    <string name="menu_account">Davantage...</string>
+	<string name="menu_join">Rejoindre</string>
+	<string name="menu_leave">Quitter</string>
+
+    <string name="msg_delete_bookmark">Êtes vous sur de vouloir supprimer ce marque-page?</string>
+    <string name="timeline_public">Flux publique</string>
+    <string name="timeline_main">Vous et vos amis</string>
+    <string name="timeline_friends">%s et ses amis</string>
+
+    <string name="about_title">À propos de MuSTArd</string>
+   
+    <string name="select_file">Joindre un fichier</string>
+
+	<string name="w_tag_title">Statuts taggés avec #%s</string>
+	<string name="w_search_title">Cherchant %s</string>
+    
+    <string name="status_update_ok">Statut mis à jour !</string>
+    <string name="status_update_ko_title">Une erreur est survenue pendant l\'envoi du statut</string>
+    <string name="status_update_ko">Une erreur est survenue lors de la mise à jour de votre statut</string>
+
+    <string name="avatar_update_ok">Avatar téléversé !</string>
+    <string name="avatar_update_ko">Problème lors du téléversement de votre avatar...</string>
+    <string name="avatar_resize_ko">Problème lors du redimensionnement de votre avatar...</string>
+	<string name="please_wait_fetching_dents">"
+Récupération des statuts...
+Veuillez patienter...
+"
+	</string>
+	<string name="please_wait_resizing">"
+Redimensionnement de l\'image...
+Veuillez patienter...
+"
+	</string>
+	<string name="please_wait_updating_dent">"
+Envoi du statut en cours...
+Veuillez patienter...
+"</string>
+	<string name="contacting_site">Connexion au site...</string>
+	<string name="authenticating_account">Authentification...</string>
+	<string name="please_wait_opening">Chargement..</string>
+	
+	<!-- Preferences -->
+	<string name="preferences_timeline">Flux</string>
+	<string name="pref_rows_fetch_default">25</string>
+	<string name="pref_rows_fetch_title">Nombre de messages à récupérer</string>
+	<string name="pref_rows_fetch_summary">Cette préférence permet d\'indiquer le nombre de messages à récupérer</string>
+	<string name="pref_rows_fetch_dialog_title">Nombre de messages</string>
+	
+	<string name="preferences_notifications">Notifications</string>
+	<string name="pref_check_updates_title">Autoriser les notifications ?</string>
+    <string name="pref_check_updates_summary">Vérifier les nouvelles mentions quand l\'application ne tourne pas</string>
+    <string name="pref_check_updates_interval_title">Mise à jour de l\'intervale de vérification</string>
+    <string name="pref_check_updates_interval_summary">Nombre de minutes entre les vérification de nouvelles mentions</string>
+    <string name="pref_check_updates_interval_dialog_title">Intervale en minutes :</string>
+    <string name="pref_check_updates_interval_default">60</string>
+
+	<string name="preferences_geolocation">Géolocalisation</string>
+	<string name="pref_enable_geo_title">Activer ?</string>
+    <string name="pref_enable_geo_summary">Envoyer les infos de géolocalisations lors de la mise à jour des statuts</string>
+
+	<string name="pref_geo_mode_title">Mode</string>
+	<string name="pref_geo_mode_summary">Choisir d\'envoyer toujours la géolocalisation ou décider lors du démarrage</string>
+	<string name="pref_geo_mode_dialog_title">Choisir</string>    
+	<string name="pref_geo_mode_default">@string/always_ask</string>
+
+	<string name="pref_geo_fuzzy_title">Précision</string>
+	<string name="pref_geo_fuzzy_summary">Précision de la localisation en km</string>
+	<string name="pref_geo_fuzzy_dialog_title">Rayon (km)</string>
+	<string name="pref_geo_fuzzy_default">10</string>
+
+	<string name="preferences_general">Généralités</string>
+	<string name="pref_new_repeat_title">Nouveau mode de répétition?</string>
+    <string name="pref_new_repeat_summary">Activer la nouvelle API</string>
+	<string name="pref_refresh_after_post_title">Rafraichir après l\'envoi du statut?</string>
+	<string name="pref_refresh_after_post_summary">Si activé, le flux sera rafraichit après chaque envoi de statut</string>
+	<string name="pref_auto_refresh_title">Rafraichissement automatique</string>
+	<string name="pref_auto_refresh_summary">Si activé, le flux sera rafraichit automatiquement</string>
+	<string name="pref_auto_refresh_interval_default">60</string>
+
+	<string name="preferences_optional">Optionnel</string>
+	<string name="pref_send_snapshot_title">Activer l\'envoi des données aux développeurs?</string>
+    <string name="pref_send_snapshot_summary">Vous pouvez envoyer anonymement des informations sur votre utilisation</string>
+
+	
+    <string name="new_notices_updates">Vous avez de nouvelles réponses</string>
+    <string name="x_new_mention">Il y a des nouvelles réponses</string>
+    <string name="x_new_mentions">{0} nouveaux statuts</string>
+
+	<string name="geo_view_on">Vu sur %s</string>
+	<string name="geo_title">Géolocalisation</string>
+	<string name="geo_from">Statut posté depuis %s</string>
+	
+	 <string name="about_message">"
+mustard %s est un client de µblogging pour StatusNet développé par @macno
+
+Merci à @bugabundo, @stav et autres pour leurs suggestions.
+Merci aussi à l\'équipe !sni pour leur aide.
+
+Ce logiciel est dédié à mon bien aimé fils Filippo.
+
+Translation:
+German by @eike
+Italian by @macno
+French by @stemp, @jpec 
+Portuguese by @apf
+Dutch by @sandersch
+Norvegian by @hz
+Chinese by @lovenemesis
+
+"
+    </string>
+</resources>

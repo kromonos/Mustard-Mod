@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView android:fillViewport="true"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent" android:layout_width="fill_parent">
+
+	<LinearLayout android:orientation="vertical" android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="@string/to"
+			android:textSize="14sp" />
+		<EditText android:id="@+id/dm_screen_name" android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			/>
+			
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="@string/text"
+			android:textSize="14sp" />
+			
+			<EditText
+			    android:id="@+id/dm_text"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1.0"
+			    android:gravity="left|top"
+			    android:imeOptions="actionDone|flagNoEnterAction"
+			    android:inputType="textCapSentences|textAutoCorrect|textShortMessage"
+			    android:minLines="3"
+			    android:textAppearance="?android:attr/textAppearanceMedium" />
+		 
+		 <Button
+		     android:id="@+id/send"
+		     android:layout_width="wrap_content"
+		     android:layout_height="wrap_content"
+		     android:drawableLeft="@drawable/ic_action_send"
+		     android:text="@string/send" />
+
+	</LinearLayout>
+
+</ScrollView>

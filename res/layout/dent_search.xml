@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:fillViewport="true"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent">
+
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:text="@string/lbl_search"
+		android:textSize="14sp" />
+
+	<EditText android:id="@+id/textSearch"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:scrollHorizontally="true"
+		android:singleLine="true" android:gravity="top" />
+
+	<TextView android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/lbl_search_type" android:textSize="14sp" />
+
+	<RadioGroup android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:orientation="vertical"
+		android:id="@+id/radio_search_group">
+
+		<RadioButton android:id="@+id/radio_users"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/search_users" />
+
+		<RadioButton android:id="@+id/radio_groups"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/search_groups" />
+
+		<RadioButton android:id="@+id/radio_tags"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/search_tags" />
+
+		<RadioButton android:id="@+id/radio_notice"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/search_notices" />
+
+	</RadioGroup>
+
+	<Button android:id="@+id/btnSearch"
+		android:text="@string/btn_search" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" />
+
+	</LinearLayout>
+</ScrollView>

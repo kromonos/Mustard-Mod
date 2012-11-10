@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:fillViewport="true"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent" >
+
+	<LinearLayout
+		android:orientation="vertical" 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<LinearLayout
+			android:layout_margin="10dp"
+			android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<ImageView
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_marginTop="5dip"
+			    android:src="@drawable/ic_action_wizard" />
+			
+			<TextView
+				android:layout_margin="10dp"
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content" 
+				android:text="@string/lbl_oauth_settings" 
+				android:layout_gravity="center_vertical"
+				style="@style/Text.High"
+				android:textSize="20sp" />
+			
+		</LinearLayout>
+		
+		
+		<TextView
+			android:layout_margin="10dp"
+			android:layout_height="2dp"
+			android:layout_width="fill_parent"
+			android:background="#ffffffff" 
+			android:textSize="13sp" />
+		
+		<TextView 
+			android:id="@+id/lbl_oauth_refresh_keys" 
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" 
+			android:textStyle="italic"
+			android:textSize="13sp" 
+			android:text="@string/lbl_oauth_refresh_keys" />
+
+		<Button 
+			android:id="@+id/btn_oauth_refresh_keys" 
+			android:layout_marginLeft="10dp"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" 
+			android:text="@string/btn_oauth_refresh_keys_value" />
+		
+		<TextView
+			android:layout_margin="10dp"
+			android:layout_height="2dp"
+			android:layout_width="fill_parent"
+			android:background="#ffffffff" 
+			android:textSize="13sp" />
+			
+		<TextView 
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:id="@+id/lbl_oauth_new_keys" android:layout_height="wrap_content"
+			android:layout_width="fill_parent" android:textStyle="italic"
+			android:textSize="13sp" android:text="@string/lbl_oauth_new_keys" />
+
+		<EditText android:id="@+id/oauth_new_keys"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:layout_width="fill_parent" android:singleLine="true"
+			android:inputType="textUri" />
+
+		<Button 
+			android:layout_marginLeft="10dp"
+			android:id="@+id/btn_oauth_new_keys" 
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" 
+			android:text="@string/btn_oauth_new_keys_value" />
+	
+
+	</LinearLayout>
+
+</ScrollView>

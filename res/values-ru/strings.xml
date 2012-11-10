@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+/*
+ * MUSTARD: Android's Client for StatusNet
+ * 
+ * Copyright (C) 2009-2011 macno.org, Michele Azzolari
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+  -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="template_user_agent">%1$s/%2$s (Linux; Android)</string>
+    <string name="no_dents">Не найдено сообщений</string>
+    <string name="title">Название</string>
+    <string name="status">Что нового?</string>
+    <string name="update">Отправить</string>
+    <string name="upload">Загрузить</string>
+
+
+    <string name="enable_update_location">Отправить информацию о местоположении?</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="confirm_fav">Добавить в избранное</string>
+    <string name="error_fav">Ошибка добавления в избранное</string>
+    <string name="confirm_unfav">Удалено из избранногоRemoved from favorites</string>
+    <string name="error_unfav">Ощибка удаления из избранного</string>
+    <string name="confirm_repeat">Сообщение было дублировано</string>
+    <string name="error_repeat">Ошибка дублирования сообщения. Новый режим отключён</string>
+
+    <string name="confirm_sub">Вы подписаны</string>
+    <string name="error_sub">Ошибка подписки</string>
+    <string name="confirm_unsub">Подписка отозвана</string>
+    <string name="error_unsub">Ощибка отказа от подписки</string>
+    <string name="confirm_block">Блокирован</string>
+    <string name="error_block">Ошибка блокирования %s</string>
+    <string name="confirm_unblock">Разблокирован</string>
+    <string name="error_unblock">Ошибка разблокировки %s</string>
+    <string name="confirm_join">Присоединён</string>
+    <string name="error_join">Ошибка присоединения к группе</string>
+    <string name="confirm_leave">Покинута</string>
+    <string name="error_leave">Ошибка покидания группы</string>
+
+    <string name="error_generic">Извините, что-то пошло не так..</string>
+    <string name="error_generic_detail">Извините, что-то пошло не так..\n%s</string>
+    <string name="error_title_no_network">Нет соединения с сетью</string>
+    <string name="error_no_network">Невозможно разместить сообщение из-за проблем с соединением</string>
+    <string name="error_no_attachment_supported">Используемый сервер StatusNet не поддерживает вложения</string>
+    <string name="error_no_dents_from">Ошибка получения сообщения на ответ/избранное</string>
+    <!-- <string name="error_http_not_acceptable">Server replied with "Not acceptable". Check your notice</string>  -->
+    
+    <string name="warning_text_too_long">Сообщение слишком длинное. Максимальный размер — %s символов. Хотите продолжить?</string>
+    <string name="msg_logout">Вы уверены, что хотите выйти?\nВаша учётная запись будет удалена из Mustard</string>
+    <string name="msg_confirm_repeat">Повторить это сообщение?</string>
+    <string name="msg_confirm_block">Блокировать этого пользователя?</string>
+    <string name="msg_confirm_unblock">Разблокировать этого пользователя?</string>
+    <string name="msg_welcome">Здраствуйте %s!\nне хотите подписаться на сообщения @mustard ?</string>
+    <string name="title_welcome">Здраствуйте!</string>
+    <string name="welcome_label">Здраствуйте, %s!</string>
+    <string name="title_bookmarks">Закладки</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="warning">Предупреждение</string>
+    <string name="error">Ошибка</string>
+    <string name="error_no_oauth">"
+    Извините, в Mustard нет ключа авторизации OAuth для %s.
+    Пожалуйста отправьте е-мейл на mustard@macno.org
+    "
+    </string>
+    <string name="identica">Identica</string>
+    <string name="statusnet">Status Net</string>
+    <string name="twitter">Twitter</string>
+    <string name="oauth_wrong_consumer_key">Неверный ключ авторизации. Пожалуйста сообщите на mustard@macno.org</string>
+	<string name="show">Показать</string>
+	<string name="hide">Скрыть</string>
+	<string name="close">Закрыть</string>
+    <string name="always_ask">Всегда спрашивать</string>
+    <string name="always_sent">Отправлять не спращивая</string>
+    <string name="shorturl">Сократить URL!</string>
+    <!-- mustard -->
+    <string name="username">Имя пользователя</string>
+    <string name="password">Пароль</string>
+    <string name="instance">Экзампляр (например, 280.status.net или evan.status.net)</string>
+	<string name="label_force_ssl">Для использования TLS/SSL</string>
+    <string name="new_password">Новый пароль</string>
+	<string name="new_password_hint">Новый пароль</string>
+	<string name="new_password_info">Эта настройка редактирует ваш локальный пароль</string>
+
+    <string name="lbl_search">Введите ключевое слово для поиска </string>
+    <string name="lbl_search_type">Искать слово:</string>
+
+	<string name="lbl_update_password">Редактировать</string>
+	<string name="lbl_update_avatar">Сменить аватар</string>
+	<string name="lbl_create_account">Новая учётная запись</string>
+	<string name="lbl_oauth_login">Вход с помощью OAuth</string>
+	<string name="lbl_account_login">Логин</string>
+	
+	<string name="btn_login">Логин</string>
+	<string name="btn_login_oauth">Нажмите на изображение для использования OAuth (если возможно!)</string>
+    <string name="btn_search">Искать</string>
+    <string name="btn_squeeze">Сжать</string>
+    <string name="btn_test">Тест!</string>
+    <string name="btn_continue">Продолжить</string>
+    <string name="btn_filter_settings">Настройки фильтрации</string>
+    <string name="search_users">Пользователи</string>
+    <string name="search_groups">Группы</string>
+    <string name="search_notices">Сообщения</string>
+    <string name="search_tags">Метки</string>
+    
+    <string name="user_following">Подписки: %s</string>
+    <string name="user_follower">Подписчики: %s</string>
+    <string name="user_dents">Сообщения: %s</string>
+    <string name="user_since">Зарегистрирован: %s</string>
+    
+    <string name="send_from_account">Отправить через:</string>
+    <!--  INFO MESSAGES -->
+    <string name="info_no_dents">Сообщения не найдены</string>
+    <string name="warning_leave_group">Вы уверены, что хотите покинуть группу "%s"?</string>
+    <string name="restart_take_effect">Требуется перезапуск Mustard для того чтобы изменения вступили в силу</string>
+    
+    
+    <!-- ERROR MESSAGES -->
+    <string name="error_fetch_dents">
+    "
+Проблема с получением сообщений.
+Пожалуйста подождите и повторите запрос."
+    </string>
+    <string name="error_fetch_more_dents">Эта страница не поддерживает функцию \"больше\"..</string>
+    <string name="error_group_not_found">Извините, группа %s не существует здесь</string>
+    <string name="error_user_not_found">Извините, пользователь %s не существует здесь</string>
+    <string name="error_no_user_from_status">Невозможно распознать пользователя через API</string>
+    <string name="error_no_notice_from_status">Невозможно распознать сообщение через API</string>
+    <string name="error_detecting_locaton">Невозможно определить местоположение</string>
+    <string name="no_locaton_provider">Определение местоположения отключено!</string>
+    <string name="error_duplicate_account">Учетная запись уже существует! Перезаписать?</string>
+    <string name="error_invalid_url">Неверный URL</string>
+    <string name="error_help_test">Тест не прошёл: это не экземпляр statusnet</string>
+    <string name="error_no_response">Нет ответа</string>
+    <string name="error_empty_response">Пустой ответ</string>
+    <string name="error_wrong_userpass">Неверное имя пользователя или пароль</string>
+    <string name="error_instance_unkown_version">%1$s слишком старая версия экземпляра StatusNet. Требуемая %2$s</string>
+    <string name="error_instance_too_old_version">Версия %1$s слишком старая. Требуемая %2$s</string>
+    
+    <string name="dark">Темная</string>
+    <string name="light">Светлая</string>
+
+    <!-- MENU -->
+    <string name="menu_timeline">Хронология</string>
+    <string name="menu_insert">Новое сообщение</string>
+    <string name="menu_delete">Удалить</string>
+    <string name="menu_forward">Повторить</string>
+    <string name="menu_reply">Ответить</string>
+    <string name="menu_sub">Подписаться</string>
+    <string name="menu_unsub">Отменить подписку</string>
+    <string name="menu_block">Блокировать</string>
+    <string name="menu_unblock">Разблокировать</string>
+    <string name="menu_view_geo">Показать местоположение</string>
+	<string name="menu_share">Поделиться</string>
+	<string name="menu_copy2clipboard">Копировать URL сообщения</string>
+    <string name="menu_fav">Добавить в избранное</string>
+    <string name="menu_unfav">Удалить из избранного</string>
+    <string name="menu_refresh">Обновить</string>
+    <string name="menu_public">Публичная хронология</string>
+    <string name="menu_user_tl">Хронология пользователя</string>
+    <string name="menu_favorites">Избранное</string>
+    <string name="menu_mentions">Ответы</string>
+    <string name="menu_logout">Выйти</string>
+    <string name="menu_switch">Переключить учётную запись</string>
+    <string name="menu_search">Искать</string>
+    <string name="menu_about">О программе</string>
+    <string name="menu_back">Назад</string>
+    <string name="menu_choose_account">Выбрать учётную запись</string>
+    <string name="menu_add_new">Добавить новую</string>
+    <string name="menu_friends">Личная хронология</string>
+    <string name="menu_avatar">Загрузить аватар</string>
+    <string name="menu_account_settings">Настройки учётной записи</string>
+    <string name="menu_oauth_settings">Настройки OAuth</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_bookmarks">Закладки</string>
+    <string name="menu_bookmark_this_page">Добавить эту страницу в закладки</string>
+    <string name="menu_account">Ещё..</string>
+	<string name="menu_join">Присоединиться</string>
+	<string name="menu_leave">Покинуть</string>
+	<string name="menu_conversation">Переписка</string>
+	<string name="menu_view_attachment">Вложения</string>
+	
+	<string name="alert_merge_account_title">Выберите учётные записи для слияния</string>
+    <string name="msg_delete_bookmark">Вы уверены что хотите удалить эту закладку?</string>
+    <string name="msg_delete_filter">Вы уверены что хотите удалить этот фильтр?</string>
+    <string name="timeline_public">Публичная хронология</string>
+    <string name="timeline_main">Вы и ваши друзья</string>
+    <string name="timeline_friends">%s и друзья</string>
+
+	<string name="copied_to_clipboard">URL записи скопирован в буфер обмена</string>
+    <string name="about_title">О программе</string>
+    <string name="select_file">Присоединить файл</string>
+
+	<string name="w_tag_title">Сообщения с тегом #%s</string>
+	<string name="w_search_title">Поиск %s</string>
+    
+    <string name="status_update_ok">Сообщение размещено!</string>
+    <string name="status_update_ko_title">Ошибка размещения сообщения!</string>
+    <string name="status_update_ko">Проблема размещения сообщения...</string>
+
+    <string name="avatar_update_ok">Аватар загружен!</string>
+    <string name="avatar_update_ko">Проблема загрузки вашего аватара...</string>
+    <string name="avatar_resize_ko">Проблема изменения размера вашего аватара...</string>
+	<string name="please_wait_fetching_dents">
+"
+Получение сообщений...
+Пожалуйста подождите...
+"
+	</string>
+	<string name="please_wait_resizing">
+"
+Изменение размеров изображения...
+Пожалуйста подождите...
+"
+	</string>
+	<string name="please_wait_updating_dent">
+"
+Размещение сообщения...
+Пожалуйста подождите...
+"	
+	</string>
+	<string name="contacting_site">Связь с сайтом...</string>
+	<string name="authenticating_account">Аутентификация учётной записи...</string>
+	<string name="please_wait_opening">Загрузка..</string>
+	
+	<!-- Preferences -->
+	<string name="preferences_timeline">Хронология</string>
+	
+	<string name="pref_merge_timeline_title">Объединить хронологии</string>
+	<string name="pref_merge_timeline_summary">Выберите какие из хронологий объединять с основной</string>
+	<string name="pref_rows_fetch_default">25</string>
+	<string name="pref_rows_fetch_title">Количество сообщений</string>
+	<string name="pref_rows_fetch_summary">Эта настройка позволяет устанавливать количество сообщений для получения</string>
+	<string name="pref_rows_fetch_dialog_title">Количество сообщений</string>
+	
+	<string name="preferences_notifications">Уведомления</string>
+	<string name="pref_check_updates_title">Разрешить уведомления?</string>
+    <string name="pref_check_updates_summary">Проверять о новых упоминаниях, когда приложение не выполняется</string>
+    <string name="pref_check_updates_interval_title">Период обновления</string>
+    <string name="pref_check_updates_interval_summary">Количество минут между проверками</string>
+    <string name="pref_check_updates_interval_dialog_title">Интервал в минутах:</string>
+    <string name="pref_check_updates_interval_default">60</string>
+    <string name="vibrate_title">Вибрировать?</string>
+    <string name="vibrate_summary">Vibrate the phone when new mentions arrive</string> 
+    <string name="pref_ringtone_title">Звуковой сигнализация?</string> 
+    <string name="pref_ringtone_summary">Мелодия для уведомления о новых упоминаниях</string>
+    
+	<string name="preferences_geolocation">Местоположение</string>
+	<string name="pref_enable_geo_title">Разрешить?</string>
+    <string name="pref_enable_geo_summary">Отправлять информацию о местоположении во время размещения сообщений</string>
+
+	<string name="pref_geo_mode_title">Режим</string>
+	<string name="pref_geo_mode_summary">Выбрать, отправлять ли информацию о местоположении всегда или подтверждать во время выполнения</string>
+	<string name="pref_geo_mode_dialog_title">Выбрать</string>
+	<string name="pref_geo_mode_default">@string/always_ask</string>
+
+	<string name="pref_theme_title">Тема</string>
+	<string name="pref_theme_summary">Выбрать тема (требует перезапуск)</string>
+	<string name="pref_theme_dialog_title">Выбрать</string>
+	
+	<string name="pref_geo_fuzzy_title">Точность</string>
+	<string name="pref_geo_fuzzy_summary">Примерное положение в км</string>
+	<string name="pref_geo_fuzzy_dialog_title">Радиус (км)</string>
+	<string name="pref_geo_fuzzy_default">10</string>
+
+	<string name="preferences_general">Основные</string>
+	<string name="pref_new_repeat_title">Новый режим повтора?</string>
+    <string name="pref_new_repeat_summary">Разрешить новое API для повтора</string>
+	<string name="pref_refresh_after_post_title">Обновить после размещения?</string>
+	<string name="pref_refresh_after_post_summary">Если разрешено, хронология будет обновлена после размещения сообщения</string>
+	<string name="pref_auto_refresh_title">Автоматически обновлять хронологию?</string>
+	<string name="pref_auto_refresh_summary">Если разрешено, хронология будет обновляться автоматически</string>
+	
+	<string name="pref_spamreport_on_block">Сообщить о спаммере после блокировки?</string>
+	<string name="pref_spamreport_on_block_summary">Если разрешено, после блокировки пользователя будет сгенерирован отчёт о спаме (только на identi.ca)</string>
+	
+	<string name="pref_auto_refresh_interval_default">60</string>
+
+	<string name="preferences_optional">Необазательные</string>
+	<string name="pref_send_snapshot_title">Разрешить снимок?</string>
+    <string name="pref_send_snapshot_summary">Вы можете анонимно отправлять нам информацию о количестве активных учётных записей</string>
+
+	<string name="preferences_layout">Размещение (Restart mustard to take effect)</string>
+	
+        <string name="pref_legacy_layout_title">Ч/Б тема</string>
+    <string name="pref_legacy_layout_summary">Legacy white on black theme.</string>
+
+	<string name="pref_new_button_title">Status Buttons?</string>
+    <string name="pref_new_button_summary">Enable button to access status related functions (reply,repeat etc)</string>
+
+	<string name="pref_font_size_title">Размер шрифта</string>
+    <string name="pref_font_size_summary">Выбрать размер шрифта</string>
+
+	<string name="pref_bottom_buttons_title">Кнопки быстрого доступа</string>
+    <string name="pref_bottom_buttons_summary">Разрешить экранные кнопки (написать, обновить, упоминания)</string>
+
+	<string name="pref_compact_view_title">Компактный вид</string>
+    <string name="pref_compact_view_summary">Разрешить компактный вид сообщения</string>
+
+	<string name="pref_url_shortener_title">Сократитель URL</string>
+    <string name="pref_url_shortener_summary">Выбрать сократитель URL</string>
+	<string name="url_shortener">Сократитель URL</string>
+
+    <string name="new_notices_updates">Mustard mentions</string>
+    <string name="x_new_mention">Нет новых ответов</string>
+    <string name="x_single_account_mention">У вас новое упоминание</string>
+    <string name="x_single_account_mentions">У вас %s новых упоминаний</string>
+    <string name="x_multiple_account_mention">%s has a new mention</string>
+    <string name="x_multiple_account_mentions">%1$s has %2$s new mentions</string>
+    <string name="x_multiple_accounts_mentions">Your accounts have %s new mentions</string>
+
+	<string name="geo_view_on">Показать на %s</string>
+	<string name="geo_title">Местоположение</string>
+	<string name="geo_from">Сообщение отправлено из %s</string>
+	
+	<string name="lbl_oauth_refresh_keys">Check new Mustard\'s OAuth keys</string>
+	<string name="btn_oauth_refresh_keys_value">Refresh</string>
+	<string name="lbl_oauth_new_keys">Insert URL to fetch your personal keys (see http://mustard.macno.org/oauth)</string>
+	<string name="btn_oauth_new_keys_value">Получить</string>
+
+	<string name="lbl_global_settings">Глобальные настройки</string>
+	<string name="lbl_oauth_settings">Настройки OAuth</string>
+	<string name="lbl_settings">Настройки Mustard</string>
+	<string name="lbl_account_new">Добавить новую учётную запись</string>
+	<string name="lbl_account_type">Выбрать службу микроблогов</string>
+	<string name="lbl_filters">Фильтры Mustard</string>
+	<string name="lbl_add">Добавить</string>
+	
+	<string name="font_size">Размер шрифта</string>
+	<string name="small">Маленький</string>
+	<string name="medium">Средний</string>
+	<string name="large">Большой</string>
+	
+	<string name="from">от</string>
+	
+	<!-- Dates -->
+	<string name="few_seconds">несколько секунд назад</string>
+	<string name="one_minute_ago">"около минуты назад"</string>
+	<string name="minutes_ago">"около %1$s минут назад"</string>
+	<string name="one_hour_ago">"около часа назад"</string>
+	<string name="hours_ago">"около %1$s часов назад"</string>
+	<string name="one_day_ago">"около одного дня назад"</string>
+	<string name="days_ago">"около %1$s дней назад"</string>
+	<string name="one_month_ago">"около месяца назад"</string>
+	<string name="months_ago">"около %1$s месяцев назад"</string>
+	<string name="one_year_ago">"около года назад"</string>
+	
+	 <string name="about_message">
+    "
+mustard %s — это клиент для µблогов на платформе StatusNet, разработанный @macno
+
+Спасибо @BUGabundo, @stav, @fabsh и другим за их предложения.
+Так же спасибо команде !sni за их поддержку.
+
+Это ПО посвещено моему любимому сыну Filippo.
+
+Помощники:
+@brionv
+@shiny@shiny.status.net
+@ciarang@micro.ciarang.com
+
+Графика:
+@fabsh
+@0x6d686b
+
+Переводчики:
+Немецкий @eike, @jancborchardt
+Итальянский @macno
+Францусзкий @stemp, @jpec
+Португальский @apf, @BUGabundo
+Датский @sandersch
+Норвежский @hz
+Китайский @lovenemesis
+Испанский @jjardon
+Польский @blogoo.pl
+Русский @dothidden
+
+"
+    </string>
+</resources>

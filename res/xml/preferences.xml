@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+	<PreferenceCategory android:title="@string/preferences_timeline">
+
+		<ListPreference android:key="max_items_to_fetch"
+			android:entries="@array/fetch_rows"
+			android:entryValues="@array/fetch_rows"
+			android:defaultValue="@string/pref_rows_fetch_default"
+			android:title="@string/pref_rows_fetch_title"
+			android:summary="@string/pref_rows_fetch_summary"
+			android:dialogTitle="@string/pref_rows_fetch_dialog_title" />
+
+		<CheckBoxPreference android:key="check_merge_timelines"
+			android:defaultValue="false"
+			android:enabled="false"
+			android:title="@string/pref_merge_timeline_title"
+			android:summary="@string/pref_merge_timeline_summary" />
+
+	</PreferenceCategory>
+
+
+	<PreferenceCategory android:title="@string/preferences_general">
+
+		<CheckBoxPreference android:key="enable_new_repeat"
+			android:defaultValue="false"
+			android:title="@string/pref_new_repeat_title"
+			android:summary="@string/pref_new_repeat_summary" />
+		
+		<CheckBoxPreference android:key="show_nick_reply"
+			android:defaultValue="true"
+			android:title="@string/pref_show_nick_reply_title"
+			android:summary="@string/pref_show_nick_reply_summary" />
+		
+		<CheckBoxPreference android:key="enable_refresh_on_post"
+			android:defaultValue="false"
+			android:title="@string/pref_refresh_after_post_title"
+			android:summary="@string/pref_refresh_after_post_summary" />
+			
+		<CheckBoxPreference android:key="auto_refresh"
+			android:defaultValue="false"
+			android:title="@string/pref_auto_refresh_title"
+			android:summary="@string/pref_auto_refresh_summary" />
+
+		<ListPreference android:key="auto_refresh_interval"
+			android:dependency="auto_refresh"
+			android:defaultValue="@string/pref_auto_refresh_interval_default"
+			android:title="@string/pref_check_updates_interval_title"
+			android:summary="@string/pref_check_updates_interval_summary"
+			android:entries="@array/check_intervals"
+			android:entryValues="@array/check_intervals"
+			android:dialogTitle="@string/pref_check_updates_interval_dialog_title" />
+
+		<CheckBoxPreference android:key="enable_spamreport_on_block"
+			android:defaultValue="false"
+			android:title="@string/pref_spamreport_on_block"
+			android:summary="@string/pref_spamreport_on_block_summary" />
+
+		<ListPreference android:key="url_shortener"
+			android:defaultValue="b1t.it"
+			android:title="@string/pref_url_shortener_title"
+			android:summary="@string/pref_url_shortener_summary"
+			android:entries="@array/urlshortener"
+			android:entryValues="@array/urlshortener"
+			android:dialogTitle="@string/url_shortener" />
+
+
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/preferences_geolocation">
+
+		<CheckBoxPreference android:key="enable_geolocation"
+			android:defaultValue="true"
+			android:title="@string/pref_enable_geo_title"
+			android:summary="@string/pref_enable_geo_summary" />
+
+	 	
+		<ListPreference android:key="geolocation_fuzzy"
+			android:dependency="enable_geolocation"
+			android:entries="@array/geo_fuzzy_position"
+			android:entryValues="@array/geo_fuzzy_position"
+			android:defaultValue="@string/pref_geo_fuzzy_default"
+			android:title="@string/pref_geo_fuzzy_title"
+			android:summary="@string/pref_geo_fuzzy_summary"
+			android:dialogTitle="@string/pref_geo_fuzzy_dialog_title" />
+
+	</PreferenceCategory>
+
+	<PreferenceCategory
+		android:title="@string/preferences_notifications">
+
+		<CheckBoxPreference android:key="check_updates"
+			android:defaultValue="false"
+			android:title="@string/pref_check_updates_title"
+			android:summary="@string/pref_check_updates_summary" />
+
+		<ListPreference android:key="check_update_interval"
+			android:dependency="check_updates"
+			android:defaultValue="@string/pref_check_updates_interval_default"
+			android:title="@string/pref_check_updates_interval_title"
+			android:summary="@string/pref_check_updates_interval_summary"
+			android:entries="@array/check_intervals"
+			android:entryValues="@array/check_intervals"
+			android:dialogTitle="@string/pref_check_updates_interval_dialog_title" />
+
+		 <RingtonePreference
+		    android:dependency="check_updates"
+		    android:key="ringtone"
+		    android:title="@string/pref_ringtone_title"
+		    android:summary="@string/pref_ringtone_summary"
+		    android:ringtoneType="notification" /> 
+				          
+	   <CheckBoxPreference  
+	            android:key="vibrate"
+	            android:dependency="check_updates"  
+	            android:defaultValue="false"
+	            android:title="@string/vibrate_title"
+	            android:summary="@string/vibrate_summary"
+	            />  
+ 
+	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:title="@string/preferences_layout">
+		
+		<ListPreference android:key="theme"
+			android:defaultValue="@string/theme_bw"
+			android:title="@string/pref_theme_layout_title"
+			android:summary="@string/pref_theme_layout_summary"
+			android:entries="@array/themes"
+			android:entryValues="@array/themes"
+			android:dialogTitle="@string/theme" />
+			
+		<!-- 
+		<CheckBoxPreference android:key="legacy_layout"
+			android:defaultValue="true"
+			android:title="@string/pref_legacy_layout_title"
+			android:summary="@string/pref_legacy_layout_summary" />
+		 -->
+            
+		<ListPreference android:key="font_size"
+			android:defaultValue="1"
+			android:title="@string/pref_font_size_title"
+			android:summary="@string/pref_font_size_summary"
+			android:entries="@array/fontsizes"
+			android:entryValues="@array/fontsizesval"
+			android:dialogTitle="@string/font_size" />
+			
+	</PreferenceCategory>
+	
+	<PreferenceCategory
+		android:title="@string/preferences_optional">
+		
+		<CheckBoxPreference android:key="send_snapshot"
+			android:defaultValue="false"
+			android:title="@string/pref_send_snapshot_title"
+			android:summary="@string/pref_send_snapshot_summary" />
+	</PreferenceCategory>
+</PreferenceScreen>

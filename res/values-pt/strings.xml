@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+/*
+ * MUSTARD: Android's Client for StatusNet
+ * 
+ * Copyright (C) 2009-2010 macno.org, Michele Azzolari
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+  -->
+
+<resources  xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="no_dents">Mensagens não encontradas...</string>
+    <string name="title">Título</string>
+    <string name="status">E aí?</string>
+    <string name="update">Enviar</string>
+    <string name="upload">Subir</string>
+    
+    <string name="enable_update_location">Enviar Geolocalização?</string>
+    <string name="confirm">Confirma</string>
+    <string name="confirm_fav">Adicionado aos favoritos</string>
+    <string name="error_fav">Erro ao adicionar aos favoritos</string>
+    <string name="confirm_unfav">Removido dos favoritos</string>
+    <string name="error_unfav">Erro ao remover dos favoritos</string>
+    <string name="confirm_repeat">Mensagem repetida</string>
+    <string name="error_repeat">Erro de mensagem repetida. Desabilitado modo de envio</string>
+
+
+    <string name="confirm_sub">Assinado</string>
+    <string name="error_sub">Erro ao assinar </string>
+    <string name="confirm_unsub">Assinatura cancelada</string>
+    <string name="error_unsub">Erro de cancelamento de assinatura </string>
+    <string name="error_generic">Desculpe, algo saiu errado...</string>
+    <string name="error_generic_detail">Desculpe, algo saiu errado...\n%s</string>
+    <string name="error_title_no_network">Nenhuma conexão de rede</string>
+    <string name="error_no_network">Impossível publicar a mensagem devido a problemas na conexão de rede</string>
+    
+    <string name="msg_logout">Tem certeza que quer sair?\n Sua conta será apagada do mustard</string>
+    <string name="msg_welcome">Olá %s!\nGostaria de seguir @mustard ?</string>
+    <string name="title_welcome">Bem vindo!</string>
+    <string name="title_bookmarks">Marcadores</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="warning">Aviso</string>
+    <string name="error">Erro</string>
+
+	<string name="show">Mostrar</string>
+	<string name="hide">Esconder</string>
+	<string name="close">Fechar</string>
+    <string name="always_ask">Sempre perguntar</string>
+    <string name="always_sent">Enviar sem perguntar</string>
+    
+    <!-- mustard -->
+    <string name="username">Usuario</string>
+    <string name="password">Senha</string>
+    <string name="instance">URL StatusNet  (ex. identi.ca ou brainbird.net)</string>
+	<string name="label_force_ssl">Forçar uso de TLS/SSL</string>
+	
+	
+    <string name="lbl_search">Entrar com termo a pesquisar </string>
+    <string name="lbl_search_type">Pesquisar por:</string>
+
+	<string name="btn_login">Autenticar</string>
+    <string name="btn_search">Pesquisar</string>
+    <string name="btn_squeeze">Contrair</string>
+    
+    <string name="search_users">Usuários</string>
+    <string name="search_groups">Grupos</string>
+    <string name="search_notices">Mensagens</string>
+    <string name="search_tags">Etiquetas</string>
+    
+    <!--  INFO MESSAGES -->
+    <string name="info_no_dents">Nenhuma mensagem encontrada</string>
+    
+    <!-- ERROR MESSAGES -->
+    <string name="error_fetch_dents">
+    "
+Problemas ocorreram pesquisando mensagens.
+Por favor aguarde e repita."
+    </string>
+    <string name="error_fetch_more_dents">Desculpe, essa página não suporta mais funções...</string>
+    <string name="error_group_not_found">Desculpe, o grupo %s não existe aqui</string>
+    <string name="error_user_not_found">Desculpe, usuário %s não existe aqui</string>
+    <string name="error_no_user_from_status">Não foi possível extrair usuário da API</string>
+    <string name="error_no_notice_from_status">Não foi possível extrair mensagem da API</string>
+    <string name="error_detecting_locaton">Não foi possível determinar nossa posição</string>
+    <string name="no_locaton_provider">Nenhum fornecedor de localização disponível!</string>
+    <string name="error_duplicate_account">Conta já existe!</string>
+    <string name="error_invalid_url">URL não está correta</string>
+    <string name="error_wrong_userpass">Erro de usuário ou senha</string>
+    <string name="error_instance_unkown_version">%1$s parece ser uma instância do StatusNet muito antiga. Necessário %2$s</string>
+    <string name="error_instance_too_old_version">Versão %1$s é muito antiga. Necessário %2$s</string>
+    
+    <!-- MENU -->
+    <string name="menu_timeline">Linha de tempo</string>
+    <string name="menu_insert">Nova mensagem</string>
+    <string name="menu_delete">Apagar</string>    
+    <string name="menu_forward">Repetir</string>
+    <string name="menu_reply">Responder</string>
+    <string name="menu_sub">Assinar</string>
+    <string name="menu_unsub">Cancelar assinatura</string>
+    <string name="menu_fav">Favoritar</string>
+    <string name="menu_unfav">Desfavoritar</string>
+    <string name="menu_refresh">Atualiar</string>
+    <string name="menu_public">Linha de tempo Pública</string>
+    <string name="menu_user_tl">Linha de tempo do usuário</string>
+    <string name="menu_favorites">Favoritos</string>
+    <string name="menu_mentions">Respostas</string>
+    <string name="menu_logout">Sair</string>
+    <string name="menu_switch">Mesclar Conta</string>
+    <string name="menu_search">Pesquisar</string>
+    <string name="menu_about">Sobre</string>
+    <string name="menu_back">Voltar</string>
+    <string name="menu_choose_account">Pegar uma conta</string>
+    <string name="menu_add_new">Adicionar nova</string>
+    <string name="menu_friends">Linha de tempo pessoal</string>
+    <string name="menu_avatar">Enviar avatar</string>
+    <string name="menu_settings">Configurações</string>
+    <string name="menu_bookmarks">Marcadores</string>
+    <string name="menu_bookmark_this_page">Guardar essa página</string>
+    
+    <string name="timeline_public">Linha de tempo pública</string>
+    <string name="timeline_main">Você e seus amigos</string>
+    <string name="timeline_friends">%s e seus amigos</string>
+    
+    <string name="about_title">Sobre MuSTArd</string>
+    <string name="about_message">
+    "
+mustard %s é um cliente de µblogue para Software StatusNet desenvolvido por @macno
+
+Agradecimentos a @bugabundo, @stav e outros por suas sugestões.
+Também agradeço a equipe !sni  por seu apoio.
+
+Este software é dedicado ao meu amado filho Filippo.
+
+Traduções:
+Alemão por @eike
+Italiano por @macno
+Francês por @stemp
+Português por @apf
+Holandês por @sandersch
+Norvegian por @hz
+Chines por @lovenemesis
+
+"
+    </string>
+    <string name="select_file">Anexar um arquivo</string>
+
+	<string name="w_tag_title">Mensagens etiquetas com #%s</string>
+	<string name="w_search_title">Pesquisando %s</string>
+    
+    <string name="status_update_ok">Mensagem publicada!</string>
+    <string name="status_update_ko">Um problema ocorreu enquanto publicava sua mensagem...</string>
+
+    <string name="avatar_update_ok">Avatar enviado!</string>
+    <string name="avatar_update_ko">Um problema ocorreu enquanto enviava seu avatar...</string>
+    <string name="avatar_resize_ko">Um problema ocorreu enquanto redimensionava seu avatar...</string>
+	<string name="please_wait_fetching_dents">
+"
+Buscando mensagens...
+Por favor espere...
+"
+	</string>
+	<string name="please_wait_resizing">
+"
+Redimensionando imagem...
+Por favor espere...
+"
+	</string>
+	<string name="contacting_site">Contactando sítio...</string>
+	<string name="authenticating_account">Autenticando a conta...</string>
+	<string name="please_wait_opening">Carregando..</string>
+	
+	<!-- Preferences -->
+	<string name="preferences_timeline">Linha de tempo</string>
+	<string name="pref_rows_fetch_default">25</string>
+	<string name="pref_rows_fetch_title">Número de mensagens a receber</string>
+	<string name="pref_rows_fetch_summary">Essa configuração permite escolher o número de mensagens a receber</string>
+	<string name="pref_rows_fetch_dialog_title">Número de mensagens</string>
+	
+	<string name="preferences_notifications">Notificações</string>
+	<string name="pref_check_updates_title">Habilitar notificações?</string>
+    <string name="pref_check_updates_summary">Verificar nova menções quando a aplicação não estiver rodando</string>
+    <string name="pref_check_updates_interval_title">Atualizar intervalo de verificação</string>
+    <string name="pref_check_updates_interval_summary">Minutos entre verificações por novas menções</string>
+    <string name="pref_check_updates_interval_dialog_title">Intervalo em minutos:</string>
+    <string name="pref_check_updates_interval_default">60</string>
+
+	<string name="preferences_geolocation">Geolocalização</string>
+	<string name="pref_enable_geo_title">Habilita?</string>
+    <string name="pref_enable_geo_summary">Envia informações de geolocalização quando publica mensagens</string>
+
+	<string name="pref_geo_mode_title">Modo</string>
+	<string name="pref_geo_mode_summary">Escolher sempre enviar geolocalização ou decidir na hora</string>
+	<string name="pref_geo_mode_dialog_title">Escolha</string>    
+	<string name="pref_geo_mode_default">@string/always_ask</string>
+
+	<string name="pref_geo_fuzzy_title">Precisão</string>
+	<string name="pref_geo_fuzzy_summary">Localização aproximada em km</string>
+	<string name="pref_geo_fuzzy_dialog_title">Raio (km)</string>
+	<string name="pref_geo_fuzzy_default">10</string>
+
+	<string name="preferences_general">Geral</string>
+	<string name="pref_new_repeat_title">Novo modo Repetir?</string>
+    <string name="pref_new_repeat_summary">Habilita nova API repetir</string>
+
+	<string name="preferences_optional">Opcional</string>
+	<string name="pref_send_snapshot_title">Habilita Instântaneo?</string>
+    <string name="pref_send_snapshot_summary">Você pode nos enviar anonimamente dados do número de contas que você tem ativas</string>
+
+    <string name="new_notices_updates">Você tem nova resposta</string>
+    <string name="x_new_mention">Existe nova resposta</string>
+    <string name="x_new_mentions">{0} novas mensagens</string>
+
+</resources>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+/*
+ * MUSTARD: Android's Client for StatusNet
+ * 
+ * Copyright (C) 2009-2010 macno.org, Michele Azzolari
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+  -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="no_dents">Ingen notiser funnet</string>
+    <string name="title">Tittel</string>
+    <string name="status">Hva skjer?</string>
+    <string name="update">Oppdater</string>
+    <string name="upload">Last opp</string>
+    
+    <string name="enable_update_location">Send geolokasjon?</string>
+    <string name="confirm">Bekreft</string>
+    <string name="confirm_fav">Lagt til i favoritter</string>
+    <string name="error_fav">Feil ved lagring av favoritt</string>
+    <string name="confirm_unfav">Fjernet fra favoritter</string>
+    <string name="error_unfav">Feil ved fjerning av favoritt</string>
+    <string name="confirm_repeat">Notis gjentatt</string>
+    <string name="error_repeat">Feil ved gjentagelse av notis</string>
+
+    <string name="confirm_sub">Abonnert</string>
+    <string name="error_sub">Feil ved abonnering</string>
+    <string name="confirm_unsub">Fjernet abonnement</string>
+    <string name="error_unsub">Feil ved fjerning av abonnement</string>
+    <string name="confirm_block">Blokkert</string>
+    <string name="error_block">Feil ved blokkering</string>
+    <string name="confirm_join">Du er nå medlem av gruppen</string>
+    <string name="error_join">Feil ved tilslutting til gruppe</string>
+    <string name="confirm_leave">Du har nå forlatt gruppen</string>
+    <string name="error_leave">Feil ved fjerning av gruppe</string>
+
+    <string name="error_generic">Beklager, det oppsto en feil</string>
+    <string name="error_generic_detail">Beklager, det oppsto en feil..\n%s</string>
+    <string name="error_title_no_network">Ingen nettverkstilkobling</string>
+    <string name="error_no_network">Klarer ikke poste notis pga nettverktilkoblings-problemer</string>
+    <string name="error_no_attachment_supported">StatusNet-tjeneren du bruker støtter ikke vedlegg</string>
+    <string name="error_no_dents_from">Feil ved henting av notis</string>
+    
+    <string name="msg_logout">Er du sikker på at du vil logge ut?\nDin konto vil bli slettet fra mustard</string>
+    <string name="msg_welcome">Hei %s!\nVil du følge @mustard ?</string>
+    <string name="title_welcome">Velkommen!</string>
+    <string name="welcome_label">Velkommen %s!</string>
+    <string name="title_bookmarks">Bokmerker</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nei</string>
+    <string name="warning">Advarsel</string>
+    <string name="error">Feil</string>
+    <string name="error_no_oauth">"
+Beklager, mustard har ikke OAuth bruker nøkkel for %s.
+Vennligst send en epost til mustard@macno.org
+"</string>
+    <string name="oauth_wrong_consumer_key">Bruker-nøkkelen er feil. Vennligst innformer mustard@macno.org</string>
+	<string name="show">Vis</string>
+	<string name="hide">Skjul</string>
+	<string name="close">Lukk</string>
+    <string name="always_ask">Spør alltid</string>
+    <string name="always_sent">Send uten bekreftelse</string>
+    
+    <!-- mustard -->
+    <string name="username">Brukernavn</string>
+    <string name="password">Passord</string>
+    <string name="instance">StatusNet-URL (feks identi.ca eller brainbird.net)</string>
+	<string name="label_force_ssl">Tvungen bruk av TLS/SSL</string>
+	
+	
+    <string name="lbl_search">Skriv inn søkeord</string>
+    <string name="lbl_search_type">Søker etter:</string>
+
+	<string name="btn_login">Login</string>
+	<string name="btn_login_oauth">Klikk på bildet for å bruke OAuth (om det er tilgjengelig!)</string>
+    <string name="btn_search">Search</string>
+    <string name="btn_squeeze">Skru på</string>
+    <string name="btn_test">Test!</string>
+    <string name="btn_continue">Continue</string>
+    
+    <string name="search_users">Brukere</string>
+    <string name="search_groups">Grupper</string>
+    <string name="search_notices">Notiser</string>
+    <string name="search_tags">Tagger</string>
+    
+    <!--  INFO MESSAGES -->
+    <string name="info_no_dents">Ingen notiser funnet</string>
+    <string name="warning_leave_group">Er du sikker på at du vil forlate gruppen "%s"?</string>
+    
+    <!-- ERROR MESSAGES -->
+    <string name="error_fetch_dents">"
+Det oppsto problemer ved henting av notiser. Vennligst prøv igjen senere."</string>
+    <string name="error_fetch_more_dents">Beklager denne siden støtter ikke flere funksjoner..</string>
+    <string name="error_group_not_found">Beklager, %s gruppen finnes ikke her</string>
+    <string name="error_user_not_found">Beklager, bruker %s finnes ikke her</string>
+    <string name="error_no_user_from_status">Kan ikke hente ut bruker fra API</string>
+    <string name="error_no_notice_from_status">Kan ikke hente ut notis fra API</string>
+    <string name="error_detecting_locaton">Klarer ikke å hente lokasjon</string>
+    <string name="no_locaton_provider">Ingen lokasjonstilbyder er aktivert!</string>
+    <string name="error_duplicate_account">Kontoen finnes allerede!</string>
+    <string name="error_invalid_url">URLen er ikke riktig</string>
+    <string name="error_help_test">Test feilet: dette er ikke en status.net side</string>
+    <string name="error_no_response">Ingen respons</string>
+    <string name="error_empty_response">Tom respons</string>
+    <string name="error_wrong_userpass">Feil Bruker eller Passord</string>
+    <string name="error_instance_unkown_version">%1$s virker å være for gammel, StatusNet instansen må være minst %2$s</string>
+    <string name="error_instance_too_old_version">Versjon %1$s er for gammel. %2$s er påkrevd</string>
+    
+    
+    <!-- MENU -->
+    <string name="menu_timeline">Tidslinje</string>
+    <string name="menu_insert">Ny Notis</string>
+    <string name="menu_delete">Slett</string>    
+    <string name="menu_forward">Gjenta</string>
+    <string name="menu_reply">Svar</string>
+    <string name="menu_sub">Abonner</string>
+    <string name="menu_unsub">Avabonner</string>
+    <string name="menu_block">Blokker</string>
+    <string name="menu_view_geo">Vis Lokasjon</string>
+    <string name="menu_fav">Favoriser</string>
+    <string name="menu_unfav">Avfavoriser</string>
+    <string name="menu_refresh">Oppdater</string>
+    <string name="menu_public">Offentlig Tidslinje</string>
+    <string name="menu_user_tl">Brukers Tidslinje</string>
+    <string name="menu_favorites">Favoritter</string>
+    <string name="menu_mentions">Svar</string>
+    <string name="menu_logout">Logg ut</string>
+    <string name="menu_switch">Bytt konto</string>
+    <string name="menu_search">Søk</string>
+    <string name="menu_about">Om</string>
+    <string name="menu_back">Tilbake</string>
+    <string name="menu_choose_account">Velg en konto</string>
+    <string name="menu_add_new">Lag ny</string>
+    <string name="menu_friends">Personlig Tidslinje</string>
+    <string name="menu_avatar">Last opp avatar</string>
+    <string name="menu_oauth_settings">OAuth innstillinger</string>
+    <string name="menu_settings">Innstillinger</string>
+    <string name="menu_bookmarks">Bokmerker</string>
+    <string name="menu_bookmark_this_page">Legg til side i bokmerker</string>
+    <string name="menu_account">Mer..</string>
+	<string name="menu_join">Meld deg inn</string>
+	<string name="menu_leave">Forlat</string>
+
+    <string name="msg_delete_bookmark">Er du sikker på at du vil slette dette bokmerket?</string>
+    <string name="timeline_public">Offentlig Tidslinje</string>
+    <string name="timeline_main">Du og dine venner</string>
+    <string name="timeline_friends">%s og venner</string>
+
+    <string name="about_title">Om mustard</string>
+   
+    <string name="select_file">Filvedlegg</string>
+
+	<string name="w_tag_title">Notis tagget med #%s</string>
+	<string name="w_search_title">Søker etter %s</string>
+    
+    <string name="status_update_ok">Notis postet!</string>
+    <string name="status_update_ko_title">Feil ved posting</string>
+    <string name="status_update_ko">A problem has occurred while posting your notice...</string>
+
+    <string name="avatar_update_ok">Avatar opplastet!</string>
+    <string name="avatar_update_ko">Det oppsto ett problem ved opplasting av din avatar..</string>
+    <string name="avatar_resize_ko">Det oppsto ett problem ved endring av størrelsen på din avatar..</string>
+	<string name="please_wait_fetching_dents">"
+Henter notiser...
+Vennligst vent...
+"</string>
+	<string name="please_wait_resizing">"
+Endrer størrelse på bilde...
+Vennligst vent...
+"</string>
+	<string name="please_wait_updating_dent">"
+Poster notis...
+Vennligst vent...
+"</string>
+	<string name="contacting_site">Kobler til side...</string>
+	<string name="authenticating_account">Autentiserer konto...</string>
+	<string name="please_wait_opening">Starter...</string>
+	
+	<!-- Preferences -->
+	<string name="preferences_timeline">Tidslinje</string>
+	<string name="pref_rows_fetch_default">25</string>
+	<string name="pref_rows_fetch_title">Antall notiser</string>
+	<string name="pref_rows_fetch_summary">Denne setter antall notiser du ønsker å hente</string>
+	<string name="pref_rows_fetch_dialog_title">Antall notiser</string>
+	
+	<string name="preferences_notifications">Notifikasjoner</string>
+	<string name="pref_check_updates_title">Aktivere notifikasjoner?</string>
+    <string name="pref_check_updates_summary">Se etter nye notiser når programmet ikke kjører</string>
+    <string name="pref_check_updates_interval_title">Oppdaterings intervall</string>
+    <string name="pref_check_updates_interval_summary">Minutt mellom oppdateringer</string>
+    <string name="pref_check_updates_interval_dialog_title">Intervall i minutter:</string>
+    <string name="pref_check_updates_interval_default">60</string>
+
+	<string name="preferences_geolocation">Geolokasjon</string>
+	<string name="pref_enable_geo_title">Aktivere?</string>
+    <string name="pref_enable_geo_summary">Send Geolokasjon ved posting av notiser</string>
+
+	<string name="pref_geo_mode_title">Modus</string>
+	<string name="pref_geo_mode_summary">Alltid send Geolokasjon eller velg ved hver notis</string>
+	<string name="pref_geo_mode_dialog_title">Velg</string>    
+	<string name="pref_geo_mode_default">@string/always_ask</string>
+
+	<string name="pref_geo_fuzzy_title">Nøyaktighet</string>
+	<string name="pref_geo_fuzzy_summary">Omtrentlig lokasjon i km</string>
+	<string name="pref_geo_fuzzy_dialog_title">Radius (km)</string>
+	<string name="pref_geo_fuzzy_default">10</string>
+
+	<string name="preferences_general">Generell</string>
+	<string name="pref_new_repeat_title">Ny Repetisjons-modus?</string>
+    <string name="pref_new_repeat_summary">Aktiver ny repetisjons-API</string>
+	<string name="pref_refresh_after_post_title">Oppdater etter notis posting?</string>
+	<string name="pref_refresh_after_post_summary">Tidslinjen vil bli oppdatert etter posting hvis aktivert.</string>
+	<string name="pref_auto_refresh_title">Autooppdater tidslinje?</string>
+	<string name="pref_auto_refresh_summary">Tidslinjen vil bli oppdatert automatisk</string>
+	<string name="pref_auto_refresh_interval_default">60</string>
+
+	<string name="preferences_optional">Valgfritt</string>
+	<string name="pref_send_snapshot_title">Aktiver Snapshot?</string>
+    <string name="pref_send_snapshot_summary">Du sender oss anonyme data på antall konti du har aktivert</string>
+
+	
+    <string name="new_notices_updates">Du har nye notiser</string>
+    <string name="x_new_mention">Du har nye svar</string>
+    <string name="x_new_mentions">{0} nye notiser</string>
+
+	<string name="geo_view_on">Se på %s</string>
+	<string name="geo_title">Geolokasjon</string>
+	<string name="geo_from">Notis postet fra %s</string>
+	
+	<string name="lbl_oauth_refresh_keys">Sjekk mustards nye OAuth nøkler</string>
+	<string name="btn_oauth_refresh_keys_value">Oppdater</string>
+	<string name="lbl_oauth_new_keys">Skriv inn URL for å hente dine personlige nøkler (se http://mustard.macno.org/oauth)</string>
+	<string name="btn_oauth_new_keys_value">Hent</string>
+
+	<string name="lbl_global_settings">Globale innstillinger</string>
+	<string name="lbl_oauth_settings">OAuth innstillinger</string>
+	<string name="lbl_settings">mustard innstillinger</string>
+	
+	 <string name="about_message">"
+mustard %s is a µblogging client for StatusNet Software developed by @macno
+
+Thanks to @bugabundo, @stav and others for their suggestions.
+Also thanks to !sni team for their support.
+
+This software is dedicated to my beloved son Filippo.
+
+Translation:
+German by @eike
+Italian by @macno
+French by @stemp, @jpec
+Portuguese by @apf
+Dutch by @sandersch
+Norwegian by @hz
+Chinese by @lovenemesis
+
+"</string>
+</resources>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+/*
+ * MUSTARD: Android's Client for StatusNet
+ * 
+ * Copyright (C) 2009-2010 macno.org, Michele Azzolari
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+  -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="no_dents">没有发现消息</string>
+    <string name="title">标题</string>
+    <string name="status">想什么呢？</string>
+    <string name="update">发送</string>
+    <string name="upload">上传</string>
+    
+    <string name="enable_update_location">发送位置信息？</string>
+    <string name="confirm">确认</string>
+    <string name="confirm_fav">添加到收藏</string>
+    <string name="error_fav">添加到收藏出错</string>
+    <string name="confirm_unfav">从收藏中移除</string>
+    <string name="error_unfav">从收藏中移除出错</string>
+    <string name="confirm_repeat">信息已回推</string>
+    <string name="error_repeat">回推消息出错，禁用新模式</string>
+
+    <string name="confirm_sub">订阅</string>
+    <string name="error_sub">订阅出错</string>
+    <string name="confirm_unsub">取消订阅</string>
+    <string name="error_unsub">取消订阅出错</string>
+    <string name="confirm_block">阻止</string>
+    <string name="error_block">阻止出错</string>
+    <string name="confirm_join">加入</string>
+    <string name="error_join">加入群组出错</string>
+    <string name="confirm_leave">离开</string>
+    <string name="error_leave">离开群组出错</string>
+
+    <string name="error_generic">抱歉，出现未知错误</string>
+    <string name="error_generic_detail">抱歉，出现以下未知错误\n%s</string>
+    <string name="error_title_no_network">没有网络链接</string>
+    <string name="error_no_network">由于网络链接问题，无法发布消息</string>
+    <string name="error_no_attachment_supported">StatusNet 服务正常但是不支持附件</string>
+    <string name="error_no_dents_from">获取回复和收藏时出错</string>
+    
+    <string name="msg_logout">您确认要登出？\n您的账户将会从 mustard 中移除</string>
+    <string name="msg_welcome">您好%s!\n 愿意跟随 @mustard 么？</string>
+    <string name="title_welcome">欢迎！</string>
+    <string name="welcome_label">欢迎 %s ！</string>
+    <string name="title_bookmarks">书签</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="warning">警告</string>
+    <string name="error">错误</string>
+    <string name="error_no_oauth">"
+很抱歉，%s 不支持 OAuth 。
+请发送电邮至 mustard@macno.org
+"</string>
+    <string name="oauth_wrong_consumer_key">获取私钥错误，请告知 mustard@macno.org</string>
+	<string name="show">显示</string>
+	<string name="hide">隐藏</string>
+	<string name="close">关闭</string>
+    <string name="always_ask">一直询问</string>
+    <string name="always_sent">发送而不再询问</string>
+    
+    <!-- mustard -->
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="instance">StatusNet 地址 (比如 identi.ca 或者 brainbird.net)</string>
+	<string name="label_force_ssl">强制使用 TLS/SSL</string>
+	
+	
+    <string name="lbl_search">输入搜索关键词</string>
+    <string name="lbl_search_type">搜索：</string>
+
+	<string name="btn_login">登入</string>
+	<string name="btn_login_oauth">点击图片来使用 OAuth (如果可用！)</string>
+    <string name="btn_search">查找</string>
+    <string name="btn_squeeze">缩小</string>
+    <string name="btn_test">测试！</string>
+    <string name="btn_continue">继续</string>
+    
+    <string name="search_users">用户</string>
+    <string name="search_groups">群组</string>
+    <string name="search_notices">消息</string>
+    <string name="search_tags">标签</string>
+    
+    <!--  INFO MESSAGES -->
+    <string name="info_no_dents">没有发现消息</string>
+    <string name="warning_leave_group">您确定要离开 </string>
+    
+    <!-- ERROR MESSAGES -->
+    <string name="error_fetch_dents">"
+获取消息出错。请稍等后重试。"</string>
+    <string name="error_fetch_more_dents">抱歉，该页面不支持更多功能..</string>
+    <string name="error_group_not_found">抱歉，群组 %s 不存在</string>
+    <string name="error_user_not_found">抱歉，用户 %s 不存在</string>
+    <string name="error_no_user_from_status">无法从 API 获取用户</string>
+    <string name="error_no_notice_from_status">无法从 API 获取消息</string>
+    <string name="error_detecting_locaton">无法获取位置信息</string>
+    <string name="no_locaton_provider">没有启用位置信息提供设备</string>
+    <string name="error_duplicate_account">该账户已存在</string>
+    <string name="error_invalid_url">地址不正确</string>
+    <string name="error_help_test">测试失败：这并不是一个 statusnet 实例</string>
+    <string name="error_no_response">没有回复</string>
+    <string name="error_empty_response">空回复</string>
+    <string name="error_wrong_userpass">错误的用户名或密码</string>
+    <string name="error_instance_unkown_version">%1$s 似乎使用了古旧的 StatusNet，需要 %2$s</string>
+    <string name="error_instance_too_old_version">版本 %1$s 太古老了。需要 %2$s</string>
+    
+    
+    <!-- MENU -->
+    <string name="menu_timeline">时链</string>
+    <string name="menu_insert">新的消息</string>
+    <string name="menu_delete">删除</string>    
+    <string name="menu_forward">回推</string>
+    <string name="menu_reply">回复</string>
+    <string name="menu_sub">订阅</string>
+    <string name="menu_unsub">取消订阅</string>
+    <string name="menu_block">阻止</string>
+    <string name="menu_view_geo">查看位置</string>
+    <string name="menu_fav">收藏</string>
+    <string name="menu_unfav">取消收藏</string>
+    <string name="menu_refresh">刷新</string>
+    <string name="menu_public">公开时链</string>
+    <string name="menu_user_tl">用户时链</string>
+    <string name="menu_favorites">收藏</string>
+    <string name="menu_mentions">回复</string>
+    <string name="menu_logout">登出</string>
+    <string name="menu_switch">切换账户</string>
+    <string name="menu_search">搜索</string>
+    <string name="menu_about">关于</string>
+    <string name="menu_back">返回</string>
+    <string name="menu_choose_account">选择一个账户</string>
+    <string name="menu_add_new">添加新的</string>
+    <string name="menu_friends">个人时链</string>
+    <string name="menu_avatar">上传头像</string>
+    <string name="menu_oauth_settings">OAuth 设置</string>
+    <string name="menu_settings">设置 </string>
+    <string name="menu_bookmarks">书签</string>
+    <string name="menu_bookmark_this_page">将此页加入书签</string>
+    <string name="menu_account">更多...</string>
+	<string name="menu_join">加入</string>
+	<string name="menu_leave">离开</string>
+
+    <string name="msg_delete_bookmark">您确定要删除此书签？</string>
+    <string name="timeline_public">公开时链</string>
+    <string name="timeline_main">您和您的朋友们</string>
+    <string name="timeline_friends">%s 和 TA 的朋友们</string>
+
+    <string name="about_title">关于 mustard</string>
+   
+    <string name="select_file">附件文件</string>
+
+	<string name="w_tag_title">标示为 #%s 的标签</string>
+	<string name="w_search_title">搜索 %s</string>
+    
+    <string name="status_update_ok">消息已发布！</string>
+    <string name="status_update_ko_title">发布出错</string>
+    <string name="status_update_ko">发布您的消息时出现问题...</string>
+
+    <string name="avatar_update_ok">头像已上传</string>
+    <string name="avatar_update_ko">上传您的头像时出现问题...</string>
+    <string name="avatar_resize_ko">缩放您的头像时出现问题...</string>
+	<string name="please_wait_fetching_dents">"
+获取消息中...
+请稍候...
+"</string>
+	<string name="please_wait_resizing">"
+缩放图片中...
+请稍候...
+"</string>
+	<string name="please_wait_updating_dent">"
+发送消息中...
+请稍候...
+"</string>
+	<string name="contacting_site">联系站点...</string>
+	<string name="authenticating_account">认证账户...</string>
+	<string name="please_wait_opening">载入...</string>
+	
+	<!-- Preferences -->
+	<string name="preferences_timeline">时链</string>
+	<string name="pref_rows_fetch_default">25</string>
+	<string name="pref_rows_fetch_title">获取的消息数</string>
+	<string name="pref_rows_fetch_summary">该选项允许设定获取的消息数</string>
+	<string name="pref_rows_fetch_dialog_title">消息数</string>
+	
+	<string name="preferences_notifications">提醒</string>
+	<string name="pref_check_updates_title">启用提醒</string>
+    <string name="pref_check_updates_summary">当程序未运行时查看是否有提到自己的消息</string>
+    <string name="pref_check_updates_interval_title">更新查看间隔</string>
+    <string name="pref_check_updates_interval_summary">查看间隔的时间</string>
+    <string name="pref_check_updates_interval_dialog_title">间隔分钟数</string>
+    <string name="pref_check_updates_interval_default">60</string>
+
+	<string name="preferences_geolocation">地理位置信息</string>
+	<string name="pref_enable_geo_title">启用地理位置信息？</string>
+    <string name="pref_enable_geo_summary">当发送消息时附加地理位置信息</string>
+
+	<string name="pref_geo_mode_title">模式</string>
+	<string name="pref_geo_mode_summary">一直发送位置信息或者在发送时决定</string>
+	<string name="pref_geo_mode_dialog_title">选择</string>    
+	<string name="pref_geo_mode_default">@string/always_ask</string>
+
+	<string name="pref_geo_fuzzy_title">精度</string>
+	<string name="pref_geo_fuzzy_summary">精确到公里</string>
+	<string name="pref_geo_fuzzy_dialog_title">半径(公里)</string>
+	<string name="pref_geo_fuzzy_default">10</string>
+
+	<string name="preferences_general">一般</string>
+	<string name="pref_new_repeat_title">新的回推模式？</string>
+    <string name="pref_new_repeat_summary">启用新的回推 API</string>
+	<string name="pref_refresh_after_post_title">发布后刷新？</string>
+	<string name="pref_refresh_after_post_summary">如果启用，发布消息后将刷新时链</string>
+	<string name="pref_auto_refresh_title">自动刷新时链？</string>
+	<string name="pref_auto_refresh_summary">如果启用，时链将自动刷新</string>
+	<string name="pref_auto_refresh_interval_default">60</string>
+
+	<string name="preferences_optional">选项</string>
+	<string name="pref_send_snapshot_title">启用快照</string>
+    <string name="pref_send_snapshot_summary">您可以发送包含您使用账户数的匿名信息</string>
+
+	
+    <string name="new_notices_updates">您有新的回复</string>
+    <string name="x_new_mention">这些是新回复</string>
+    <string name="x_new_mentions">{0}新消息</string>
+
+	<string name="geo_view_on">查看 %s</string>
+	<string name="geo_title">地理位置信息</string>
+	<string name="geo_from">消息发送自 %s</string>
+	
+	<string name="lbl_oauth_refresh_keys">检查新的 Mustard OAuth 公钥</string>
+	<string name="btn_oauth_refresh_keys_value">刷新</string>
+	<string name="lbl_oauth_new_keys">输入 URL 来获得你的私钥(访问 http://mustard.macno.org/oauth)</string>
+	<string name="btn_oauth_new_keys_value">获取</string>
+
+	<string name="lbl_global_settings">全局设置</string>
+	<string name="lbl_oauth_settings">OAuth 设置</string>
+	<string name="lbl_settings">Mustrad 设置</string>
+	
+	 <string name="about_message">"
+mustard %s 是由 @macno 开发的 StatusNet 微博客户端。
+感谢 @bugabundo, @stav 和其他人的建议。
+同时感谢 !sni 小组的支持。
+
+该软件献给我深爱的儿子 Filippo。
+
+翻译：
+German by @eike
+Italian by @macno
+French by @stemp
+Portuguese by @apf
+Dutch by @sandersch
+Norvegian by @hz
+Chinese by @lovenemesis
+
+"</string>
+</resources>

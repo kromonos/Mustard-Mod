@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+/*
+ * MUSTARD: Android's Client for StatusNet
+ * 
+ * Copyright (C) 2009-2010 macno.org, Michele Azzolari
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+  -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="no_dents">Geen nieuwe berichtjes</string>
+    <string name="title">Titel</string>
+    <string name="status">Wat is er aan de hand?</string>
+    <string name="update">Verstuur</string>
+    <string name="upload">Uploaden</string>
+    
+    <string name="enable_update_location">Stuur Geografische lokatie</string>
+    <string name="confirm">Bevestigen</string>
+    <string name="confirm_fav">Toevoegen aan favorieten</string>
+    <string name="error_fav">Fout opgetreden bij het toevoegen aan favorieten</string>
+    <string name="confirm_unfav">Verwijderd van favorieten</string>
+    <string name="error_unfav">Fout opgetreden bij het verwijderen van favorieten</string>
+    <string name="confirm_repeat">Bevestiging herhaald</string>
+    <string name="error_repeat">Fout bij herhalen bericht. Nieuwe modus uitgeschakeld.</string>
+
+    <string name="confirm_sub">Abonneren</string>
+    <string name="error_sub">Fout bij abonneren</string>
+    <string name="confirm_unsub">Abbonement opzeggen</string>
+    <string name="error_unsub">Fout bij opzeggen abonnement</string>
+    <string name="confirm_block">Geblokkeerd</string>
+    <string name="error_block">Fout bij blokkeren</string>
+    <string name="confirm_join">Lid geworden</string>
+    <string name="error_join">Fout lid worden groep</string>
+    <string name="confirm_leave">Verlaten</string>
+    <string name="error_leave">Fout verlaten groep</string>
+
+    <string name="error_generic">Sorry, er gaat iets mis..</string>
+    <string name="error_generic_detail">Sorry, het volgende gaat mis..\n%s</string>
+    <string name="error_title_no_network">Geen netwerkverbinding</string>
+    <string name="error_no_network">Fout bij zenden bericht door netwerk problemen</string>
+    <string name="error_no_attachment_supported">Huidige StatusNet server ondersteund geen toegevoegde bestanden</string>
+    <string name="error_no_dents_from">Fout bij ontvangen berichten om te antwoorden of aan favorieten toe te voegen. </string>
+    
+    <string name="msg_logout">Weet u zeker dat u wilt uitloggen?\n  Uw account zal worden verwijderd van Mosterd</string>
+    <string name="msg_welcome">Hallo %s!\nZou u @mustard willen volgen?</string>
+    <string name="title_welcome">Welkom!</string>
+    <string name="title_bookmarks">Favorieten</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nee</string>
+    <string name="warning">Waarschuwing</string>
+    <string name="error">Fout</string>
+
+	<string name="show">Laat zien</string>
+	<string name="hide">Verberg</string>
+	<string name="close">Sluit</string>
+    <string name="always_ask">Altijd vragen</string>
+    <string name="always_sent">Verstuur zonder te vragen</string>
+    
+    <!-- mustard -->
+    <string name="username">Gebruikersnaam</string>
+    <string name="password">Wachtwoord</string>
+    <string name="instance">StatusNet URL (zoals identi.ca of brainbird.net)</string>
+	<string name="label_force_ssl">Gebruik altijd TLS/SSL</string>
+	
+	
+    <string name="lbl_search">Voer uw zoekopdracht in</string>
+    <string name="lbl_search_type">Zoek</string>
+
+	<string name="btn_login">Login</string>
+    <string name="btn_search">Zoek</string>
+    <string name="btn_squeeze">Knijp</string>
+    
+    <string name="search_users">Gebruikers</string>
+    <string name="search_groups">Groepen</string>
+    <string name="search_notices">Berichten</string>
+    <string name="search_tags">Trefwoord</string>
+    
+    <!--  INFO MESSAGES -->
+    <string name="info_no_dents">Geen berichten gevonden</string>
+    <string name="warning_leave_group">Weet u zeker dat u de groep </string>
+    
+    <!-- ERROR MESSAGES -->
+    <string name="error_fetch_dents">"
+Er is een probleem opgetreden bij het ophalen van berichten.
+Probeer het later nog eens."</string>
+    <string name="error_fetch_more_dents">Sorry de pagina ondersteund niet meer funcies..</string>
+    <string name="error_group_not_found">Sorry, de groep %s bestaat hier niet</string>
+    <string name="error_user_not_found">Sorry, de gebruiker %s bestaat hier niet</string>
+    <string name="error_no_user_from_status">Kan de gebuiker niet onttrekking uit de API</string>
+    <string name="error_no_notice_from_status">Kan het bericht niet onttrekking uit de API</string>
+    <string name="error_detecting_locaton">Kan uw lokatie niet detecteren</string>
+    <string name="no_locaton_provider">Lokatie funktie niet beschikbaar!</string>
+    <string name="error_duplicate_account">Account bestaad reeds!</string>
+    <string name="error_invalid_url">URL incorrect</string>
+    <string name="error_public_timeline_test">Publieke tijdslijn test mislukt: %s</string>
+    <string name="error_no_response">Geen reactie</string>
+    <string name="error_empty_response">Lege reactie</string>
+    <string name="error_wrong_userpass">Verkeerde gebruikersnaam of wachtwoord</string>
+    <string name="error_instance_unkown_version">%1$s lijkt een onbekende StatusNet versie. Vereist %2$s</string>
+    <string name="error_instance_too_old_version">Versie %1$s is te oud. vereist %2$s</string>
+    
+    
+    <!-- MENU -->
+    <string name="menu_timeline">Tijdslijn</string>
+    <string name="menu_insert">Nieuw bericht</string>
+    <string name="menu_delete">Verwijder</string>    
+    <string name="menu_forward">Herhaal</string>
+    <string name="menu_reply">Antwoord</string>
+    <string name="menu_sub">Abboneer</string>
+    <string name="menu_unsub">Zeg abbonement op</string>
+    <string name="menu_block">Blokeer</string>
+    <string name="menu_view_geo">Bekijk lokatie</string>
+    <string name="menu_fav">Gunstig</string>
+    <string name="menu_unfav">Ongunstig</string>
+    <string name="menu_refresh">Ververs</string>
+    <string name="menu_public">Publieke tijdslijn</string>
+    <string name="menu_user_tl">Gebruikers tijdslijn</string>
+    <string name="menu_favorites">Favorieten</string>
+    <string name="menu_mentions">Antwoorden</string>
+    <string name="menu_logout">Uitloggen</string>
+    <string name="menu_switch">Schakel naar ander account</string>
+    <string name="menu_search">Zoek</string>
+    <string name="menu_about">Informatie over</string>
+    <string name="menu_back">Terug</string>
+    <string name="menu_choose_account">Kies een ander account</string>
+    <string name="menu_add_new">Voeg toe</string>
+    <string name="menu_friends">Persoonlijke tijdslijn</string>
+    <string name="menu_avatar">Avatar uploaden</string>
+    <string name="menu_settings">Instellingen</string>
+    <string name="menu_bookmarks">Favorieten</string>
+    <string name="menu_bookmark_this_page">Voeg deze pagina toe aan favorieten</string>
+    <string name="menu_account">Meer..</string>
+	<string name="menu_join">Meedoen</string>
+	<string name="menu_leave">Verlaat</string>
+
+    <string name="msg_delete_bookmark">Weet u zeker dat u dit item uit favorieten wil verwijderen?</string>
+    <string name="timeline_public">Publieke tijdslijn</string>
+    <string name="timeline_main">Je vrienden en jij</string>
+    <string name="timeline_friends">%s en zijn/haar vrienden</string>
+
+    <string name="about_title">Over Mosterd</string>
+    <string name="about_message">"
+mosterd %s is een µblogging toepassing voor StatusNet Software ontwikkeld door
+@macno
+
+Met dank aan @bugabundo, @stav en anderen voor hun suggesties.
+Ook dank aan !sni team voor hun ondersteuning.
+
+Deze software is toegewijd aan aan mijn geliefde zoon Filippo.
+
+Vertaling:
+Duits door @eike
+Italiaans door @macno
+Frans door @stemp, @jpec
+Portugees door @apf
+Nederlands door @sandersch
+
+"
+</string>
+    <string name="select_file">Voeg bestand toe</string>
+
+	<string name="w_tag_title">Berichten met trefwoord #%s</string>
+	<string name="w_search_title">%s wordt gezocht</string>
+    
+    <string name="status_update_ok">Bericht geplaatst!</string>
+    <string name="status_update_ko">Er is een probleem opgetreden bij het plaatsen van uw bericht...</string>
+
+    <string name="avatar_update_ok">Avatar geupload!</string>
+    <string name="avatar_update_ko">Er is een probleem opgetreden bij het uploaden van uw avatar...</string>
+    <string name="avatar_resize_ko">Er is een probleem opgetreden bij schalen van uw avatar...</string>
+	<string name="please_wait_fetching_dents">"
+Berichten worden opgehaald...
+Even geduld AUB...
+"</string>
+	<string name="please_wait_resizing">"
+Uw plaatje wordt geschaald...
+Even geduld AUB...
+"</string>
+	<string name="please_wait_updating_dent">" 
+Uw bericht wordt geplaatst...
+Even geduld AUB...
+"</string>
+	<string name="contacting_site">De site wordt benaderd</string>
+	<string name="authenticating_account">Uw account wordt gevalideerd</string>
+	<string name="please_wait_opening">Laden..</string>
+	
+	<!-- Preferences -->
+	<string name="preferences_timeline">Tijdslijn</string>
+	<string name="pref_rows_fetch_default">25</string>
+	<string name="pref_rows_fetch_title">Aantal berichten die opgehaald moeten worden</string>
+	<string name="pref_rows_fetch_summary">Deze voorkeursinstelling is voor het aantal berichten dat moet worden opgehaald</string>
+	<string name="pref_rows_fetch_dialog_title">Aantal berichten</string>
+	
+	<string name="preferences_notifications">Notificaties</string>
+	<string name="pref_check_updates_title">Notificaties aanzetten?</string>
+    <string name="pref_check_updates_summary">Controleer op nieuwe berichten wanneer de toepassing niet draait</string>
+    <string name="pref_check_updates_interval_title">Tijd tussen controles op nieuwe berichten</string>
+    <string name="pref_check_updates_interval_summary">Minuten tussen contole op nieuwe berichten</string>
+    <string name="pref_check_updates_interval_dialog_title">Aantal minuten wanneer gecontroleerd wordt:</string>
+    <string name="pref_check_updates_interval_default">60</string>
+
+	<string name="preferences_geolocation">Geografiche lokatie</string>
+	<string name="pref_enable_geo_title">Activeren?</string>
+    <string name="pref_enable_geo_summary">Geografische lokatie informatie meesturen bij nieuwe berichten</string>
+
+	<string name="pref_geo_mode_title">Modus</string>
+	<string name="pref_geo_mode_summary">Geografische lokatie informatie altijd meesturen of kiezen bij het opstarten</string>
+	<string name="pref_geo_mode_dialog_title">Kies</string>    
+	<string name="pref_geo_mode_default">@string/always_ask</string>
+
+	<string name="pref_geo_fuzzy_title">Nauwkeurigheid</string>
+	<string name="pref_geo_fuzzy_summary">Geschatte lokatie op km</string>
+	<string name="pref_geo_fuzzy_dialog_title">Radius (km)</string>
+	<string name="pref_geo_fuzzy_default">10</string>
+
+	<string name="preferences_general">Algemeen</string>
+	<string name="pref_new_repeat_title">Nieuwe herhaal modus?</string>
+    <string name="pref_new_repeat_summary">Activeer nieuwe herhaal API</string>
+	<string name="pref_refresh_after_post_title">Berichten verversen na plaatsen bericht?</string>
+	<string name="pref_refresh_after_post_summary">De tijdslijn zal ververst worden bij het plaatsen van een bericht, wanneer geactiveerd.</string>
+	<string name="pref_auto_refresh_title">Automatisch verversen tijdslijn?</string>
+	<string name="pref_auto_refresh_summary">De tijdslijn zal automatisch ververst worden, wanneer geactiveerd.</string>
+	<string name="pref_auto_refresh_interval_default">60</string>
+
+	<string name="preferences_optional">Optioneel</string>
+	<string name="pref_send_snapshot_title">Momentopname toestaan?</string>
+    <string name="pref_send_snapshot_summary">U kunt anonieme data versturen over het aantal accounts die u actief heeft</string>
+
+	
+    <string name="new_notices_updates">U heeft nieuwe antwoorden</string>
+    <string name="x_new_mention">Er zijn nieuwe antwoorden</string>
+    <string name="x_new_mentions">{0} nieuwe berichten</string>
+
+	<string name="geo_view_on">Uitzicht van %s</string>
+	<string name="geo_title">Geografische lokatie</string>
+	<string name="geo_from">Berichten verstuurd van %s</string>
+	
+</resources>

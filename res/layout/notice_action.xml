@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:fillViewport="true"
+	android:layout_height="fill_parent" android:layout_width="fill_parent">
+
+	<LinearLayout 
+		android:layout_width="fill_parent" android:layout_height="fill_parent"
+		android:orientation="vertical" android:background="#fffff0">
+
+		<TextView android:id="@+id/text_status" android:text=""
+			android:layout_height="wrap_content" android:layout_width="fill_parent"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:textColor="#000000" android:layout_margin="5dp" />
+
+		<RelativeLayout android:layout_width="fill_parent"
+			android:layout_height="62dip">
+			<Button android:id="@+id/button_reply" android:text="@string/menu_reply"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:minWidth="100sp" android:drawableBottom="@drawable/reply"
+				android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+
+			<Button android:id="@+id/button_repeat" android:text="@string/menu_forward"
+				android:layout_height="wrap_content" android:layout_width="wrap_content"
+				android:minWidth="100sp" android:drawableBottom="@drawable/recycle"
+				android:layout_toRightOf="@+id/button_reply"
+				android:layout_centerVertical="true" />
+
+			<Button android:id="@+id/button_fav" android:text="@string/menu_fav" 
+				android:layout_height="wrap_content" android:layout_width="wrap_content" 
+				android:minWidth="100sp" android:drawableBottom="@drawable/favorited"
+				android:layout_toRightOf="@+id/button_repeat"
+				android:layout_centerVertical="true" />
+
+		</RelativeLayout>
+
+	</LinearLayout>
+
+</ScrollView>

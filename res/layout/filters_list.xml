@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:fillViewport="true"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+<LinearLayout
+			android:orientation="horizontal" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+		
+			<ImageView
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_marginRight="5dp"
+			    android:layout_marginTop="5dp"
+			    android:src="@drawable/ic_action_filter" />
+			
+			<TextView
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content" 
+				android:text="@string/lbl_filters" 
+				android:layout_gravity="center_vertical"
+				style="@style/Text.High"
+				android:textSize="20sp" />
+			
+		</LinearLayout>
+	
+	
+	<EditText android:id="@+id/filter_text"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="5dp"
+			android:layout_width="fill_parent" 
+			android:imeOptions="actionNext"
+			android:singleLine="true" />
+	
+	<Button
+	    android:id="@+id/button_add_filter"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="10dp"
+	    android:drawableLeft="@drawable/ic_action_add"
+	    android:drawablePadding="10dp"
+	    android:text="@string/lbl_add" />
+		
+    <ListView android:id="@+id/android:list"
+          android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"/>
+
+</LinearLayout>
+
+</ScrollView>

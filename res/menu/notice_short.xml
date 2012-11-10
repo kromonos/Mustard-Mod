@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+		android:id="@+id/menu_reply"
+		android:title="@string/menu_reply"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_goleft"
+	/>
+    <item
+		android:id="@+id/menu_repeat"
+		android:title="@string/menu_repeat"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_playback_repeat"
+	/>
+    <item
+		android:id="@+id/menu_forward"
+		android:title="@string/menu_forward"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_goright"
+	/>
+    <item
+		android:id="@+id/menu_show_conversation"
+		android:title="@string/menu_conversation"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_dialog"
+	/>
+    
+    <item
+		android:id="@+id/menu_favunfav"
+		android:title="@string/menu_fav"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_star_10"
+	/>
+    <item
+		android:id="@+id/menu_attachment"
+		android:title="@string/menu_view_attachment"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_attachment"
+	/>
+    <item
+		android:id="@+id/menu_delete"
+		android:title="@string/menu_delete"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_trash"
+	/>
+    <item
+		android:id="@+id/menu_location"
+		android:title="@string/menu_view_geo"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_map"
+	/>
+    <item
+		android:id="@+id/menu_share"
+		android:title="@string/menu_share"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_share"
+	/>
+
+</menu>

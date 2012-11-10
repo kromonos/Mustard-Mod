@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<!-- 
+/*
+ * MUSTARD: Android's Client for StatusNet
+ * 
+ * Copyright (C) 2009-2010 macno.org, Michele Azzolari
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+ * for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * 
+ */
+  --> 
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"> 
+    <string name="no_dents">Keine Mitteilungen gefunden …</string> 
+    <string name="title">Titel</string> 
+    <string name="status">Was gibt’s?</string> 
+    <string name="update">Senden</string> 
+    <string name="upload">Hochladen</string> 
+    
+    <string name="enable_update_location">Standortinformation senden?</string> 
+    <string name="confirm">Bestätigen</string> 
+    <string name="confirm_fav">Zu Favoriten hinzugefügt</string> 
+    <string name="error_fav">Fehler beim Hinzufügen zu den Favoriten</string> 
+    <string name="confirm_unfav">Aus Favoriten gelöscht</string> 
+    <string name="error_unfav">Fehler beim Löschen aus den Favoriten </string> 
+    <string name="confirm_repeat">Meldung wiederholt</string> 
+    <string name="error_repeat">Fehler beim Wiederholen der Meldung. Neuer Modus deaktiviert.</string> 
+ 
+    <string name="confirm_sub">Abonniert</string> 
+    <string name="error_sub">Fehler beim Abonnieren </string> 
+    <string name="confirm_unsub">Abonnement gelöscht</string> 
+    <string name="error_unsub">Fehler beim Löschen des Abonnements</string> 
+    <string name="confirm_block">Blockiert</string> 
+    <string name="error_block">Fehler beim Blockieren</string> 
+    <string name="confirm_join">Beigetreten</string> 
+    <string name="error_join">Fehler beim Beitritt zur Gruppe</string> 
+    <string name="confirm_leave">Verlassen</string> 
+    <string name="error_leave">Fehler beim Verlassen der Gruppe</string> 
+ 
+    <string name="error_generic">Verzeihung, etwas lief schief …</string> 
+    <string name="error_generic_detail">Verzeihung, etwas lief schief …n%s</string> 
+    <string name="error_title_no_network">Keine Netzwerkverbindung</string> 
+    <string name="error_no_network">Die Nachricht konnte wegen Problemen mit der Netzwerkverbindung nicht gesendet werden</string> 
+    <string name="error_no_attachment_supported">Dieser StatusNet-Betreiber unterstützt keine Anhänge</string> 
+    <string name="error_no_dents_from">Fehler beim Abrufen der Mitteilung</string> 
+    <!-- <string name="error_http_not_acceptable">Server replied with "Not acceptable". Check your notice</string>  --> 
+    
+    <string name="warning_text_too_long">Die Nachricht ist zu lang. Sie darf maximal %s Zeichen lang sein. Möchten Sie trotzdem fortfahren?</string> 
+    <string name="msg_logout">Möchten Sie Ihr Konto wirklich aus Mustard löschen?</string> 
+    <string name="msg_confirm_repeat">Diese Nachricht wiederholen?</string> 
+    <string name="msg_welcome">Hallo %s!nMöchten Sie Mitteilungen von @mustard abonnieren?</string> 
+    <string name="title_welcome">Willkommen!</string> 
+    <string name="welcome_label">Willkommen %s!</string> 
+    <string name="title_bookmarks">Lesezeichen</string> 
+    <string name="yes">Ja</string> 
+    <string name="no">Nein</string> 
+    <string name="warning">Achtung</string> 
+    <string name="error">Fehler</string> 
+    <string name="error_no_oauth">"
+Entschuldigung, Mustard hat keinen OAuth-Schlüssel für %s.
+Bitte senden Sie eine E-Mail an mustard@macno.org
+"</string> 
+    <string name="identica">Identica</string> 
+    <string name="statusnet">StatusNet</string> 
+    <string name="twitter">Twitter</string> 
+    <string name="oauth_wrong_consumer_key">Der Schlüssel ist falsch. Bitte benachrichtigen Sie mustard@macno.org</string> 
+	<string name="show">Anzeigen</string> 
+	<string name="hide">Ausblenden</string> 
+	<string name="close">Schließen</string> 
+    <string name="always_ask">Immer fragen</string> 
+    <string name="always_sent">Senden ohne zu fragen</string> 
+    <string name="shorturl">Adresse kürzen</string> 
+    <!-- mustard --> 
+    <string name="username">Benutzername</string> 
+    <string name="password">Kennwort</string> 
+    <string name="instance">StatusNet-Adresse (beispielsweise identi.ca)</string> 
+	<string name="label_force_ssl">Sichere Verbindung erzwingen</string> 
+    <string name="new_password">Neues Passwort</string> 
+	<string name="new_password_hint">Neues Passwort</string> 
+	<string name="new_password_info">Hierdurch wird Ihr lokales Passwort geändert</string>	
+	
+    <string name="lbl_search">Suchbegriff eingeben</string> 
+    <string name="lbl_search_type">Suche nach:</string> 
+ 
+	<string name="lbl_update_password">Bearbeiten</string> 
+	<string name="lbl_update_avatar">Benutzerbild ändern</string> 
+	<string name="lbl_create_account">Neues Konto</string> 
+	<string name="lbl_oauth_login">Anmeldung mit OAuth</string> 
+	<string name="lbl_account_login">Anmeldung mit Nutzername</string> 
+	
+	<string name="btn_login">Anmeldung</string> 
+	<string name="btn_login_oauth">Klicken Sie auf das Bild, um OAuth zu verwenden (falls vorhanden!)</string> 
+    <string name="btn_search">Suche</string> 
+    <string name="btn_squeeze">Schließen</string> 
+    <string name="btn_test">Test!</string> 
+    <string name="btn_continue">Weiter</string> 
+    <string name="btn_filter_settings">Filter</string> 
+    <string name="search_users">Benutzer</string> 
+    <string name="search_groups">Gruppen</string> 
+    <string name="search_notices">Mitteilungen</string> 
+    <string name="search_tags">Tags</string> 
+    
+    <string name="user_following">Abonnements: %s</string> 
+    <string name="user_follower">Abonnenten: %s</string> 
+    <string name="user_dents">Mitteilungen: %s</string> 
+    <string name="user_since">Mitglied seit: %s</string> 
+    
+    <string name="send_from_account">Senden mit:</string> 
+    <!--  INFO MESSAGES --> 
+    <string name="info_no_dents">Keine Mitteilungen gefunden</string> 
+    <string name="warning_leave_group">Sind Sie sicher, dass Sie die Gruppe »%s« verlassen möchten?</string> 
+    <string name="restart_take_effect">Sie müssen Mustard neu starten, um die Änderungen zu aktivieren</string> 
+    
+    
+    <!-- ERROR MESSAGES --> 
+    <string name="error_fetch_dents">"
+Beim Abrufen der Mitteilungen trat ein Problem auf.
+Bitte warten Sie und versuchen Sie es erneut."</string> 
+    <string name="error_fetch_more_dents">Abruf weiterer Mitteilungen nicht unterstützt</string> 
+    <string name="error_group_not_found">Die Gruppe %s gibt es hier nicht</string> 
+    <string name="error_user_not_found">Den Benutzer %s gibt es hier nicht</string> 
+    <string name="error_no_user_from_status">Der Benutzer konnte nicht gelesen werden</string> 
+    <string name="error_no_notice_from_status">Die Mitteilung konnte nicht gelesen werden</string> 
+    <string name="error_detecting_locaton">Die Standortinformation konnte nicht bestimmt werden</string> 
+    <string name="no_locaton_provider">Kein Standort-Dienst aktiviert!</string> 
+    <string name="error_duplicate_account">Benutzerkonto bereits vorhanden! Überschreiben?</string> 
+    <string name="error_invalid_url">Adresse nicht korrekt!</string> 
+    <string name="error_help_test">Test fehlgeschlagen: Dies ist keine StatusNet-Instanz</string> 
+    <string name="error_no_response">Keine Antwort</string> 
+    <string name="error_empty_response">Leere Antwort</string> 
+    <string name="error_wrong_userpass">Benutzername oder Kennwort falsch</string> 
+    <string name="error_instance_unkown_version">%1$s scheint eine zu alte StatusNet-Instanz zu sein. %2$s wird benötigt</string> 
+    <string name="error_instance_too_old_version">Die Version %1$s ist zu alt. %2$s wird benötigt</string>
+    
+    <string name="dark">Dunkel</string>
+    <string name="light">Hell</string>
+    
+    <!-- MENU --> 
+    <string name="menu_timeline">Zeitleiste</string> 
+    <string name="menu_insert">Neue Mitteilung</string> 
+    <string name="menu_delete">Löschen</string>    
+    <string name="menu_forward">Weiterleiten</string> 
+    <string name="menu_reply">Antworten</string> 
+    <string name="menu_sub">Abonnieren</string> 
+    <string name="menu_unsub">Abonnement löschen</string> 
+    <string name="menu_block">Blockieren</string> 
+    <string name="menu_view_geo">Ort anschauen</string> 
+	<string name="menu_share">Verteilen</string> 
+	<string name="menu_copy2clipboard">Adresse der Mitteilung kopieren</string> 
+    <string name="menu_fav">Als Favorit markieren</string> 
+    <string name="menu_unfav">Aus Favoriten löschen</string> 
+    <string name="menu_refresh">Aktualisieren</string> 
+    <string name="menu_public">Öffentliche Zeitleiste</string> 
+    <string name="menu_user_tl">Benutzer-Zeitleiste</string> 
+    <string name="menu_favorites">Favoriten</string> 
+    <string name="menu_mentions">Antworten</string> 
+    <string name="menu_logout">Konto löschen</string> 
+    <string name="menu_switch">Konto wechseln</string> 
+    <string name="menu_search">Suchen</string> 
+    <string name="menu_about">Über</string> 
+    <string name="menu_back">Zurück</string> 
+    <string name="menu_choose_account">Konto auswählen</string> 
+    <string name="menu_add_new">Neues hinzufügen</string> 
+    <string name="menu_friends">Persönliche Zeitleiste</string> 
+    <string name="menu_avatar">Benutzerbild hochladen</string> 
+    <string name="menu_account_settings">Konto-Einstellungen</string> 
+    <string name="menu_oauth_settings">OAuth-Einstellungen</string> 
+    <string name="menu_settings">Einstellungen</string> 
+    <string name="menu_bookmarks">Lesezeichen</string> 
+    <string name="menu_bookmark_this_page">Lesezeichen hinzufügen</string> 
+    <string name="menu_account">Mehr …</string> 
+	<string name="menu_join">Beitreten</string> 
+	<string name="menu_leave">Verlassen</string> 
+	<string name="menu_conversation">Unterhaltung</string> 
+	<string name="menu_view_attachment">Anhänge</string> 
+	
+	<string name="alert_merge_account_title">Konten zum Zusammenführen auswählen</string> 
+    <string name="msg_delete_bookmark">Möchten Sie dieses Lesezeichen wirklich löschen?</string> 
+    <string name="msg_delete_filter">Möchten Sie diesen Filter wirklich löschen?</string> 
+    <string name="timeline_public">Öffentliche Zeitleiste</string> 
+    <string name="timeline_main">Sie und Ihre Freunde</string> 
+    <string name="timeline_friends">%s und seine Freunde</string> 
+ 
+	<string name="copied_to_clipboard">Adresse der Mitteilung wurde kopiert</string> 
+    <string name="about_title">Über Mustard</string> 
+    <string name="select_file">Datei anhängen</string> 
+ 
+	<string name="w_tag_title">Mit #%s getaggte Mitteilungen</string> 
+	<string name="w_search_title">Suche nach %s</string> 
+    
+    <string name="status_update_ok">Mitteilung gesendet!</string> 
+    <string name="status_update_ko_title">Fehler beim Senden!</string> 
+    <string name="status_update_ko">Es trat ein Problem beim Senden Ihrer Mitteilung auf …</string> 
+ 
+    <string name="avatar_update_ok">Benutzerbild hochgeladen!</string> 
+    <string name="avatar_update_ko">Es trat ein Problem beim Hochladen Ihres Benutzerbildes auf …</string> 
+    <string name="avatar_resize_ko">Es trat ein Problem bei der Größenänderung Ihres Benutzerbildes auf …</string> 
+	<string name="please_wait_fetching_dents">"
+Mitteilungen werden abgerufen …
+"</string> 
+	<string name="please_wait_resizing">"
+Größe des Bildes wird geändert …
+"</string> 
+	<string name="please_wait_updating_dent">"
+Mitteilung wird gesendet …
+"</string> 
+	<string name="contacting_site">Dienst wird verbunden …</string> 
+	<string name="authenticating_account">Konto wird beglaubigt …</string> 
+	<string name="please_wait_opening">Lädt …</string> 
+	
+	<!-- Preferences --> 
+	<string name="preferences_timeline">Zeitleiste</string> 
+	
+	<string name="pref_merge_timeline_title">Zeitleisten zusammenführen</string> 
+	<string name="pref_merge_timeline_summary">Konten zum Zusammenführen in die Zeitleiste auswählen</string> 
+	<string name="pref_rows_fetch_default">25</string> 
+	<string name="pref_rows_fetch_title">Anzahl der abzurufenden Mitteilungen</string> 
+	<string name="pref_rows_fetch_summary">Legt die Anzahl der abzurufenden Mitteilungen fest</string> 
+	<string name="pref_rows_fetch_dialog_title">Anzahl der Mitteilungen</string> 
+	
+	<string name="preferences_notifications">Benachrichtigungen</string> 
+	<string name="pref_check_updates_title">Benachrichtigungen aktivieren?</string> 
+    <string name="pref_check_updates_summary">Auf neue Mitteilungen kontrollieren, während die Anwendung nicht läuft</string> 
+    <string name="pref_check_updates_interval_title">Aktualisierungsintervall</string> 
+    <string name="pref_check_updates_interval_summary">Minuten zwischen Aktualisierungen</string> 
+    <string name="pref_check_updates_interval_dialog_title">Intervall in Minuten</string> 
+    <string name="pref_check_updates_interval_default">60</string> 
+    <string name="vibrate_title">Vibrieren?</string> 
+    <string name="vibrate_summary">Bei neuen Antworten vibrieren</string> 
+    <string name="pref_ringtone_title">Klingelton?</string> 
+    <string name="pref_ringtone_summary">Klingelton für neue Antworten</string> 
+    
+	<string name="preferences_geolocation">Standortbestimmung</string> 
+	<string name="pref_enable_geo_title">Standort mitteilen?</string> 
+    <string name="pref_enable_geo_summary">Standortinformationen bei neuen Mitteilungen senden?</string> 
+ 
+	<string name="pref_geo_mode_title">Modus</string> 
+	<string name="pref_geo_mode_summary">Wählen Sie aus, ob Standortinformationen immer oder nur manuell gesendet werden sollen</string> 
+	<string name="pref_geo_mode_dialog_title">Wählen</string>    
+	<string name="pref_geo_mode_default">@string/always_ask</string> 
+ 
+	<string name="pref_theme_title">Gestaltung</string> 
+	<string name="pref_theme_summary">Gestaltung auswählen (Neustart erforderlich)</string> 
+	<string name="pref_theme_dialog_title">Auswählen</string>  
+	
+	<string name="pref_geo_fuzzy_title">Genauigkeit</string> 
+	<string name="pref_geo_fuzzy_summary">Ungefährer Standort in km</string> 
+	<string name="pref_geo_fuzzy_dialog_title">Radius (km)</string> 
+	<string name="pref_geo_fuzzy_default">10</string> 
+ 
+	<string name="preferences_general">Allgemein</string> 
+	<string name="pref_new_repeat_title">Neuer Wiederholungs-Modus?</string> 
+    <string name="pref_new_repeat_summary">Neue Wiederholungs-API verwenden</string> 
+	<string name="pref_refresh_after_post_title">Nach Senden aktualisieren?</string> 
+	<string name="pref_refresh_after_post_summary">Wenn gewählt, wird die Zeitleiste nach dem Senden aktualisiert</string> 
+	<string name="pref_auto_refresh_title">Zeitleiste automatisch aktualisieren?</string> 
+	<string name="pref_auto_refresh_summary">Wenn gewählt, wird die Zeitleiste automatisch aktualisiert</string> 
+	
+	<string name="pref_auto_refresh_interval_default">60</string> 
+ 
+	<string name="preferences_optional">Optional</string> 
+	<string name="pref_send_snapshot_title">Datenerhebung aktivieren?</string> 
+    <string name="pref_send_snapshot_summary">Senden Sie uns anonyme Informationen darüber, wie viele Konten Sie benutzen</string> 
+ 
+	<string name="preferences_layout">Gestaltung (Neustart erforderlich)</string> 
+	
+	<string name="pref_legacy_layout_title">Schwarz-Weiß</string> 
+    <string name="pref_legacy_layout_summary">Weiß auf Schwarz, veraltet</string> 
+ 
+	<string name="pref_new_button_title">Status-Knöpfe?</string> 
+    <string name="pref_new_button_summary">Knöpfe für Status-bezügliche Funktionen (Antwort, Wiederholung etc.)</string> 
+ 
+	<string name="pref_font_size_title">Schriftgröße</string> 
+    <string name="pref_font_size_summary">Schriftgröße auswählen</string> 
+ 
+	<string name="pref_bottom_buttons_title">Schnellstart-Knöpfe</string> 
+    <string name="pref_bottom_buttons_summary">Software-Knöpfe aktivieren (verfassen, aktualisieren, Antworten)</string> 
+ 
+	<string name="pref_compact_view_title">Kompakt-Ansicht</string> 
+    <string name="pref_compact_view_summary">Mitteilungen kompakt darstellen</string> 
+ 
+ 
+    <string name="new_notices_updates">Neue Antworten</string> 
+    <string name="x_new_mention">Neue Antworten</string> 
+    <string name="x_single_account_mention">Sie haben eine neue Antwort</string> 
+    <string name="x_single_account_mentions">Sie haben %s neue Antworten</string> 
+    <string name="x_multiple_account_mention">%s hat eine neue Antwort</string> 
+    <string name="x_multiple_account_mentions">%1$s hat %2$s neue Antworten</string> 
+    <string name="x_multiple_accounts_mentions">Ihre Konten haben %s neue Antworten</string> 
+ 
+	<string name="geo_view_on">Sicht auf  %s</string> 
+	<string name="geo_title">Standortbestimmung</string> 
+	<string name="geo_from">Meldung versandt von %s</string> 
+	
+	<string name="lbl_oauth_refresh_keys">Auf neue OAuth-Schlüssel prüfen</string> 
+	<string name="btn_oauth_refresh_keys_value">Aktualisieren</string> 
+	<string name="lbl_oauth_new_keys">Adresse für private Schlüssel einfügen (siehe http://mustard.macno.org/oauth)</string> 
+	<string name="btn_oauth_new_keys_value">Abfragen</string> 
+ 
+	<string name="lbl_global_settings">Allgemein</string> 
+	<string name="lbl_oauth_settings">OAuth</string> 
+	<string name="lbl_settings">Mustard-Einstellungen</string> 
+	<string name="lbl_account_new">Neues Konto hinzufügen</string> 
+	<string name="lbl_account_type">Mikroblogging-Dienst auswählen</string> 
+	<string name="lbl_filters">Mustard-Filter</string> 
+	<string name="lbl_add">Hinzufügen</string> 
+	
+	<string name="font_size">Schriftgröße</string> 
+	<string name="small">Klein</string> 
+	<string name="medium">Mittel</string> 
+	<string name="large">Groß</string> 
+	
+	 <string name="about_message">"
+Mustard %s ist eine Mikroblogging-Anwendung für StatusNet und Twitter, entwickelt von @macno
+
+Danke an @BUGabundo, @stav, @fabsh und andere für ihre Vorschläge.
+Ebenfalls Danke an das !sni-Team für ihre Unterstützung.
+
+Diese Software ist meinem geliebten Sohn Filippo gewidmet.
+
+Mitwirkende:
+@brionv@identi.ca
+@shiny@shiny.status.net
+@ciarang@micro.ciarang.com
+
+Graphics:
+@fabsh
+@0x6d686b
+
+Übersetzungen:
+Deutsch von @eike, @jancborchardt
+Italienisch von @macno
+Französisch von @stemp, @jpec
+Portugiesisch von @apf, @BUGabundo
+Holländisch von @sandersch
+Norwegisch von @hz
+Chinesisch von @lovenemesis
+Spanisch von @jjardon
+Polnisch von @blogoo.pl
+
+Mod by Kromonos (@kromonos@bka.li)
+"</string> 
+</resources> 

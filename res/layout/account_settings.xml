@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:fillViewport="true"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent">
+
+	<LinearLayout
+		android:orientation="vertical" 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+		<LinearLayout
+			android:orientation="horizontal" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+		
+			<ImageView
+			    android:id="@+id/account_avatar"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_marginRight="5dp"
+			    android:layout_marginTop="5dp"
+			    android:src="@drawable/ic_action_tshirt" />
+			
+			<TextView
+				android:layout_width="wrap_content" 
+				android:layout_height="wrap_content" 
+				android:text="@string/menu_account_settings" 
+				android:layout_gravity="center_vertical"
+				style="@style/Text.High"
+				android:textSize="20sp" />
+			
+		</LinearLayout>
+		
+		<TextView
+			android:id="@+id/new_password_label_sep" 
+			android:layout_marginTop="10dp"
+			android:layout_marginBottom="10dp"
+			android:layout_height="2dp"
+			android:layout_width="fill_parent"
+			android:background="#ffffffff" 
+			android:textSize="13sp" />
+
+			<TextView android:layout_marginTop="5dp"
+				android:id="@+id/new_password_label" 
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent" 
+				android:textStyle="italic"
+				android:textSize="13sp" 
+				android:text="@string/new_password" />	
+			<EditText android:id="@+id/edit_new_password"
+				android:layout_height="wrap_content"
+				android:layout_marginRight="5dp"
+				android:layout_width="fill_parent" 
+				android:singleLine="true"
+				android:inputType="textPassword"
+				android:hint="@string/new_password_hint"
+				android:imeOptions="actionNext" />
+			<Button 
+				android:id="@+id/btn_update_password" 
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content" 
+				android:text="@string/lbl_update_password" />
+		
+			<TextView android:layout_marginTop="10dp"
+				android:id="@+id/new_password_info" 
+				android:layout_height="wrap_content"
+				android:layout_width="fill_parent" 
+				android:textStyle="italic"
+				android:textSize="12sp" 
+				android:text="@string/new_password_info" />	
+		
+		<TextView android:layout_marginTop="10dp"
+				android:layout_marginBottom="10dp"
+				android:layout_height="2dp"
+				android:layout_width="fill_parent"
+				android:background="#ffffffff" 
+				android:textSize="13sp" />
+				
+		<Button 
+			android:id="@+id/btn_update_avatar" 
+			android:layout_marginRight="5dp"
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content" 
+			android:text="@string/lbl_update_avatar" />
+	
+
+	</LinearLayout>
+
+</ScrollView>

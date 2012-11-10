@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<resources>
+  
+	<string-array name="fetch_rows">
+		<item>25</item>
+		<item>50</item>
+		<item>75</item>
+		<item>100</item>
+		<item>150</item>
+		<item>200</item>
+	</string-array>
+
+	<string-array name="check_intervals">
+		<item>1</item>
+		<item>3</item>
+		<item>5</item>
+		<item>10</item>
+		<item>30</item>
+		<item>60</item>
+		<item>120</item>
+	</string-array>
+
+	<string-array name="geo_mode">
+		<item>@string/always_ask</item>
+		<item>@string/always_sent</item>
+	</string-array>
+
+	<string-array name="themes">
+		<item>@string/theme_bw</item>
+		<item>@string/theme_wb</item>
+	</string-array>
+	
+	<string-array name="fontsizes">
+		<item>@string/small</item>
+		<item>@string/medium</item>
+		<item>@string/large</item>
+	</string-array>
+	
+	<string-array name="fontsizesval">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+	
+	<string-array name="geo_fuzzy_position">
+		<item>0</item>
+		<item>5</item>
+		<item>10</item>
+		<item>25</item>
+		<item>50</item>
+	</string-array>
+
+	<string-array name="urlshortener">
+		<item>b1t.it</item>
+		<item>ur1.ca</item>
+		<item>nd.gd</item>
+	</string-array>
+
+</resources>

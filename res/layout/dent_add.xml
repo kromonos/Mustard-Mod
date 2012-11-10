@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:fillViewport="true"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent">
+
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+
+	    <TextView
+	    	android:id="@+id/lbl_account_spinner"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="10dip"
+	        android:textSize="14sp"
+	        android:text="@string/send_from_account"
+		    />
+
+		 <Spinner
+		        android:id="@+id/account_spinner"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:drawSelectorOnTop="true"
+		        android:prompt="@string/menu_account"
+		    />
+		    
+		<TextView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:text="@string/status"
+			android:textSize="14sp" />
+
+		<EditText
+		    android:id="@+id/body"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1.0"
+		    android:gravity="left|top"
+		    android:imeOptions="actionDone|flagNoEnterAction"
+		    android:inputType="textCapSentences|textAutoCorrect|textShortMessage"
+		    android:minLines="3"
+		    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<Button
+			    android:id="@+id/confirm"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:drawableLeft="@drawable/ic_action_send"
+			    android:text="@string/update" />
+
+			<TextView android:id="@+id/char_counter"
+				android:layout_marginLeft="15dp" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="0"
+				android:textSize="14sp" android:textColor="#FFFFFF" />
+			<TextView android:id="@+id/char_separator"
+				android:layout_marginLeft="4dp" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="/"
+				android:textSize="14sp" android:textColor="#FFFFFF" />	
+			<TextView android:id="@+id/char_limit"
+				android:layout_marginLeft="4dp" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="140"
+				android:textSize="14sp" android:textColor="#FFFFFF" />
+				
+			<Button
+			    android:id="@+id/shorturl"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="25dp"
+			    android:drawableLeft="@drawable/ic_action_link"
+			    android:text="@string/shorturl" />
+
+		</LinearLayout>
+
+		<LinearLayout android:orientation="horizontal"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+
+			<CheckBox android:id="@+id/enable_location"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/enable_update_location" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+</ScrollView>
