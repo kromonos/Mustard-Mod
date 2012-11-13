@@ -12,24 +12,24 @@
 		android:padding="5dp">
 
 		<LinearLayout
-			android:orientation="horizontal" 
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content">
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal" >
 		
 			<ImageView
-			    android:layout_width="45dp"
-			    android:layout_height="45dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
 			    android:layout_marginRight="5dp"
 			    android:layout_marginTop="5dp"
-			    android:src="@drawable/mustard" />
+			    android:src="@drawable/ic_action_settings" />
 			
 			<TextView
-				android:layout_width="wrap_content" 
-				android:layout_height="wrap_content" 
-				android:text="@string/lbl_settings" 
-				android:layout_gravity="center_vertical"
-				style="@style/Text.High"
-				android:textSize="20sp" />
+			    style="@style/Text.High"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_gravity="center_vertical"
+			    android:text="@string/lbl_settings"
+			    android:textSize="20sp" />
 			
 		</LinearLayout>
 		

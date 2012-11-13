@@ -20,7 +20,7 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_marginTop="5dip"
-			    android:src="@drawable/ic_action_wizard" />
+			    android:src="@drawable/ic_action_share_2" />
 			
 			<TextView
 				android:layout_margin="10dp"

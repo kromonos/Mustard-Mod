@@ -10,16 +10,16 @@
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent">
 
-
 		<LinearLayout
-			android:orientation="horizontal" 
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="10dp">
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginTop="10dp"
+		    android:gravity="top"
+		    android:orientation="horizontal" >
 			
 			<ImageView
-			    android:layout_width="45dp"
-			    android:layout_height="45dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
 			    android:layout_marginRight="5dp"
 			    android:layout_marginTop="5dp"
 			    android:src="@drawable/ic_action_users" />
@@ -58,7 +58,7 @@
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:layout_marginTop="10dp"
-		    android:drawableLeft="@drawable/ic_action_wizard"
+		    android:drawableLeft="@drawable/ic_action_share_2"
 		    android:drawablePadding="10dp"
 		    android:text="@string/btn_login" />
 			

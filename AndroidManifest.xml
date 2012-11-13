@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="org.mustard.android" 
-	android:versionName="0.4.0rc2" android:versionCode="148"
+	android:versionName="0.4.0rc3" android:versionCode="148"
 	 android:installLocation="preferExternal">
 
 	<uses-sdk android:minSdkVersion="11" android:targetSdkVersion="14" />>

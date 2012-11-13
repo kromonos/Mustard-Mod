@@ -131,7 +131,7 @@
 			android:summary="@string/pref_theme_layout_summary"
 			android:entries="@array/themes"
 			android:entryValues="@array/themes"
-			android:dialogTitle="@string/theme" />
+			android:dialogTitle="@string/theme" android:enabled="false"/>
 			
 		<!-- 
 		<CheckBoxPreference android:key="legacy_layout"
@@ -148,14 +148,5 @@
 			android:entryValues="@array/fontsizesval"
 			android:dialogTitle="@string/font_size" />
 			
-	</PreferenceCategory>
-	
-	<PreferenceCategory
-		android:title="@string/preferences_optional">
-		
-		<CheckBoxPreference android:key="send_snapshot"
-			android:defaultValue="false"
-			android:title="@string/pref_send_snapshot_title"
-			android:summary="@string/pref_send_snapshot_summary" />
 	</PreferenceCategory>
 </PreferenceScreen>

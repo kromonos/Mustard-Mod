@@ -45,6 +45,7 @@ import org.mustard.util.DateUtils;
 import org.mustard.util.MustardException;
 import org.mustard.util.StatusNetUtils;
 
+import android.R.color;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
@@ -529,7 +530,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 							.findViewById(R.id.profile_image);
 				} catch (Exception e) {
 				}
-
+				
 				vh.screen_name = (TextView) v.findViewById(R.id.screen_name);
 				try {
 					vh.account_name = (TextView) v
@@ -556,7 +557,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			}
 			final long id = status.getId();
 			// final long statusId = status.getStatusId();
-
+			
 			v.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View view) {
 					if (mActionMode != null) {
@@ -565,8 +566,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					}
 					mCurrentRowId = id;
 					mActionMode = startActionMode(mClickActionModeCallback);
-					view.setSelected(true);
-					// onShowNoticeMenu(v,id);
 				}
 			});
 			v.setOnLongClickListener(new View.OnLongClickListener() {
@@ -580,19 +579,18 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					mCurrentRowId = id;
 					// Start the CAB using the ActionMode.Callback defined above
 					mActionMode = startActionMode(mLongClickActionModeCallback);
-					view.setSelected(true);
-					// onShowContextMenu(view,id);
 					return true;
 				}
 			});
-
+			//v.setBackgroundColor( color.holo_blue_light );
+			
 			long inreplyto = status.getInReplyTo();
 			long accountId = status.getAccountId();
 			if (vh.screen_name != null) {
 				StringBuilder t = new StringBuilder();
 				t.append(status.getScreenName());
 				if (inreplyto > 0) {
-					t.append(" >> " + status.getInReplyToScreenName());
+					t.append(" ► " + status.getInReplyToScreenName());
 				}
 				vh.screen_name.setText(t);
 				vh.screen_name.setTextSize(mTextSizeSmall);
@@ -612,8 +610,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 						try {
 							URL url = new URL(instance);
 							account += "@" + url.getHost() + url.getPath();
-							// Log.i(TAG, "AccountID " + accountId + " => " +
-							// account + " " + host + " (" +instance +")");
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
@@ -672,7 +668,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 				vh.profile_image.setOnClickListener(new View.OnClickListener() {
 					public void onClick(View view) {
-//						onShowContextMenu(v, id);
 						if (mActionMode != null) {
 							return;
 						}
@@ -1057,7 +1052,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			Log.e(TAG, " change view type!!");
 			view = getListView();
 		}
-
+		view.setChoiceMode( ListView.CHOICE_MODE_SINGLE );
 		// registerForContextMenu(view);
 
 		onSetupTimeline();

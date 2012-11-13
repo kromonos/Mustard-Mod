@@ -209,24 +209,25 @@ public class MustardUpdate extends Activity {
 		//		String version=mStatusNet.getAccount().getVersion();
 
 		// GEO LOCATION
-		mCheckBoxLocation = (CheckBox)findViewById(R.id.enable_location);
+		//mCheckBoxLocation = (CheckBox)findViewById(R.id.enable_location);
 		boolean geoEnabled = mPreferences.getBoolean(Preferences.GEOLOCATION_ENABLES_KEY, true);
-		if(geoEnabled) {
-			mSharedPreferences = getSharedPreferences(MustardApplication.APPLICATION_NAME, 0);
-			if(mSharedPreferences.getBoolean(Preferences.GEOLOCATION_ENABLE, false))
-				mCheckBoxLocation.setChecked(true);
-			mCheckBoxLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-
-				public void onCheckedChanged(CompoundButton buttonView,
-						boolean isChecked) {
-					mSharedPreferences.edit().putBoolean(Preferences.GEOLOCATION_ENABLE, isChecked).commit();
-				}
-
-			});
-		} else {
-			mCheckBoxLocation.setChecked(false);
-			mCheckBoxLocation.setVisibility(View.GONE);
-		}
+		//if(geoEnabled) {
+		//			mCheckBoxLocation.setChecked(true);
+		//			mSharedPreferences = getSharedPreferences(MustardApplication.APPLICATION_NAME, 0);
+		//if(mSharedPreferences.getBoolean(Preferences.GEOLOCATION_ENABLE, false))
+		//	mCheckBoxLocation.setChecked(true);
+		//mCheckBoxLocation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+		//
+		//	public void onCheckedChanged(CompoundButton buttonView,
+		//			boolean isChecked) {
+		//		mSharedPreferences.edit().putBoolean(Preferences.GEOLOCATION_ENABLE, isChecked).commit();
+		//	}
+		//
+		//});
+		//} else {
+		//mCheckBoxLocation.setChecked(false);
+		//mCheckBoxLocation.setVisibility(View.GONE);
+		//}
 
 		//		setTextLimit(mTextLimit);
 
@@ -234,17 +235,6 @@ public class MustardUpdate extends Activity {
 		mCharCounter= (TextView) findViewById(R.id.char_counter);
 
 		setStatusText(text);
-
-		
-		Button shortURLButton = (Button) findViewById(R.id.shorturl);
-
-		shortURLButton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View view) {
-				shortUrl();
-			}
-		});
-
-
 
 		Uri mImageUri = null;
 
@@ -271,7 +261,7 @@ public class MustardUpdate extends Activity {
 
 						if (cursor.moveToFirst()) {
 							mFilename = new File( cursor.getString(cursor.getColumnIndexOrThrow(ImageColumns.DATA)));
-							mTextViewFileName.setText(mFilename.getName());
+							mTextViewFileName.setText(getResources().getDrawable(R.drawable.ic_action_attachment_2)+" "+mFilename.getName());
 						}
 						cursor.close();
 					} catch (Exception e) {
@@ -868,6 +858,9 @@ public class MustardUpdate extends Activity {
 		case android.R.id.home:
 			finish();
             break;
+		case R.id.shorturl:
+			shortUrl();
+			break;
 		case R.id.mn_attach:
 			showFileChooser();
 			break;
