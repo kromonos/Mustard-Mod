@@ -95,13 +95,6 @@ import android.widget.Toast;
 
 public abstract class MustardBaseActivity extends ListActivity implements
 		GimmeMoreListView.OnNeedMoreListener {
-
-	static final int MENU_MANUAL_REFRESH = 0;
-	static final int MENU_DISABLE_SCROLL = 1;
-	static final int MENU_SET_MODE = 2;
-
-	private PullToRefreshListView mPullRefreshListView;
-
 	
 	protected String TAG = "MustardBaseActivity";
 
@@ -995,8 +988,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 	}
 
 	public void onCreate(Bundle savedInstanceState) {
-//		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.list);
-
 		super.onCreate(savedInstanceState);
 		
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);

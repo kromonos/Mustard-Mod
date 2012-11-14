@@ -29,6 +29,8 @@ import org.mustard.android.MustardDbAdapter;
 import org.mustard.android.Preferences;
 import org.mustard.android.R;
 
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -45,6 +47,13 @@ public class MustardMain extends MustardBaseActivity {
 //	static {
 //		isMainTimeline=true;
 //	}
+
+	static final int MENU_MANUAL_REFRESH = 0;
+	static final int MENU_DISABLE_SCROLL = 1;
+	static final int MENU_SET_MODE = 2;
+
+	private PullToRefreshListView mPullRefreshListView;
+	
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -93,6 +102,7 @@ public class MustardMain extends MustardBaseActivity {
 	protected void onSetListView() {
 //		if(mLayoutLegacy) {
 			setContentView(R.layout.legacy_dents_list);
+			mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.list);
 //		} else {
 //			setContentView(R.layout.dents_list);
 //		}
