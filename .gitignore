@@ -5,3 +5,8 @@
 /local.properties
 /ant.properties
 /lint.xml
+.classpath
+.project
+.settings
+proguard-project.txt
+project.properties

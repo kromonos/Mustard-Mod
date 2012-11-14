@@ -261,7 +261,9 @@ public class MustardUpdate extends Activity {
 
 						if (cursor.moveToFirst()) {
 							mFilename = new File( cursor.getString(cursor.getColumnIndexOrThrow(ImageColumns.DATA)));
-							mTextViewFileName.setText(getResources().getDrawable(R.drawable.ic_action_attachment_2)+" "+mFilename.getName());
+							mTextViewFileName.setVisibility( View.VISIBLE );
+							mTextViewFileName.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_attachment, 0, 0, 0);
+							mTextViewFileName.setText( mFilename.getName() );
 						}
 						cursor.close();
 					} catch (Exception e) {
@@ -322,7 +324,9 @@ public class MustardUpdate extends Activity {
 			String fname = extras.getString(Preferences.STATUS_FILE);
 			if (fname != null) {
 				mFilename = new File(fname);
-				mTextViewFileName.setText(mFilename.getName());
+				mTextViewFileName.setVisibility( View.VISIBLE );
+				mTextViewFileName.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_attachment, 0, 0, 0);
+				mTextViewFileName.setText( mFilename.getName() );
 			}
 			//			mSenderAccountId =  extras.getLong(Preferences.STATUS_ACCOUNT_ROWID);
 		} else {
@@ -626,11 +630,12 @@ public class MustardUpdate extends Activity {
 						if (cursor.moveToFirst()) {
 							mFilename = new File( cursor.getString(cursor
 									.getColumnIndexOrThrow(ImageColumns.DATA)));
-							if(mFilename != null) 
-								mTextViewFileName.setText(mFilename.getName());
+							if(mFilename != null)
+								mTextViewFileName.setVisibility( View.VISIBLE );
+								mTextViewFileName.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_attachment, 0, 0, 0);
+								mTextViewFileName.setText( mFilename.getName() );								
 						}
 						cursor.close();
-//						mTextViewFileName.setText(mFilename.getName());
 					}
 				}
 			}
