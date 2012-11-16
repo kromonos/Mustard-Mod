@@ -395,12 +395,14 @@ Please wait...
 	
 	 <string name="about_message">
     "
-mustard %s is a µblogging client for StatusNet Software developed by @macno
+Mustard {MOD} %s is a holo mod of the famous µblogging client mustard 
+for StatusNet Software developed by @macno.
+Mod by Kromonos (@kromonos@bka.li)
 
 Thanks to @BUGabundo, @stav, @fabsh and others for their suggestions.
 Also thanks to !sni team for their support.
 
-This software is dedicated to my beloved son Filippo.
+Mustard is dedicated to @macnos beloved son Filippo.
 
 Contributors:
 @brionv
@@ -422,8 +424,6 @@ Chinese by @lovenemesis
 Spanish by @jjardon
 Polish by @blogoo.pl
 Russian by @dothidden
-
-Mod by Kromonos (@kromonos@bka.li)
 "
     </string>
 	

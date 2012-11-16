@@ -145,7 +145,7 @@ public class MultiMention extends Service {
 		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		PendingIntent intent = PendingIntent.getActivity(this, 0, i, 0);
 
-		Notification notification = new Notification(R.drawable.icon, getString(R.string.x_new_mention),
+		Notification notification = new Notification(R.drawable.ic_stat_name, getString(R.string.x_new_mention),
 				System.currentTimeMillis());
 
 		notification.setLatestEventInfo(this, title, text, intent);

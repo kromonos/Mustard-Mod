@@ -244,10 +244,10 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 			MenuItem fav = menu.findItem(R.id.menu_favunfav);
 			if(favorited) {
-				fav.setIcon(R.drawable.rating_important);
+				fav.setIcon(R.drawable.ic_action_star_0);
 				fav.setTitle(R.string.menu_unfav);
 			} else {
-				fav.setIcon(R.drawable.rating_not_important);
+				fav.setIcon(R.drawable.ic_action_star_10);
 				fav.setTitle(R.string.menu_fav);
 			}
 			if (in_reply_to == 0 || !isConversationEnable) {
@@ -391,10 +391,10 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			} else {
 				MenuItem menu_follow = menu.findItem(R.id.menu_follow);
 				if(following) {
-					menu_follow.setIcon(R.drawable.social_remove_person);
+					menu_follow.setIcon(R.drawable.ic_action_sad);
 					menu_follow.setTitle(R.string.menu_unsub);
 				} else {
-					menu_follow.setIcon(R.drawable.social_add_person);
+					menu_follow.setIcon(R.drawable.ic_action_happy);
 					menu_follow.setTitle(R.string.menu_sub);
 				}
 			}
@@ -403,10 +403,10 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			} else {
 				MenuItem menu_blocking = menu.findItem(R.id.menu_block);
 				if(blocking) {
-					menu_blocking.setIcon(R.drawable.device_access_mic);
+					menu_blocking.setIcon(R.drawable.ic_action_volume_up);
 					menu_blocking.setTitle(R.string.menu_unblock);
 				} else {
-					menu_blocking.setIcon(R.drawable.device_access_mic_muted);
+					menu_blocking.setIcon(R.drawable.ic_action_volume_mute);
 					menu_blocking.setTitle(R.string.menu_block);
 				}
 			}
@@ -1170,7 +1170,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 		html.loadDataWithBaseURL("fake://this/is/not/real", summary,
 				"text/html", "utf-8", "");
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setIcon(R.drawable.attachment);
+		builder.setIcon(R.drawable.ic_action_attachment);
 		builder.setView(view);
 		builder.setCancelable(true);
 		builder.setTitle("View Image");
@@ -1188,7 +1188,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setView(view);
-		builder.setIcon(R.drawable.attachment);
+		builder.setIcon(R.drawable.ic_action_attachment);
 		builder.setCancelable(true);
 		builder.setTitle("View Text");
 		builder.setPositiveButton(R.string.close, null);

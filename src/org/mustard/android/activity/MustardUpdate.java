@@ -519,7 +519,7 @@ public class MustardUpdate extends Activity {
 		if (result != OK) {
 
 			PendingIntent mPendingIntent = PendingIntent.getActivity(this, 0, mCurrentIntent,PendingIntent.FLAG_ONE_SHOT);
-			notify(mPendingIntent, 0, R.drawable.icon,
+			notify(mPendingIntent, 0, R.drawable.ic_stat_name,
 					getString(R.string.status_update_ko,mErrorUpdateDescription),
 					getString(R.string.status_update_ko_title),
 					mErrorUpdateDescription

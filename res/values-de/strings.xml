@@ -322,12 +322,15 @@ Mitteilung wird gesendet …
 	<string name="large">Groß</string> 
 	
 	 <string name="about_message">"
-Mustard %s ist eine Mikroblogging-Anwendung für StatusNet und Twitter, entwickelt von @macno
+Mustard {MOD} %s ist ein Holo Mod der beliebten Mikroblogging-App Mustard 
+für StatusNet und Twitter, entwickelt von @macno.
+
+Mod by Kromonos (@kromonos@bka.li)
 
 Danke an @BUGabundo, @stav, @fabsh und andere für ihre Vorschläge.
 Ebenfalls Danke an das !sni-Team für ihre Unterstützung.
 
-Diese Software ist meinem geliebten Sohn Filippo gewidmet.
+Mustard ist @macnos geliebten Sohn Filippo gewidmet.
 
 Mitwirkende:
 @brionv@identi.ca
@@ -348,8 +351,6 @@ Norwegisch von @hz
 Chinesisch von @lovenemesis
 Spanisch von @jjardon
 Polnisch von @blogoo.pl
-
-Mod by Kromonos (@kromonos@bka.li)
 "</string>
 	 <string name="no_attachment">Kein Anhang</string> 
 </resources> 

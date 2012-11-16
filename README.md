@@ -1,4 +1,7 @@
 # Mustard Mod #
+- 0.4.0-RC4 
+	* Some graphical enhancements. 
+	* New notification icon, with correct dimensions for l/m/h/xh/xxhdpi resolutions
 - 0.4.0-RC3 Some graphical enhancements
 
 
