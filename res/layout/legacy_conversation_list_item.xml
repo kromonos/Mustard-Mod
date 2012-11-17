@@ -22,7 +22,7 @@
 		android:layout_width="wrap_content" android:layout_marginTop="4dip"
 		android:layout_marginLeft="4dip">
 
-		<org.mustard.android.view.RemoteImageView
+		<org.mumod.android.view.RemoteImageView
 			android:id="@+id/profile_image" android:layout_alignParentTop="true"
 			android:layout_width="48dp" android:layout_height="48dp" />
 
@@ -36,7 +36,7 @@
 		<TextView android:id="@+id/screen_name" android:layout_width="fill_parent"
 			android:layout_height="wrap_content" android:textSize="14sp" />
 
-		<org.mustard.android.view.MustardStatusTextView
+		<org.mumod.android.view.MustardStatusTextView
 			android:id="@+id/status" android:layout_width="fill_parent"
 			android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium"
 			android:textColorLink="#FFFFFF" android:textColorHighlight="#8a8a8a"

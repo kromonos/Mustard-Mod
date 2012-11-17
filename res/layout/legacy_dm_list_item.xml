@@ -25,7 +25,7 @@
 		android:layout_marginTop="4dip"
 		android:layout_marginLeft="4dip">
 
-		<org.mustard.android.view.RemoteImageView
+		<org.mumod.android.view.RemoteImageView
 			android:id="@+id/profile_image"   
 			android:layout_alignParentTop="true"
 			android:layout_width="48dp"
@@ -64,7 +64,7 @@
 			
 		</LinearLayout>
 
-		<org.mustard.android.view.MustardStatusTextView
+		<org.mumod.android.view.MustardStatusTextView
 			android:id="@+id/status" 
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content" 

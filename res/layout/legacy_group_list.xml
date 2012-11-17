@@ -10,7 +10,7 @@
 		android:layout_height="wrap_content">
 
 
-		<org.mustard.android.view.RemoteImageView 
+		<org.mumod.android.view.RemoteImageView 
 			android:id="@+id/group_image"
 			android:layout_width="64dp" android:layout_height="64dp"
 			android:layout_marginTop="4dp" android:layout_marginLeft="4dp"
@@ -37,7 +37,7 @@
 
 	</LinearLayout>
 
-    <org.mustard.android.view.GimmeMoreListView android:id="@+id/android:list"
+    <org.mumod.android.view.GimmeMoreListView android:id="@+id/android:list"
           android:layout_width="fill_parent"
         	android:layout_height="wrap_content"/>
         	

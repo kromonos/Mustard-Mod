@@ -28,7 +28,7 @@ import android.widget.ImageView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 //import com.handmark.pulltorefresh.library.R;
-import org.mustard.android.R;
+import org.mumod.android.R;
 
 
 public class IndicatorLayout extends FrameLayout implements AnimationListener {

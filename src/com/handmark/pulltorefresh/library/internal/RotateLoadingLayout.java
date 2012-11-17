@@ -25,7 +25,7 @@ import android.widget.ImageView.ScaleType;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 //import com.handmark.pulltorefresh.library.R;
-import org.mustard.android.R;
+import org.mumod.android.R;
 
 
 public class RotateLoadingLayout extends LoadingLayout {

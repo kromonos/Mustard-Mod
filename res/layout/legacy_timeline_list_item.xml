@@ -61,7 +61,7 @@
             android:layout_marginTop="4dip"
             android:orientation="vertical" >
 
-            <org.mustard.android.view.RemoteImageView
+            <org.mumod.android.view.RemoteImageView
                 android:id="@+id/profile_image"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -79,7 +79,7 @@
             android:layout_marginTop="4dip"
             android:orientation="vertical" >
 
-            <org.mustard.android.view.MustardStatusTextView
+            <org.mumod.android.view.MustardStatusTextView
                 android:id="@+id/status"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
