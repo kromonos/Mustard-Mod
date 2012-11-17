@@ -1,5 +1,7 @@
 # Mustard Mod #
-- 0.4.0-RC4 
+- 0.4.0-RC4 2012-11-17
+	* Rename App Namespace to make it play store ready
+- 0.4.0-RC4 2012-11-16
 	* Some graphical enhancements. 
 	* New notification icon, with correct dimensions for l/m/h/xh/xxhdpi resolutions
 - 0.4.0-RC3 Some graphical enhancements
