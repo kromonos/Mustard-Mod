@@ -1,6 +1,7 @@
 # Mustard Mod #
 - 0.4.0-RC4 2012-11-17
 	* Rename App Namespace to make it play store ready
+	* Changed visibility of send button from IfRoom to always
 - 0.4.0-RC4 2012-11-16
 	* Some graphical enhancements. 
 	* New notification icon, with correct dimensions for l/m/h/xh/xxhdpi resolutions

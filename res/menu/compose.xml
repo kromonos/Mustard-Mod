@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item 
+    <item android:id="@+id/mn_attach" android:title="@string/select_file" android:showAsAction="ifRoom" android:icon="@drawable/ic_action_attachment" /><item 
         android:id="@+id/shorturl" 
         android:title="@string/shorturl" 
    		android:showAsAction="ifRoom"
         android:icon="@drawable/ic_action_link"></item>
    
-    <item
-		android:id="@+id/mn_attach"
-		android:title="@string/select_file"
-		android:showAsAction="ifRoom"
-        android:icon="@drawable/ic_action_attachment"
-	/>
+    
 
     <item
 		android:id="@+id/mn_send"
 		android:title="@string/menu_add_new"
-		android:showAsAction="ifRoom"
+		android:showAsAction="always"
         android:icon="@drawable/ic_action_send"
 	/>
 </menu>
