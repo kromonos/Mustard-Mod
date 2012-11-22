@@ -217,6 +217,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				mode.finish();
 				return false;
 			}
+			
 			// Inflate a menu resource providing context menu items
 			MenuInflater inflater = mode.getMenuInflater();
 			inflater.inflate(R.menu.notice_short, menu);
@@ -590,9 +591,9 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			long accountId = status.getAccountId();
 			if (vh.screen_name != null) {
 				StringBuilder t = new StringBuilder();
-				t.append(status.getScreenName());
+				t.append("@" + status.getScreenName());
 				if (inreplyto > 0) {
-					t.append(" ► " + status.getInReplyToScreenName());
+					t.append(" ► @" + status.getInReplyToScreenName());
 				}
 				vh.screen_name.setText(t);
 				vh.screen_name.setTextSize(mTextSizeSmall);

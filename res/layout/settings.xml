@@ -33,18 +33,18 @@
 			
 		</LinearLayout>
 		
-		<Button 
-			android:id="@+id/btn_global_settings" 
-			android:layout_marginRight="5dp"
-			android:layout_height="wrap_content"
-			android:layout_width="wrap_content" 
-			android:drawableLeft="@drawable/ic_action_gear"
-			android:drawablePadding="10dp"
-			android:text="@string/lbl_global_settings" />
+		<Button
+		    android:id="@+id/btn_global_settings"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginRight="5dp"
+		    android:drawableLeft="@drawable/ic_action_gear"
+		    android:drawablePadding="10dp"
+		    android:text="@string/lbl_global_settings" />
 		
 		<Button
 		    android:id="@+id/btn_account_settings"
-		    android:layout_width="wrap_content"
+		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_marginRight="5dp"
 		    android:drawableLeft="@drawable/ic_action_android"
@@ -53,7 +53,7 @@
 			
 		<Button
 		    android:id="@+id/btn_oauth_settings"
-		    android:layout_width="wrap_content"
+		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_marginRight="5dp"
 		    android:drawableLeft="@drawable/ic_action_key"
@@ -62,7 +62,7 @@
 		
 		<Button
 		    android:id="@+id/btn_filter_settings"
-		    android:layout_width="wrap_content"
+		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_marginRight="5dp"
 		    android:drawableLeft="@drawable/ic_action_filter"
@@ -71,7 +71,7 @@
 
 		<Button
 		    android:id="@+id/btn_clear_settings"
-		    android:layout_width="wrap_content"
+		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_marginRight="5dp"
 		    android:drawableLeft="@drawable/ic_action_trash"

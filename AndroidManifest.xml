@@ -1,128 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="org.mumod.android" 
-	android:versionName="0.4.0rc4" android:versionCode="150"
-	 android:installLocation="preferExternal">
+    package="org.mumod.android"
+    android:installLocation="preferExternal"
+    android:versionCode="151"
+    android:versionName="0.4.0rc4" >
 
-	<uses-sdk android:minSdkVersion="11" android:targetSdkVersion="17" />
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="17" />
 
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<uses-permission android:name="android.permission.INTERNET" /> 
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>    
-	<uses-permission android:name="android.permission.WAKE_LOCK"/> 
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-	<uses-feature android:name="android.hardware.location" android:required="false" />
-	<uses-feature android:name="android.hardware.location.gps" android:required="false" />
-	
-	<supports-screens android:smallScreens="true" 
-                  android:normalScreens="true" 
-                  android:largeScreens="true"
-                  android:anyDensity="true" />
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
 
-	<application android:icon="@drawable/ic_launcher"
-		android:label="@string/app_name" 
-		android:name="MustardApplication" 
-		android:theme="@android:style/Theme.Holo">
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
 
-		<activity android:name=".activity.Mustard" 
-			android:configChanges="keyboard|keyboardHidden|orientation" 
-			android:windowSoftInputMode="adjustResize" >
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
+    <application
+        android:name="org.mumod.android.MustardApplication"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo" >
+        <activity
+            android:name="org.mumod.android.activity.Mustard"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-		<activity android:name=".activity.Login" />
-		
-		<activity android:name=".activity.BasicAuthLogin" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="org.mumod.android.activity.Login" />
+        <activity android:name="org.mumod.android.activity.BasicAuthLogin" />
+        <activity android:name="org.mumod.android.activity.Search" />
+        <activity android:name="org.mumod.android.activity.Bookmark" />
+        <activity android:name="org.mumod.android.activity.BookmarkList" />
+        <activity android:name="org.mumod.android.activity.DirectMessageTab" />
+        <activity android:name="org.mumod.android.activity.DirectMessageList" />
+        <activity android:name="org.mumod.android.activity.DirectMessageNew" />
+        <activity android:name="org.mumod.android.activity.Avatar" />
+        <activity android:name="org.mumod.android.activity.GlobalSettings" />
+        <activity android:name="org.mumod.android.activity.FilterSettings" />
+        <activity android:name="org.mumod.android.activity.Settings" />
+        <activity android:name="org.mumod.android.activity.AccountSettings" />
+        <activity
+            android:name="org.mumod.android.activity.MustardGroup"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-		<activity android:name=".activity.Search" />
-		
-		<activity android:name=".activity.Bookmark" />
-		
-		<activity android:name=".activity.BookmarkList" />
-		
-		<activity android:name=".activity.DirectMessageTab" />
-		
-		<activity android:name=".activity.DirectMessageList" />
-		
-		<activity android:name=".activity.DirectMessageNew" />
+                <category android:name="android.intent.category.DEFAULT" />
 
-		<activity android:name=".activity.Avatar" />
-		
-		<activity android:name=".activity.GlobalSettings" />
-		
-		<activity android:name=".activity.FilterSettings" />
+                <data
+                    android:host="groups"
+                    android:scheme="statusnet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.mumod.android.activity.MustardMain"
+            android:configChanges="keyboard|keyboardHidden"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-		<activity android:name=".activity.Settings" />
+                <category android:name="android.intent.category.DEFAULT" />
 
-		<activity android:name=".activity.AccountSettings" />
+                <data
+                    android:host="main"
+                    android:scheme="statusnet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.mumod.android.activity.MustardUser"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-		<activity android:name=".activity.MustardGroup" android:configChanges="keyboard|keyboardHidden|orientation" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category
-					android:name="android.intent.category.DEFAULT" />
-				<data android:scheme="statusnet" android:host="groups" />
-			</intent-filter>
-		</activity>
-		<activity android:name=".activity.MustardMain" android:configChanges="keyboard|keyboardHidden" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category
-					android:name="android.intent.category.DEFAULT" />
-				<data android:scheme="statusnet" android:host="main" />
-			</intent-filter>
-		</activity>
-		<activity android:name=".activity.MustardUser" android:configChanges="keyboard|keyboardHidden|orientation" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category
-					android:name="android.intent.category.DEFAULT" />
-				<data android:scheme="statusnet" android:host="users" />
-			</intent-filter>
-		</activity>
+                <category android:name="android.intent.category.DEFAULT" />
 
-   		<activity android:name=".activity.MustardRemoteUser" android:configChanges="keyboard|keyboardHidden|orientation" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category
-					android:name="android.intent.category.DEFAULT" />
-				<data android:scheme="statusnet" android:host="remoteusers" />
-			</intent-filter>
-		</activity>
-		<activity android:name=".activity.MustardTag" android:configChanges="keyboard|keyboardHidden|orientation" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category
-					android:name="android.intent.category.DEFAULT" />
-				<data android:scheme="statusnet" android:host="tags" />
-			</intent-filter>
-		</activity>
+                <data
+                    android:host="users"
+                    android:scheme="statusnet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.mumod.android.activity.MustardRemoteUser"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-		<activity android:name=".activity.MustardStatus" android:configChanges="keyboard|keyboardHidden|orientation" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category
-					android:name="android.intent.category.DEFAULT" />
-				<data android:scheme="statusnet" android:host="status" />
-			</intent-filter>
-		</activity>
+                <category android:name="android.intent.category.DEFAULT" />
 
-		<activity android:name=".activity.MustardFriend" android:configChanges="keyboard|keyboardHidden|orientation" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category
-					android:name="android.intent.category.DEFAULT" />
-				<data android:scheme="statusnet"
-					android:host="friends" />
-			</intent-filter>
-		</activity>
+                <data
+                    android:host="remoteusers"
+                    android:scheme="statusnet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.mumod.android.activity.MustardTag"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-		<activity android:name=".activity.MustardMention" android:configChanges="keyboard|keyboardHidden|orientation" android:windowSoftInputMode="adjustResize">
-			<!-- 
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="tags"
+                    android:scheme="statusnet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.mumod.android.activity.MustardStatus"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="status"
+                    android:scheme="statusnet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.mumod.android.activity.MustardFriend"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="friends"
+                    android:scheme="statusnet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.mumod.android.activity.MustardMention"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
+
+            <!--
 			<intent-filter>
 				<action android:name="android.intent.action.VIEW" />
 				<category
@@ -130,102 +167,123 @@
 				<data android:scheme="statusnet"
 					android:host="mentions" />
 			</intent-filter>
-			 -->
-		</activity>
-
-		<activity android:name=".activity.MustardConversation" android:configChanges="keyboard|keyboardHidden|orientation" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category
-					android:name="android.intent.category.DEFAULT" />
-				<data android:scheme="statusnet"
-					android:host="conversation" />
-			</intent-filter>
-		</activity>
-
-		<activity android:name=".activity.MustardFavorite" android:configChanges="keyboard|keyboardHidden|orientation" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category
-					android:name="android.intent.category.DEFAULT" />
-				<data android:scheme="statusnet"
-					android:host="favorites" />
-			</intent-filter>
-		</activity>
-
-		<activity android:name=".activity.MustardPublic" android:configChanges="keyboard|keyboardHidden|orientation" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category
-					android:name="android.intent.category.DEFAULT" />
-				<data android:scheme="statusnet" android:host="public" />
-			</intent-filter>
-		</activity>
-
-		<activity android:name=".activity.MustardSearch" android:configChanges="keyboard|keyboardHidden|orientation" android:windowSoftInputMode="adjustResize">
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category
-					android:name="android.intent.category.DEFAULT" />
-				<data android:scheme="statusnet" android:host="search" />
-			</intent-filter>
-		</activity>
-
-		<activity android:name=".activity.MustardUpdate" 
-			android:configChanges="keyboard|keyboardHidden|orientation" 
-			android:windowSoftInputMode="adjustResize" 
-			android:launchMode="singleTop"
-			android:label="@string/app_name" >
-			<intent-filter>
-				<action android:name="android.intent.action.SEND" />
-				<category
-					android:name="android.intent.category.DEFAULT" />
-				<data android:mimeType="image/*" />
-				<data android:mimeType="video/*" />
-				<data android:mimeType="text/plain" />
-			</intent-filter>
-		</activity>
-
-		<activity android:name=".activity.OAuthLogin" />
-		
-		<activity android:name=".activity.OAuthSettings" />
-			
-		<activity android:name=".activity.OAuthCallback" 
-			android:configChanges="keyboard|keyboardHidden|orientation" 
-			android:windowSoftInputMode="adjustResize" 
-			>
-			<intent-filter>
-				<action android:name="android.intent.action.VIEW" />
-				<category android:name="android.intent.category.DEFAULT" />
-				<category android:name="android.intent.category.BROWSABLE" />
-				<data android:scheme="statusnet" android:host="oauth" />
-			</intent-filter>
-		</activity>
-		
-        <service android:name=".service.MultiMention" />
-
-        <service android:name=".service.Version" />
-        
-        <service android:name=".service.OAuthKeysService" />
-
-		<receiver android:name=".receiver.StartupReceiver">
+            -->
+        </activity>
+        <activity
+            android:name="org.mumod.android.activity.MustardConversation"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
             <intent-filter>
-                 <action android:name="android.intent.action.BOOT_COMPLETED"	 />
-                 <category android:name="android.intent.category.HOME" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="conversation"
+                    android:scheme="statusnet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.mumod.android.activity.MustardFavorite"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="favorites"
+                    android:scheme="statusnet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.mumod.android.activity.MustardPublic"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="public"
+                    android:scheme="statusnet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.mumod.android.activity.MustardSearch"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="search"
+                    android:scheme="statusnet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.mumod.android.activity.MustardUpdate"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+                <data android:mimeType="video/*" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity android:name="org.mumod.android.activity.OAuthLogin" />
+        <activity android:name="org.mumod.android.activity.OAuthSettings" />
+        <activity
+            android:name="org.mumod.android.activity.OAuthCallback"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="oauth"
+                    android:scheme="statusnet" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="org.mumod.android.service.MultiMention" />
+        <service android:name="org.mumod.android.service.Version" />
+        <service android:name="org.mumod.android.service.OAuthKeysService" />
+
+        <receiver android:name="org.mumod.android.receiver.StartupReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
-        
-       <receiver android:name=".widget.Composer" android:label="Mustard (quick compose)">
+        <receiver
+            android:name="org.mumod.android.widget.Composer"
+            android:label="Mustard (quick compose)" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.appwidget.action.ACTION_APPWIDGET_ENABLED" />
             </intent-filter>
-            <meta-data 
-            	android:name="android.appwidget.provider" 
-            	android:resource="@xml/widget_compose" />
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_compose" />
         </receiver>
 
-<!-- 
+        <!--
        <receiver android:name=".widget.Timeline" android:label="Mustard (timeline)">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -235,7 +293,11 @@
             	android:name="android.appwidget.provider" 
             	android:resource="@xml/widget_notice" />
         </receiver>        
- -->   
-	</application>
+        -->
+        <activity
+            android:name="org.mumod.android.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+    </application>
 
 </manifest>
