@@ -168,10 +168,11 @@ public abstract class MustardBaseActivity extends ListActivity implements
 	protected boolean isBookmarkEnable = true;
 	protected boolean isConversationEnable = true;
 	protected boolean mFromService = false;
+	protected boolean lightTheme = false;
 	// private Cursor mNoticesCursor;
 	NoticeListAdapter mNoticeCursorAdapter = null;
 	protected SharedPreferences mPreferences;
-
+	
 	// private Timer mAutoRefreshTimer ;
 	protected boolean mAutoRefresh = false;
 
@@ -181,9 +182,10 @@ public abstract class MustardBaseActivity extends ListActivity implements
 	private int mTextSizeSmall = 12;
 
 	private long mCurrentRowId;
-	
-	// protected static boolean isMainTimeline = false;
+	protected String setTheme;
 
+	// protected static boolean isMainTimeline = false;
+	
 	@Override
 	public boolean onSearchRequested() {
 		doSearch();
@@ -542,6 +544,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 				}
 				vh.status = (MustardStatusTextView) v.findViewById(R.id.status);
+				
 				Typeface tf = Typeface.createFromAsset(getAssets(),
 						MustardApplication.MUSTARD_FONT_NAME);
 				vh.status.setTypeface(tf);
@@ -585,8 +588,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					return true;
 				}
 			});
-			//v.setBackgroundColor( color.holo_blue_light );
-			
+//			v.setBackgroundColor( color.holo_blue_light );
 			long inreplyto = status.getInReplyTo();
 			long accountId = status.getAccountId();
 			if (vh.screen_name != null) {
@@ -596,6 +598,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					t.append(" ► @" + status.getInReplyToScreenName());
 				}
 				vh.screen_name.setText(t);
+				vh.screen_name.setTextColor(color.holo_blue_dark);
 				vh.screen_name.setTextSize(mTextSizeSmall);
 			}
 			boolean isTwitterStatus = mStatusNet.isTwitterInstance();
@@ -716,6 +719,16 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			// }
 			// }
 			tv.setTextSize(mTextSizeNormal);
+
+			if( lightTheme == true ) {
+				vh.screen_name.setTextColor(getResources().getColor(android.R.color.secondary_text_light));
+				vh.status.setTextColor(getResources().getColor(android.R.color.primary_text_light));
+			}
+			else {
+				vh.screen_name.setTextColor(getResources().getColor(android.R.color.secondary_text_dark));
+				vh.status.setTextColor(getResources().getColor(android.R.color.primary_text_dark));
+			}
+			
 			return v;
 		}
 
@@ -1038,15 +1051,12 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				getString(R.string.theme_bw)).equals(
 				getString(R.string.theme_bw));
 		if (mLayoutLight) {
-			setTheme(android.R.style.Theme_Holo);
+			lightTheme = false;
 		} else {
-			setTheme(android.R.style.Theme_Holo_Light);
+			lightTheme = true;
 		}
-		// if(mLayoutLegacy) {
 		R_ROW_ID = R.layout.legacy_timeline_list_item;
-		// } else {
-		// R_ROW_ID=R.layout.timeline_list_item;
-		// }
+
 		onSetListView();
 		ListView view = null;
 		try {
@@ -1057,7 +1067,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			view = getListView();
 		}
 		view.setChoiceMode( ListView.CHOICE_MODE_SINGLE );
-		// registerForContextMenu(view);
 
 		onSetupTimeline();
 		onBeforeSetAccount();

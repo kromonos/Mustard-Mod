@@ -131,7 +131,7 @@
 			android:summary="@string/pref_theme_layout_summary"
 			android:entries="@array/themes"
 			android:entryValues="@array/themes"
-			android:dialogTitle="@string/theme" android:enabled="false"/>
+			android:dialogTitle="@string/theme" android:enabled="true"/>
 			
 		<!-- 
 		<CheckBoxPreference android:key="legacy_layout"

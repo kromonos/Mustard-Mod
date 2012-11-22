@@ -74,7 +74,6 @@ public class MustardApplication extends Application {
 	public static final String APPLICATION_NAME = "mustard.mod";
 	public static final String SN_MIN_VERSION = "0.8.1";
 	 
-//	public static final String MUSTARD_FONT_NAME = "DejaVuSans.ttf";
 	public static final String MUSTARD_FONT_NAME = "Roboto-Regular.ttf";
 	public static String sVersionName;
 

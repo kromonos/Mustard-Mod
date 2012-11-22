@@ -57,11 +57,22 @@ public class MustardMain extends MustardBaseActivity {
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+//		String ThemeSet = mPreferences.getString(Preferences.THEME, getString(R.string.theme_bw));
+//		boolean mLayoutLight = ThemeSet.equals( getString(R.string.theme_bw) );
+//		if (mLayoutLight) {
+			setTheme(android.R.style.Theme_Holo);
+//		}
+//		else {
+//			setTheme(android.R.style.Theme_Holo_Light);
+//		}
+
+		
 		TAG = getClass().getCanonicalName();
 		super.onCreate(savedInstanceState);
 		deleteOnExit=false;
 		if(mStatusNet!=null) {
-			mMergedTimeline = mPreferences.getBoolean(Preferences.CHECK_MERGED_TL_KEY, false);
+			boolean mMergedTimeline = mPreferences.getBoolean(Preferences.CHECK_MERGED_TL_KEY, false);
+			
 			TextView tagInfo = (TextView) findViewById(R.id.dent_info);
 			tagInfo.setText(getString(R.string.timeline_main) + (mMergedTimeline ? " (+) " : ""));
 
@@ -100,12 +111,8 @@ public class MustardMain extends MustardBaseActivity {
 
 	@Override
 	protected void onSetListView() {
-//		if(mLayoutLegacy) {
-			setContentView(R.layout.legacy_dents_list);
-			mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.list);
-//		} else {
-//			setContentView(R.layout.dents_list);
-//		}
+		setContentView(R.layout.legacy_dents_list);
+		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.list);
 	}
 
 	public static void actionHandleTimeline(Context context) {
