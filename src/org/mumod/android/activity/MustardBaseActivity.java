@@ -1119,8 +1119,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 		int cc = 0;
 		while (c.moveToNext()) {
 			Attachment a = new Attachment();
-			String mimeType = c.getString(c
-					.getColumnIndex(MustardDbAdapter.KEY_MIMETYPE));
+			String mimeType = c.getString(c.getColumnIndex(MustardDbAdapter.KEY_MIMETYPE));
 			a.setMimeType(mimeType);
 			a.setUrl(c.getString(c.getColumnIndex(MustardDbAdapter.KEY_URL)));
 			attachments.add(a);

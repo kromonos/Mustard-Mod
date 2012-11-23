@@ -31,6 +31,7 @@ import org.mumod.android.R;
 
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
+import android.R.color;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -44,17 +45,6 @@ import android.widget.TextView;
 
 public class MustardMain extends MustardBaseActivity {
 
-//	static {
-//		isMainTimeline=true;
-//	}
-
-	static final int MENU_MANUAL_REFRESH = 0;
-	static final int MENU_DISABLE_SCROLL = 1;
-	static final int MENU_SET_MODE = 2;
-
-	private PullToRefreshListView mPullRefreshListView;
-	
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 //		String ThemeSet = mPreferences.getString(Preferences.THEME, getString(R.string.theme_bw));
@@ -112,7 +102,6 @@ public class MustardMain extends MustardBaseActivity {
 	@Override
 	protected void onSetListView() {
 		setContentView(R.layout.legacy_dents_list);
-		mPullRefreshListView = (PullToRefreshListView) findViewById(R.id.list);
 	}
 
 	public static void actionHandleTimeline(Context context) {
@@ -131,13 +120,12 @@ public class MustardMain extends MustardBaseActivity {
 			
 			@Override
 			public void run() {
-				
-	                mHandler.post(new Runnable() {
-	                        public void run() {
-	                        	Log.v(TAG, "Timer tick");
-	                        	doSilentRefresh();
-	                        }
-	               });
+                mHandler.post(new Runnable() {
+                    public void run() {
+                    	Log.v(TAG, "Timer tick");
+                    	doSilentRefresh();
+                    }
+               });
 	        }};
 
 	    String s_delay = mPreferences.getString(Preferences.AUTO_REFRESH_INTERVAL_KEY, getString(R.string.pref_auto_refresh_interval_default));
