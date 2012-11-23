@@ -1,4 +1,6 @@
 # Mustard Mod #
+- 2012-11-23
+	* Some graphical adjustments
 - 2012-11-22
 	* Some graphical enhancements
 	* Some tries to fix themeing
