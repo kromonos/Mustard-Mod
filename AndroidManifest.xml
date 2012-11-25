@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.mumod.android"
     android:installLocation="preferExternal"
-    android:versionCode="152"
-    android:versionName="0.4.0rc4" >
+    android:versionCode="153"
+    android:versionName="0.4.0rc5" >
 
     <uses-sdk
         android:minSdkVersion="14"

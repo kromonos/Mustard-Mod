@@ -525,7 +525,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 		public View getView(int position, View convertView, ViewGroup parent) {
 			final RowStatus status = getItem(position);
-			final View v;
+			View v;
 
 			if (convertView != null) {
 				v = convertView;
@@ -553,8 +553,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 				}
 				
-				Typeface tf = Typeface.createFromAsset(getAssets(),
-						MustardApplication.MUSTARD_FONT_NAME);
+				Typeface tf = Typeface.createFromAsset(getAssets(), MustardApplication.MUSTARD_FONT_NAME);
 				vh.status.setTypeface(tf);
 				vh.in_reply_to.setTypeface(tf);
 				vh.datetime = (TextView) v.findViewById(R.id.datetime);

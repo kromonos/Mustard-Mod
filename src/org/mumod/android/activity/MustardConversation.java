@@ -80,7 +80,8 @@ public class MustardConversation extends MustardBaseActivity {
 	protected void onSetListView() {
 		if(mLayoutLegacy) {
 			setContentView(R.layout.legacy_dents_list);
-			R_ROW_ID=R.layout.legacy_conversation_list_item;
+			//R_ROW_ID=R.layout.legacy_conversation_list_item;
+			R_ROW_ID=R.layout.legacy_timeline_list_item;
 		} else {
 			setContentView(R.layout.dents_list);
 			R_ROW_ID=R.layout.conversation_list_item;
