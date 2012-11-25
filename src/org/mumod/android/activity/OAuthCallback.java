@@ -84,7 +84,7 @@ public class OAuthCallback extends Activity {
 				String message = "";
 			
 				if(oauth_problem.equals("user_refused")) {
-					message = "You refused the connection.\nCan't proceed";
+					message = getString(R.string.connection_refused);
 				} else {
 					message= getString(R.string.error_generic_detail,oauth_problem);
 				}
@@ -109,7 +109,7 @@ public class OAuthCallback extends Activity {
 //						Log.e("Mustard", "savedToken: " + requestTokenSaved + " != requestToken: " + requestToken);
 						new AlertDialog.Builder(OAuthCallback.this)
 						.setTitle(getString(R.string.error))
-						.setMessage("Token saved and token returned are not the same!\nWhat's up?!?!?")
+						.setMessage(getString(R.string.token_mismatch))
 						.setNeutralButton(getString(R.string.close), null).show();
 						resetSharedProperties(mSharedPreferences);
 						return;
@@ -345,7 +345,6 @@ public class OAuthCallback extends Activity {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			showDialog(MustardBaseActivity.DIALOG_FETCHING_ID);
-//			mHandler.progress(true);
 		}
 		
 		protected void onPostExecute(Integer result) {

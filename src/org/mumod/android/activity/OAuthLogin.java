@@ -234,7 +234,7 @@ public class OAuthLogin extends Activity {
         } else {
         	new AlertDialog.Builder(OAuthLogin.this)
             .setTitle(getString(R.string.error))
-            .setMessage("I didn't received the authURL, can't continue.")
+            .setMessage(getString(R.string.noAuth_URL))
             .setNeutralButton(getString(R.string.close), null).show();
 			return;
         }
@@ -334,13 +334,11 @@ public class OAuthLogin extends Activity {
 		protected void onPreExecute() {
 			super.onPreExecute();
 			showDialog(MustardBaseActivity.DIALOG_FETCHING_ID);
-//			mHandler.progress(true);
 		}
 
 		@Override
 		protected void onPostExecute(Integer result) {
 			try { dismissDialog(MustardBaseActivity.DIALOG_FETCHING_ID); } catch (IllegalArgumentException e) {}
-//			mHandler.progress(false);
 			if(result>0) {
 				doNextStep(mInstance, false);
 			}
@@ -380,7 +378,10 @@ public class OAuthLogin extends Activity {
 		@Override
 		protected void onPostExecute(Integer result) {
 //			mHandler.progress(false);
-			try { dismissDialog(MustardBaseActivity.DIALOG_FETCHING_ID); } catch (IllegalArgumentException e) {}
+			try { 
+				dismissDialog(MustardBaseActivity.DIALOG_FETCHING_ID); 
+			} catch (IllegalArgumentException e) {
+			}
 			doLastStep(mAuthUrl, mOauthManager, mInstance, mIsTwitter);
 		}
 

@@ -215,9 +215,9 @@ Größe des Bildes wird geändert …
 	<string name="please_wait_updating_dent">"
 Mitteilung wird gesendet …
 "</string> 
-	<string name="contacting_site">Dienst wird verbunden …</string> 
-	<string name="authenticating_account">Konto wird beglaubigt …</string> 
-	<string name="please_wait_opening">Lädt …</string> 
+	<string name="contacting_site">Verbinden …</string> 
+	<string name="authenticating_account">Benutzerdaten werden überprüft …</string> 
+	<string name="please_wait_opening">Bitte warten …</string> 
 	
 	<!-- Preferences --> 
 	<string name="preferences_timeline">Zeitleiste</string> 
@@ -342,7 +342,15 @@ Mitteilung wird gesendet …
 	<string name="one_month_ago">"vor einem Monat"</string>
 	<string name="months_ago">"vor %1$s Monat"</string>
 	<string name="one_year_ago">"vor einem Jahr"</string>	
-	
+
+	<!-- Errors -->
+	<string name="noAuth_URL">Keine AuthURL gefunden. Bitte später versuchen.</string>
+	<string name="connection_refused">OAuth Verbindung abgebrochen.</string>
+	<string name="token_mismatch">Gespeicherter Tocken und erhaltener Token sind unterschiedlich.</string>
+	<string name="partialTokens">App Keys erhalten, jedoch scheinen einige davon reservierd zu sein..</string>
+	<string name="emptyKeys">Keine App Keys erhalten.</string>
+		
+		
 	<string name="in_reply_to">"als Antwort an"</string>		
 	<string name="about_message">"
 Mustard {MOD} %s ist ein Holo Mod der beliebten Mikroblogging-App Mustard 

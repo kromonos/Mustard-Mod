@@ -2,6 +2,8 @@
 - 2012-11-25
 	* replies to account will now be marked
 	* more graphical adjustments
+	* fixed crash in conversation view
+	* More translations
 - 2012-11-24
 	* additional german translations
 	* some graphical adjustments

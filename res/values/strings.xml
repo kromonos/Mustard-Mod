@@ -257,7 +257,15 @@ Please wait...
 	<string name="contacting_site">Contacting site...</string>
 	<string name="authenticating_account">Authenticating account...</string>
 	<string name="please_wait_opening">Loading..</string>
-	
+
+	<!-- Errors -->
+	<string name="noAuth_URL">I didn\'t received the authURL, can\'t continue.</string>
+	<string name="connection_refused">You refused the connection. Can\'t proceed</string>
+	<string name="token_mismatch">Token saved and token returned are not the same!</string>
+	<string name="invalid_keys">All keys are invalid</string>
+	<string name="partialTokens">Loaded but some keys are reserved, skipped.</string>
+	<string name="emptyKeys">Keys are empty</string>
+			
 	<!-- Preferences -->
 	<string name="preferences_timeline">Timeline</string>
 	

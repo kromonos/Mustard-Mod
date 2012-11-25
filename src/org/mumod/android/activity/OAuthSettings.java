@@ -114,13 +114,13 @@ public class OAuthSettings extends Activity {
 			String msg = "";
 			switch(r) {
 			case OAuthLoader.KO:
-				msg="All keys are invalid";
+				msg=getString( R.string.invalid_keys );
 				break;
 			case OAuthLoader.PARTIAL:
-				msg="Loaded but some keys are reserved, skipped.";
+				msg=getString( R.string.partialTokens );
 				break;
 			case OAuthLoader.EMPTY:
-				msg="Keys are empty";
+				msg=getString( R.string.emptyKeys );
 				break;
 			}
 			
