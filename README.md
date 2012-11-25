@@ -1,4 +1,7 @@
 # Mustard Mod #
+- 2012-11-25
+	* replies to account will now be marked
+	* more graphical adjustments
 - 2012-11-24
 	* additional german translations
 	* some graphical adjustments
