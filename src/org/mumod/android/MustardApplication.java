@@ -76,7 +76,8 @@ public class MustardApplication extends Application {
 	 
 	public static final String MUSTARD_FONT_NAME = "Roboto-Regular.ttf";
 	public static String sVersionName;
-
+	public static String sUserName;
+	
 	public static ImageManager sImageManager;
 	//public static Position sPosition = new Position();
 	
@@ -181,6 +182,9 @@ public class MustardApplication extends Application {
     			String token=accountCursor.getString(tokenIndex);
     			String tokenSecret=accountCursor.getString(tokenSecretIndex);
     			sn.setURL(new URL(instance));
+    			
+    			sUserName = user;
+    			
     			if (token==null && tokenSecret == null)
     				sn.setCredentials(user,password);
     			else {

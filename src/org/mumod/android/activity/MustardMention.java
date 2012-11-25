@@ -48,10 +48,10 @@ public class MustardMention extends MustardUserBaseActivity {
 				Log.v(TAG,mStatusNet.getMUsername() + " vs "+ DB_ROW_EXTRA );
 			if(mMergedTimeline) {
 				TextView tagInfo = (TextView) findViewById(R.id.mention_info);
-				tagInfo.setText("Your replies (+)");
+				tagInfo.setText( getString(R.string.menu_mentions) + " (+)" );
 			} else 	if (mStatusNet.getMUsername().equals(DB_ROW_EXTRA)) {
 				TextView tagInfo = (TextView) findViewById(R.id.mention_info);
-				tagInfo.setText("Your replies");
+				tagInfo.setText( getString(R.string.menu_mentions) );
 			} else {
 				//					if(mLayoutLegacy)
 				setContentView(R.layout.legacy_user_list);

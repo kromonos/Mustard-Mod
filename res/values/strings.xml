@@ -227,7 +227,7 @@ Please wait and retry."
 
 	<string name="w_tag_title">Notices tagged with #%s</string>
 	<string name="w_search_title">Searching %s</string>
-    
+  
     <string name="status_update_ok">Notice posted!</string>
     <string name="status_update_ko_title">Error posting notice!</string>
     <string name="status_update_ko">A problem has occurred while posting your notice...</string>
@@ -383,15 +383,15 @@ Please wait...
 	
 	<!-- Dates -->
 	<string name="few_seconds">a few seconds ago</string>
-	<string name="one_minute_ago">"about a minute ago"</string>
-	<string name="minutes_ago">"about %1$s minutes ago"</string>
-	<string name="one_hour_ago">"about an hour ago"</string>
-	<string name="hours_ago">"about %1$s hours ago"</string>
-	<string name="one_day_ago">"about a day ago"</string>
-	<string name="days_ago">"about %1$s days ago"</string>
-	<string name="one_month_ago">"about a month ago"</string>
-	<string name="months_ago">"about %1$s months ago"</string>
-	<string name="one_year_ago">"about a year ago"</string>
+	<string name="one_minute_ago">"1 minute ago"</string>
+	<string name="minutes_ago">"%1$s minutes ago"</string>
+	<string name="one_hour_ago">"an hour ago"</string>
+	<string name="hours_ago">"%1$s hours ago"</string>
+	<string name="one_day_ago">"a day ago"</string>
+	<string name="days_ago">%1$s days ago"</string>
+	<string name="one_month_ago">"1 month ago"</string>
+	<string name="months_ago">" %1$s months ago"</string>
+	<string name="one_year_ago">"a year ago"</string>
 	
 	 <string name="about_message">
     "

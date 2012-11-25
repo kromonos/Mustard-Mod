@@ -59,7 +59,7 @@
     <string name="warning_text_too_long">Die Nachricht ist zu lang. Sie darf maximal %s Zeichen lang sein. Möchten Sie trotzdem fortfahren?</string> 
     <string name="msg_logout">Möchten Sie Ihr Konto wirklich aus Mustard löschen?</string> 
     <string name="msg_confirm_repeat">Diese Nachricht wiederholen?</string> 
-    <string name="msg_welcome">Hallo %s!nMöchten Sie Mitteilungen von @mustard abonnieren?</string> 
+    <string name="msg_welcome">Hallo %s!\nMöchten Sie Mitteilungen von @mustard abonnieren?</string> 
     <string name="title_welcome">Willkommen!</string> 
     <string name="welcome_label">Willkommen %s!</string> 
     <string name="title_bookmarks">Lesezeichen</string> 
@@ -150,7 +150,7 @@ Bitte warten Sie und versuchen Sie es erneut."</string>
     <string name="menu_timeline">Zeitleiste</string> 
     <string name="menu_insert">Neue Mitteilung</string> 
     <string name="menu_delete">Löschen</string>    
-    <string name="menu_forward">Weiterleiten</string> 
+    <string name="menu_forward">Zitieren</string> 
     <string name="menu_reply">Antworten</string> 
     <string name="menu_sub">Abonnieren</string> 
     <string name="menu_unsub">Abonnement löschen</string> 
@@ -299,7 +299,7 @@ Mitteilung wird gesendet …
     <string name="x_multiple_account_mentions">%1$s hat %2$s neue Antworten</string> 
     <string name="x_multiple_accounts_mentions">Ihre Konten haben %s neue Antworten</string> 
  
-	<string name="geo_view_on">Sicht auf  %s</string> 
+	<string name="geo_view_on">Sicht auf %s</string> 
 	<string name="geo_title">Standortbestimmung</string> 
 	<string name="geo_from">Meldung versandt von %s</string> 
 	
@@ -321,7 +321,30 @@ Mitteilung wird gesendet …
 	<string name="medium">Mittel</string> 
 	<string name="large">Groß</string> 
 	
-	 <string name="about_message">"
+	<string name="from">via</string>
+	<string name="show_conversation">im Zusammenhang</string>
+	
+	<string name="pref_theme_layout_title">Theme</string>
+    <string name="pref_theme_layout_summary">Choose your preferred theme.</string>
+	
+	<string name="theme">Theme</string>
+	<string name="theme_bw">White on Black</string>
+	<string name="theme_wb">Black on White</string>
+	
+	<!-- Dates -->
+	<string name="few_seconds">vor ein paar Sekunden</string>
+	<string name="one_minute_ago">"vor einer Minute"</string>
+	<string name="minutes_ago">"vor %1$s Minuten"</string>
+	<string name="one_hour_ago">"vor einer Stunde"</string>
+	<string name="hours_ago">"vor %1$s Stunden"</string>
+	<string name="one_day_ago">"vor einem Tag"</string>
+	<string name="days_ago">"vor %1$s Tagen"</string>
+	<string name="one_month_ago">"vor einem Monat"</string>
+	<string name="months_ago">"vor %1$s Monat"</string>
+	<string name="one_year_ago">"vor einem Jahr"</string>	
+	
+	<string name="in_reply_to">"als Antwort an"</string>		
+	<string name="about_message">"
 Mustard {MOD} %s ist ein Holo Mod der beliebten Mikroblogging-App Mustard 
 für StatusNet und Twitter, entwickelt von @macno.
 

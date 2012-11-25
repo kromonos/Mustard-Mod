@@ -1,4 +1,8 @@
 # Mustard Mod #
+- 2012-11-24
+	* additional german translations
+	* some graphical adjustments
+	* changed layout of dents
 - 2012-11-23
 	* Some graphical adjustments
 - 2012-11-22

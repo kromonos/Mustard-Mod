@@ -67,6 +67,7 @@ import android.content.res.Configuration;
 import android.database.Cursor;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.AsyncTask.Status;
@@ -183,7 +184,8 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 	private long mCurrentRowId;
 	protected String setTheme;
-
+	protected String userName;
+	
 	// protected static boolean isMainTimeline = false;
 	
 	@Override
@@ -498,6 +500,9 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			RemoteImageView profile_image;
 			TextView screen_name;
 			TextView account_name;
+			TextView in_reply_to;
+			TextView location;
+			TextView markers;
 			MustardStatusTextView status;
 			TextView datetime;
 			TextView source;
@@ -520,7 +525,8 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 		public View getView(int position, View convertView, ViewGroup parent) {
 			final RowStatus status = getItem(position);
-			View v;
+			final View v;
+
 			if (convertView != null) {
 				v = convertView;
 			} else {
@@ -531,28 +537,40 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			if (vh == null) {
 				vh = new ViewHolder();
 				try {
-					vh.profile_image = (RemoteImageView) v
-							.findViewById(R.id.profile_image);
+					vh.profile_image = (RemoteImageView) v.findViewById(R.id.profile_image);
 				} catch (Exception e) {
 				}
 				
 				vh.screen_name = (TextView) v.findViewById(R.id.screen_name);
+				vh.in_reply_to = (TextView) v.findViewById( R.id.in_reply_to );
+				vh.markers = (TextView) v.findViewById( R.id.marks );
+				vh.status = (MustardStatusTextView) v.findViewById(R.id.status);
+				
 				try {
-					vh.account_name = (TextView) v
-							.findViewById(R.id.account_name);
-				} catch (Exception e) {
+					vh.account_name = (TextView) v.findViewById(R.id.account_name);
+				} 
+				catch (Exception e) {
 
 				}
-				vh.status = (MustardStatusTextView) v.findViewById(R.id.status);
 				
 				Typeface tf = Typeface.createFromAsset(getAssets(),
 						MustardApplication.MUSTARD_FONT_NAME);
 				vh.status.setTypeface(tf);
+				vh.in_reply_to.setTypeface(tf);
 				vh.datetime = (TextView) v.findViewById(R.id.datetime);
 				vh.datetime.setTypeface(tf);
 				vh.source = (TextView) v.findViewById(R.id.source);
 				vh.source.setTypeface(tf);
 				v.setTag(vh);
+			}
+
+			if( lightTheme == true ) {
+				vh.screen_name.setTextColor(getResources().getColor(android.R.color.secondary_text_light));
+				vh.status.setTextColor(getResources().getColor(android.R.color.primary_text_light));
+			}
+			else {
+				vh.screen_name.setTextColor(getResources().getColor(android.R.color.secondary_text_dark));
+				vh.status.setTextColor(getResources().getColor(android.R.color.primary_text_dark));
 			}
 
 			if (hmAccounts == null) {
@@ -572,6 +590,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					}
 					mCurrentRowId = id;
 					mActionMode = startActionMode(mClickActionModeCallback);
+					//v.setBackgroundColor( getResources().getColor(android.R.color.holo_green_dark) );
 				}
 			});
 			v.setOnLongClickListener(new View.OnLongClickListener() {
@@ -585,21 +604,41 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					mCurrentRowId = id;
 					// Start the CAB using the ActionMode.Callback defined above
 					mActionMode = startActionMode(mLongClickActionModeCallback);
+					//v.setBackgroundColor( getResources().getColor(android.R.color.holo_red_dark) );
 					return true;
 				}
 			});
 //			v.setBackgroundColor( color.holo_blue_light );
 			long inreplyto = status.getInReplyTo();
 			long accountId = status.getAccountId();
+
+		
+			String sUserName = org.mumod.android.MustardApplication.sUserName;
+			vh.screen_name.setTextSize( mTextSizeSmall );
+			
 			if (vh.screen_name != null) {
-				StringBuilder t = new StringBuilder();
-				t.append("@" + status.getScreenName());
+				v.setBackgroundColor( getResources().getColor(R.color.black) );
 				if (inreplyto > 0) {
-					t.append(" ► @" + status.getInReplyToScreenName());
+					//t.append(" ► @" + status.getInReplyToScreenName());
+					vh.in_reply_to.setTextSize( mTextSizeSmall );
+					vh.in_reply_to.setText( getString(R.string.in_reply_to) + " " + status.getInReplyToScreenName() );
+					vh.in_reply_to.setVisibility( View.VISIBLE );
+					if( sUserName.equals(status.getInReplyToScreenName()) ) {
+						v.setBackgroundColor( getResources().getColor(android.R.color.holo_blue_dark) );
+					}
+					else {
+						v.setBackgroundColor( getResources().getColor(android.R.color.black) );
+					}
 				}
-				vh.screen_name.setText(t);
-				vh.screen_name.setTextColor(color.holo_blue_dark);
-				vh.screen_name.setTextSize(mTextSizeSmall);
+				else {
+					vh.in_reply_to.setVisibility( View.GONE );
+				}
+/*				// TODO: Regex check status, if username was called
+				if ( getString(vh.status).matches("@" + sUserName) ) {
+					v.setBackgroundColor( getResources().getColor(android.R.color.holo_blue_dark) );					
+				}
+*/			
+				vh.screen_name.setText( "@" + status.getScreenName() );
 			}
 			boolean isTwitterStatus = mStatusNet.isTwitterInstance();
 			if (mMergedTimeline && vh.account_name != null) {
@@ -652,7 +691,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 						}
 					}
 				}
-				source = Html.fromHtml("&nbsp;" + getString(R.string.from)
+				source = Html.fromHtml(getString(R.string.from)
 						+ "&nbsp;"
 						+ source.replace("&lt;", "<").replace("&gt;", ">"))
 						+ " ";
@@ -719,15 +758,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			// }
 			// }
 			tv.setTextSize(mTextSizeNormal);
-
-			if( lightTheme == true ) {
-				vh.screen_name.setTextColor(getResources().getColor(android.R.color.secondary_text_light));
-				vh.status.setTextColor(getResources().getColor(android.R.color.primary_text_light));
-			}
-			else {
-				vh.screen_name.setTextColor(getResources().getColor(android.R.color.secondary_text_dark));
-				vh.status.setTextColor(getResources().getColor(android.R.color.primary_text_dark));
-			}
 			
 			return v;
 		}
