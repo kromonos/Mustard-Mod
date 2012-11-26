@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.mumod.android"
-    android:installLocation="auto"
-    android:versionCode="154"
-    android:versionName="0.4.0.6" >
+    android:installLocation="preferExternal"
+    android:versionCode="157"
+    android:versionName="0.4.0.8" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="14"
         android:targetSdkVersion="17" />
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />

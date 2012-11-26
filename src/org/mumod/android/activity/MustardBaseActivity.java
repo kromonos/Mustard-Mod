@@ -45,8 +45,6 @@ import org.mumod.util.DateUtils;
 import org.mumod.util.MustardException;
 import org.mumod.util.StatusNetUtils;
 
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-
 import android.R.color;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;

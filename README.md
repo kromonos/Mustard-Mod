@@ -1,4 +1,6 @@
 # Mustard Mod #
+- 2012-11-26
+	* Fixed missing string in english language. Thanks to @macno, @thelovebug and all other tester with such great patience
 - 2012-11-25
 	* replies to account will now be marked
 	* more graphical adjustments

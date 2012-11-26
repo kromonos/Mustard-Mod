@@ -29,9 +29,6 @@ import org.mumod.android.MustardDbAdapter;
 import org.mumod.android.Preferences;
 import org.mumod.android.R;
 
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-
-import android.R.color;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
