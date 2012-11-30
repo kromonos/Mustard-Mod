@@ -78,6 +78,14 @@
                         android:textSize="10sp"
                         android:textStyle="bold" />
 
+                    <TextView
+                        android:id="@+id/in_reply_to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="in reply to"
+                        android:textSize="10sp"
+                        android:visibility="gone" />
+
                     <LinearLayout
                         android:id="@+id/center_column_up"
                         android:layout_width="fill_parent"
@@ -121,14 +129,6 @@
                             android:textColorLink="#FFFFFF"
                             android:textSize="10sp"
                             android:textStyle="italic" />
-
-                        <TextView
-                            android:id="@+id/in_reply_to"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="in reply to"
-                            android:textSize="10sp"
-                            android:visibility="gone" />
 
                         <TextView
                             android:id="@+id/location"

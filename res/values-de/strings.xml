@@ -84,7 +84,7 @@ Bitte senden Sie eine E-Mail an mustard@macno.org
     <!-- mustard --> 
     <string name="username">Benutzername</string> 
     <string name="password">Kennwort</string> 
-    <string name="instance">StatusNet-Adresse (beispielsweise identi.ca)</string> 
+    <string name="instance">StatusNet-Adresse</string> 
 	<string name="label_force_ssl">Sichere Verbindung erzwingen</string> 
     <string name="new_password">Neues Passwort</string> 
 	<string name="new_password_hint">Neues Passwort</string> 

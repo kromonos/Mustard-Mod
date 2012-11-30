@@ -530,7 +530,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			} else {
 				v = getLayoutInflater().inflate(R_ROW_ID, parent, false);
 			}
-			// Log.d(TAG, "newView");
 			ViewHolder vh = (ViewHolder) v.getTag();
 			if (vh == null) {
 				vh = new ViewHolder();
@@ -556,6 +555,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				vh.in_reply_to.setTypeface(tf);
 				vh.datetime = (TextView) v.findViewById(R.id.datetime);
 				vh.datetime.setTypeface(tf);
+
 				vh.source = (TextView) v.findViewById(R.id.source);
 				vh.source.setTypeface(tf);
 				v.setTag(vh);
@@ -605,10 +605,8 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					return true;
 				}
 			});
-//			v.setBackgroundColor( color.holo_blue_light );
 			long inreplyto = status.getInReplyTo();
 			long accountId = status.getAccountId();
-
 		
 			String sUserName = org.mumod.android.MustardApplication.sUserName;
 			vh.screen_name.setTextSize( mTextSizeSmall );
@@ -616,9 +614,8 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			if (vh.screen_name != null) {
 				v.setBackgroundColor( getResources().getColor(R.color.black) );
 				if (inreplyto > 0) {
-					//t.append(" ► @" + status.getInReplyToScreenName());
 					vh.in_reply_to.setTextSize( mTextSizeSmall );
-					vh.in_reply_to.setText( getString(R.string.in_reply_to) + " " + status.getInReplyToScreenName() );
+					vh.in_reply_to.setText(" " + getString(R.string.in_reply_to) + " " + status.getInReplyToScreenName() );
 					vh.in_reply_to.setVisibility( View.VISIBLE );
 					if( sUserName.equals(status.getInReplyToScreenName()) ) {
 						v.setBackgroundColor( getResources().getColor(android.R.color.holo_blue_dark) );
@@ -635,7 +632,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					v.setBackgroundColor( getResources().getColor(android.R.color.holo_blue_dark) );					
 				}
 */			
-				vh.screen_name.setText( "@" + status.getScreenName() );
+				vh.screen_name.setText( status.getScreenName() );
 			}
 			boolean isTwitterStatus = mStatusNet.isTwitterInstance();
 			if (mMergedTimeline && vh.account_name != null) {
@@ -678,7 +675,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 				if (source.equals("ostatus")) {
 					String ostatus = status.getProfileUrl();
-					// Log.e("Mustard"," #################### " + ostatus);
 					if (ostatus != null) {
 						try {
 							URL uostatus = new URL(ostatus);
@@ -698,8 +694,16 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				source = source.trim();
 
 			}
-			vh.source.setText(source, BufferType.SPANNABLE);
-			vh.source.setTextSize(mTextSizeSmall);
+			
+			Boolean showSource = mPreferences.getBoolean( "display_source" , false );
+			
+			if( showSource ) {
+				vh.source.setText(source, BufferType.SPANNABLE);
+				vh.source.setTextSize(mTextSizeSmall);
+			}
+			else {
+				vh.source.setVisibility( View.GONE );
+			}
 
 			if (vh.profile_image != null) {
 				String profileUrl = status.getProfileImage();

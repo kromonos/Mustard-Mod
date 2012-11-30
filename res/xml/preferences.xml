@@ -65,6 +65,7 @@
 			android:entries="@array/urlshortener"
 			android:entryValues="@array/urlshortener"
 			android:dialogTitle="@string/url_shortener" />
+		<CheckBoxPreference android:disableDependentsState="false" android:title="@string/txt_show_source" android:key="display_source" android:summary="@string/txt_show_source_summary"/>
 
 
 	</PreferenceCategory>
@@ -72,7 +73,7 @@
 	<PreferenceCategory android:title="@string/preferences_geolocation">
 
 		<CheckBoxPreference android:key="enable_geolocation"
-			android:defaultValue="true"
+			android:defaultValue="false"
 			android:title="@string/pref_enable_geo_title"
 			android:summary="@string/pref_enable_geo_summary" />
 
@@ -131,7 +132,7 @@
 			android:summary="@string/pref_theme_layout_summary"
 			android:entries="@array/themes"
 			android:entryValues="@array/themes"
-			android:dialogTitle="@string/theme" android:enabled="true"/>
+			android:dialogTitle="@string/theme" android:enabled="false"/>
 			
 		<!-- 
 		<CheckBoxPreference android:key="legacy_layout"
@@ -148,5 +149,10 @@
 			android:entryValues="@array/fontsizesval"
 			android:dialogTitle="@string/font_size" />
 			
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/txt_oauth">
+		<EditTextPreference android:key="ownInstance" android:title="@string/instance" android:summary="@string/txt_oauth_summary"/><EditTextPreference android:title="@string/txt_oauth_key" android:key="ownConsumerKey" android:summary="@string/txt_oauth_summary"/>
+		<EditTextPreference android:title="@string/txt_oauth_cSecret" android:key="ownConsumerSecret" android:summary="@string/txt_oauth_summary"/>
+		
 	</PreferenceCategory>
 </PreferenceScreen>

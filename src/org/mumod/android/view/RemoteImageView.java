@@ -37,17 +37,18 @@ public class RemoteImageView extends ImageView {
 
 	private String mRemote;
 	private Context mContext;
-	private int mResource = R.drawable.nullavatar;
+	private int mResource = R.drawable.ic_action_user;
+	//private int mResource = R.drawable.nullavatar;
 	
 	public RemoteImageView(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
-		setImageResource(R.drawable.nullavatar);
+		setImageResource(R.drawable.ic_action_user);
 		mContext=context;
 	}
 
 	public RemoteImageView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		setImageResource(R.drawable.nullavatar);
+		setImageResource(R.drawable.ic_action_user);
 		mContext=context;
 	}
 

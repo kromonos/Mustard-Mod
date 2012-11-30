@@ -35,11 +35,17 @@ import org.mumod.android.provider.OAuthLoader;
 import org.mumod.util.HttpManager;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 
 public class OAuthKeyFetcher {
 
+	private SharedPreferences mSharedPreferences;
+	
 	public int execute(Context context,MustardDbAdapter dbHelper, URL url) throws Exception {
-
+		String ownInstance = mSharedPreferences.getString("ownInstance", "");
+		String ownConsumerSecret = mSharedPreferences.getString("ownConsumerSecret", "");
+		String ownConsumerKey = mSharedPreferences.getString("ownConsumerKey", "");
+		
 		boolean reserved = false;
 		try {
 			if (url == null) {
@@ -65,6 +71,13 @@ public class OAuthKeyFetcher {
 					oi.secret = enclosure.getString("secret");
 					oauths.add(oi);
 				}
+			}
+			if( !ownInstance.equals("") && !ownConsumerSecret.equals("") && !ownConsumerKey.equals("") ) {
+				OAuthInstance oi= new OAuthInstance();
+				oi.instance = ownInstance;
+				oi.key = ownConsumerKey;
+				oi.secret = ownConsumerSecret;
+				oauths.add(oi);
 			}
 		} catch(JSONException e) {
 			

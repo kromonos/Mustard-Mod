@@ -1,6 +1,12 @@
 # Mustard Mod #
+- 2012-11-30
+	* graphical adjustments
+	* options for own consumer key, consumer secret, instance
+	* show/hide source on the bottom of dents option 
+	  (Settings -> Global Settings -> "Display source in dents")
 - 2012-11-26
-	* Fixed missing string in english language. Thanks to @macno, @thelovebug and all other tester with such great patience
+	* Fixed missing string in english language. Thanks to @macno, 
+	  @thelovebug and all other tester with such great patience
 - 2012-11-25
 	* replies to account will now be marked
 	* more graphical adjustments
