@@ -62,6 +62,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.Preference;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore.Images.ImageColumns;
 import android.text.Editable;
@@ -115,7 +116,7 @@ public class MustardUpdate extends Activity {
 
 	private boolean mRefreshOnPost = false;
 	private String mErrorUpdateDescription = "";
-	protected SharedPreferences mPreferences = null;
+	protected static SharedPreferences mPreferences = null;
 	private MustardApplication mMustardApplication ;
 
 	//	private long mSenderAccountId = -1;
@@ -913,10 +914,26 @@ public class MustardUpdate extends Activity {
 		context.startActivity(i);
 	}
 	
-	public static void actionSpamReport(Context context,Handler handler,String user, long userid) {
+	public static void actionSpamReport(Context context,Handler handler,String user, long userid, String SpamUser, String SpamGroup) {
 		mHandler=handler;
 		Intent i = new Intent(context, MustardUpdate.class);
-		i.putExtra(Preferences.STATUS_TEXT,"@support "+user+" ID "+userid+" is spamming !spamreport");
+		String sGroup;
+		String sUser;
+		
+		if( !SpamGroup.equals("") ) {
+			sGroup = " !" + SpamGroup;  
+		}
+		else {
+			sGroup = "";
+		}
+		
+		if( !SpamUser.equals("") ) {
+			sUser = "@" + SpamUser + " ";
+		}
+		else {
+			sUser = "";
+		}
+		i.putExtra(Preferences.STATUS_TEXT, sUser +""+ user + " ID "+userid+" is spamming" + sGroup );
 		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		context.startActivity(i);
 	}

@@ -1668,9 +1668,15 @@ public abstract class MustardBaseActivity extends ListActivity implements
 											false)
 											&& sn.getAccount().getInstance()
 													.endsWith("identi.ca")) {
+
+										String SpamGroup = mPreferences.getString("spam_group", "");
+										String SpamUser = mPreferences.getString("spam_user", "");
 										MustardUpdate.actionSpamReport(context,
 												mHandler, rs.getScreenName(),
-												rs.getUserId());
+												rs.getUserId(),
+												SpamUser,
+												SpamGroup
+												);
 									}
 									dbHelper.close();
 								} else {

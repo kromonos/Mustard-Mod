@@ -1,5 +1,6 @@
 # Mustard Mod #
 - 2012-12-02
+	* New spam report options
 	* New option: Repeat + Fav will Repeat and Fav the dent with only one click
 - 2012-11-30
 	* graphical adjustments

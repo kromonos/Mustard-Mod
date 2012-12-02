@@ -53,10 +53,7 @@
 			android:entryValues="@array/check_intervals"
 			android:dialogTitle="@string/pref_check_updates_interval_dialog_title" />
 
-		<CheckBoxPreference android:key="enable_spamreport_on_block"
-			android:defaultValue="false"
-			android:title="@string/pref_spamreport_on_block"
-			android:summary="@string/pref_spamreport_on_block_summary" />
+		
 
 		<ListPreference android:key="url_shortener"
 			android:defaultValue="b1t.it"
@@ -66,9 +63,13 @@
 			android:entryValues="@array/urlshortener"
 			android:dialogTitle="@string/url_shortener" />
 		<CheckBoxPreference android:disableDependentsState="false" android:title="@string/txt_show_source" android:key="display_source" android:summary="@string/txt_show_source_summary"/>
+		
 
 
-	</PreferenceCategory>
+	</PreferenceCategory><PreferenceCategory android:title="@string/spam_settings"><CheckBoxPreference android:key="enable_spamreport_on_block" android:defaultValue="false" android:title="@string/pref_spamreport_on_block" android:summary="@string/pref_spamreport_on_block_summary" />
+	<EditTextPreference android:key="spam_group" android:summary="@string/spam_group_summary" android:title="@string/spam_group" android:defaultValue="spamreport"/>
+	<EditTextPreference android:key="spam_user" android:summary="@string/spam_user_summary" android:title="@string/spam_user"/>
+</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/preferences_geolocation">
 

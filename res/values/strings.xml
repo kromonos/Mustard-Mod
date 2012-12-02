@@ -317,7 +317,7 @@ Please wait...
 	<string name="pref_auto_refresh_summary">If enabled, timeline will be refreshed automatically</string>
 	
 	<string name="pref_spamreport_on_block">Report spammer after Block?</string>
-	<string name="pref_spamreport_on_block_summary">If enabled, after blocking a user a spamreport is generated (only on identi.ca)</string>
+	<string name="pref_spamreport_on_block_summary">If enabled, after blocking a user a spamreport is generated, that you just need to send.</string>
 	
 	<string name="pref_auto_refresh_interval_default">60</string>
 
@@ -444,5 +444,10 @@ Russian by @dothidden
 	<string name="txt_show_source_summary">Display source, i.e. \"from identi.ca\", under dents</string>
 	<string name="txt_oauth_summary">Experimental and needs testing!</string>
 	<string name="menu_share_and_fav">Repeat + Fav</string>
+	<string name="spam_settings">Spamsettings</string>
+	<string name="spam_group">Spam group</string>
+	<string name="spam_group_summary">Group name, where to send dent to, after Spam report. i.e. \"spamreport\". The ! is not needed to add to string.</string>
+	<string name="spam_user">Spam user</string>
+	<string name="spam_user_summary">Username to add to dent to notify. i.e. \"support\". The @ is not needed to add to string.</string>
 </resources>
 

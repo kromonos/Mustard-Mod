@@ -54,6 +54,8 @@ public class Preferences {
 //	public static final String BOTTOM_BUTTONS="bottom_buttons";
 	
 	public static final String SPAMREPORT_ON_BLOCK="enable_spamreport_on_block";
+	public static final String SPAMREPORT_USER="spam_user";
+	public static final String SPAMREPORT_GROUP="spam_group";
 	
 //	public static final String NEW_REPEAT_ENABLES_KEY="enable_new_repeat";
 	public static final String SHOW_NICKNAME_IN_REPLY_KEY="show_nick_reply";

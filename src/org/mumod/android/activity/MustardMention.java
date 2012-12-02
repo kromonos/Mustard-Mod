@@ -53,12 +53,7 @@ public class MustardMention extends MustardUserBaseActivity {
 				TextView tagInfo = (TextView) findViewById(R.id.mention_info);
 				tagInfo.setText( getString(R.string.menu_mentions) );
 			} else {
-				//					if(mLayoutLegacy)
 				setContentView(R.layout.legacy_user_list);
-				//					else
-				//						setContentView(R.layout.user_list);
-				//					mUser = mStatusNet.getUser(DB_ROW_EXTRA);
-				//					prepareUserView();
 				StatusNetUserFetcher _snuf = new StatusNetUserFetcher();
 				_snuf.execute();
 				return;
@@ -113,10 +108,7 @@ public class MustardMention extends MustardUserBaseActivity {
 
 	@Override
 	protected void onSetListView() {
-//		if(mLayoutLegacy)
-			setContentView(R.layout.legacy_mention_list);
-//		else
-//			setContentView(R.layout.mention_list);
+		setContentView(R.layout.legacy_mention_list);
 	}
 
 	public static void actionHandleTimeline(Context context,String username) {
