@@ -443,5 +443,6 @@ Russian by @dothidden
 	<string name="txt_show_source">Display source in dents</string>
 	<string name="txt_show_source_summary">Display source, i.e. \"from identi.ca\", under dents</string>
 	<string name="txt_oauth_summary">Experimental and needs testing!</string>
+	<string name="menu_share_and_fav">Repeat + Fav</string>
 </resources>
 

@@ -1,7 +1,9 @@
 # Mustard Mod #
+- 2012-12-02
+	* New option: Repeat + Fav will Repeat and Fav the dent with only one click
 - 2012-11-30
 	* graphical adjustments
-	* options for own consumer key, consumer secret, instance
+	* options for own consumer key, consumer secret, instance (experimental)
 	* show/hide source on the bottom of dents option 
 	  (Settings -> Global Settings -> "Display source in dents")
 - 2012-11-26

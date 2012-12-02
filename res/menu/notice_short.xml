@@ -32,6 +32,14 @@
 		android:showAsAction="ifRoom"
         android:icon="@drawable/ic_action_star_10"
 	/>
+
+    <item
+		android:id="@+id/menu_share_and_fav"
+		android:title="@string/menu_share_and_fav"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_star_10"
+	/>
+    
     <item
 		android:id="@+id/menu_attachment"
 		android:title="@string/menu_view_attachment"

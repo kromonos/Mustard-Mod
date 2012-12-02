@@ -301,6 +301,10 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			}
 			
 			switch (item.getItemId()) {
+			case R.id.menu_share_and_fav:
+				doFavorite(mCurrentRowId, favorited);
+				doRepeat(mCurrentRowId);
+				break;
 			case R.id.menu_share:
 				doShare(status);
 				break;
@@ -612,7 +616,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			vh.screen_name.setTextSize( mTextSizeSmall );
 			
 			if (vh.screen_name != null) {
-				v.setBackgroundColor( getResources().getColor(R.color.black) );
+				v.setBackgroundColor( getResources().getColor(android.R.color.transparent) );
 				if (inreplyto > 0) {
 					vh.in_reply_to.setTextSize( mTextSizeSmall );
 					vh.in_reply_to.setText(" " + getString(R.string.in_reply_to) + " " + status.getInReplyToScreenName() );
@@ -621,15 +625,18 @@ public abstract class MustardBaseActivity extends ListActivity implements
 						v.setBackgroundColor( getResources().getColor(android.R.color.holo_blue_dark) );
 					}
 					else {
-						v.setBackgroundColor( getResources().getColor(android.R.color.black) );
+						v.setBackgroundColor( getResources().getColor(android.R.color.transparent) );
 					}
 				}
 				else {
 					vh.in_reply_to.setVisibility( View.GONE );
 				}
 /*				// TODO: Regex check status, if username was called
-				if ( getString(vh.status).matches("@" + sUserName) ) {
+				if ( getString(vh.status).matches(sUserName) ) {
 					v.setBackgroundColor( getResources().getColor(android.R.color.holo_blue_dark) );					
+				}
+				else {
+					v.setBackgroundColor( getResources().getColor(android.R.color.transparent) );
 				}
 */			
 				vh.screen_name.setText( status.getScreenName() );
@@ -2401,7 +2408,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				Log.i(TAG, "Fetching statuses");
 			if (multiple) {
 				mMergedTimeline = true;
-				// Log.i(TAG, "MULTIPLE STATUS FETCHER!!!");
 				mFetcherTask = new MultiStatusesFetcher();
 				mFetcherTask.execute();
 			} else {
