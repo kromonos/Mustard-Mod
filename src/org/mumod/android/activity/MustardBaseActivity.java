@@ -1623,75 +1623,114 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 	private void doRepeat(final long rowid) {
 		dismissQuickAction();
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(getString(R.string.msg_confirm_repeat))
-				.setCancelable(false)
-				.setPositiveButton(getString(R.string.yes),
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface xdialog, int id) {
-								new StatusRepeat().execute(rowid);
-							}
-						})
-				.setNegativeButton(getString(R.string.no),
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface xdialog, int id) {
-								xdialog.cancel();
-							}
-						});
+		Boolean ask_on_repeat = mPreferences.getBoolean("ask_on_repeat", true);
+		if( ask_on_repeat ) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage(getString(R.string.msg_confirm_repeat))
+					.setCancelable(false)
+					.setPositiveButton(getString(R.string.yes),
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface xdialog, int id) {
+									new StatusRepeat().execute(rowid);
+								}
+							})
+					.setNegativeButton(getString(R.string.no),
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface xdialog, int id) {
+									xdialog.cancel();
+								}
+							});
 
-		builder.setIcon(getResources().getDrawable(R.drawable.n_icon_repeat));
+			builder.setIcon(getResources().getDrawable(R.drawable.n_icon_repeat));
 
-		builder.create();
-		builder.show();
+			builder.create();
+			builder.show();
+		}
+		else {
+			new StatusRepeat().execute(rowid);
+		}
 
 	}
 
 	private void doBlock(final long rowid, final boolean block) {
 		dismissQuickAction();
 		final Context context = this;
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setMessage(
-				getString(block ? R.string.msg_confirm_block
-						: R.string.msg_confirm_unblock))
-				.setCancelable(false)
-				.setPositiveButton(getString(R.string.yes),
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface xdialog, int id) {
-								if (block) {
-									new StatusBlock().execute(rowid);
-									MustardDbAdapter dbHelper = getDbAdapter();
-									RowStatus rs = getRowStatus(rowid, dbHelper);
-									StatusNet sn = getStatusNetFromRowStatus(
-											rs, dbHelper);
-									if (mPreferences.getBoolean(
-											Preferences.SPAMREPORT_ON_BLOCK,
-											false)
-											&& sn.getAccount().getInstance()
-													.endsWith("identi.ca")) {
+		
+		Boolean ask_on_block = mPreferences.getBoolean("ask_on_block", true);
+		if( ask_on_block ) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage(
+					getString(block ? R.string.msg_confirm_block
+							: R.string.msg_confirm_unblock))
+					.setCancelable(false)
+					.setPositiveButton(getString(R.string.yes),
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface xdialog, int id) {
+									if (block) {
+										new StatusBlock().execute(rowid);
+										MustardDbAdapter dbHelper = getDbAdapter();
+										RowStatus rs = getRowStatus(rowid, dbHelper);
+										StatusNet sn = getStatusNetFromRowStatus(
+												rs, dbHelper);
+										if (mPreferences.getBoolean(
+												Preferences.SPAMREPORT_ON_BLOCK,
+												false)
+												&& sn.getAccount().getInstance()
+														.endsWith("identi.ca")) {
 
-										String SpamGroup = mPreferences.getString("spam_group", "");
-										String SpamUser = mPreferences.getString("spam_user", "");
-										MustardUpdate.actionSpamReport(context,
-												mHandler, rs.getScreenName(),
-												rs.getUserId(),
-												SpamUser,
-												SpamGroup
-												);
+											String SpamGroup = mPreferences.getString("spam_group", "");
+											String SpamUser = mPreferences.getString("spam_user", "");
+											MustardUpdate.actionSpamReport(context,
+													mHandler, rs.getScreenName(),
+													rs.getUserId(),
+													SpamUser,
+													SpamGroup
+													);
+										}
+										dbHelper.close();
+									} else {
+										new StatusUnblock().execute(rowid);
 									}
-									dbHelper.close();
-								} else {
-									new StatusUnblock().execute(rowid);
 								}
-							}
-						})
-				.setNegativeButton(getString(R.string.no),
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface xdialog, int id) {
-								xdialog.cancel();
-							}
-						});
-		builder.create();
-		builder.show();
+							})
+					.setNegativeButton(getString(R.string.no),
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface xdialog, int id) {
+									xdialog.cancel();
+								}
+							});
+			builder.create();
+			builder.show();			
+		}
+		else {
+			if (block) {
+				new StatusBlock().execute(rowid);
+				MustardDbAdapter dbHelper = getDbAdapter();
+				RowStatus rs = getRowStatus(rowid, dbHelper);
+				StatusNet sn = getStatusNetFromRowStatus(
+						rs, dbHelper);
+				if (mPreferences.getBoolean(
+						Preferences.SPAMREPORT_ON_BLOCK,
+						false)
+						&& sn.getAccount().getInstance()
+								.endsWith("identi.ca")) {
+
+					String SpamGroup = mPreferences.getString("spam_group", "");
+					String SpamUser = mPreferences.getString("spam_user", "");
+					MustardUpdate.actionSpamReport(context,
+							mHandler, rs.getScreenName(),
+							rs.getUserId(),
+							SpamUser,
+							SpamGroup
+							);
+				}
+				dbHelper.close();
+			} else {
+				new StatusUnblock().execute(rowid);
+			}
+		}
+		
+
 	}
 
 	private void getFriends() {

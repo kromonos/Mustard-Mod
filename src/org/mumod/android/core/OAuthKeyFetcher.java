@@ -36,11 +36,13 @@ import org.mumod.util.HttpManager;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 public class OAuthKeyFetcher {
 
 	private SharedPreferences mSharedPreferences;
-	
+    private static final String TAG = "mumod";
+    
 	public int execute(Context context,MustardDbAdapter dbHelper, URL url) throws Exception {
 		String ownInstance = mSharedPreferences.getString("ownInstance", "");
 		String ownConsumerSecret = mSharedPreferences.getString("ownConsumerSecret", "");
@@ -58,8 +60,19 @@ public class OAuthKeyFetcher {
 		String host = url.getHost();
 		HttpManager mHttpManager = new HttpManager(context,host);
 		ArrayList<OAuthInstance> oauths = new ArrayList<OAuthInstance>();
-		try {
 
+		try {
+			if( !ownInstance.equals("") && !ownConsumerSecret.equals("") && !ownConsumerKey.equals("") ) {
+				OAuthInstance oi= new OAuthInstance();
+				oi.instance = ownInstance;
+				oi.key = ownConsumerKey;
+				oi.secret = ownConsumerSecret;
+				oauths.add(oi);
+			}
+			else {
+				Log.v(TAG, "No oauth key defined in config");
+			}
+			
 			JSONObject o = mHttpManager.getJsonObject(url.toExternalForm());
 			JSONArray keys = o.getJSONArray("keys");
 			if (keys != null) {
@@ -72,19 +85,12 @@ public class OAuthKeyFetcher {
 					oauths.add(oi);
 				}
 			}
-			if( !ownInstance.equals("") && !ownConsumerSecret.equals("") && !ownConsumerKey.equals("") ) {
-				OAuthInstance oi= new OAuthInstance();
-				oi.instance = ownInstance;
-				oi.key = ownConsumerKey;
-				oi.secret = ownConsumerSecret;
-				oauths.add(oi);
-			}
-		} catch(JSONException e) {
-			
-		} catch(Exception e) {
-			
 		} 
-		if (oauths.size()==0) {
+		catch(JSONException e) {} 
+		catch(Exception e) {}
+		Log.v(TAG, "OAuths: " + oauths.size());
+		
+		if (oauths.size() == 0) {
 			return 0;
 		}
 		OAuthLoader om = new OAuthLoader(dbHelper);

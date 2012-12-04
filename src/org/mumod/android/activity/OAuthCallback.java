@@ -106,20 +106,17 @@ public class OAuthCallback extends Activity {
 					// <<-- End test
 				} else {
 					if(!requestToken.equals(requestTokenSaved)) {
-//						Log.e("Mustard", "savedToken: " + requestTokenSaved + " != requestToken: " + requestToken);
 						new AlertDialog.Builder(OAuthCallback.this)
 						.setTitle(getString(R.string.error))
 						.setMessage(getString(R.string.token_mismatch))
 						.setNeutralButton(getString(R.string.close), null).show();
 						resetSharedProperties(mSharedPreferences);
 						return;
-//					} else {
-//						Log.e("Mustard", "savedToken: " + requestTokenSaved + " == requestToken: " + requestToken);
 					}
 				}
 			}
 
-			mSURL=mSharedPreferences.getString("oauth_url","");
+			mSURL = mSharedPreferences.getString("oauth_url","");
 
 			OAuthManager oauthManager = OAuthManager.getOAuthManager(this);
 

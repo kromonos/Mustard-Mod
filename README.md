@@ -1,4 +1,6 @@
 # Mustard Mod #
+- 2012-12-04
+	* New options: Ask for block a user, ask for repeat a dent
 - 2012-12-02
 	* New spam report options
 	* New option: Repeat + Fav will Repeat and Fav the dent with only one click

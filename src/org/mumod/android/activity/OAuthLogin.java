@@ -76,7 +76,7 @@ public class OAuthLogin extends Activity {
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.oauthfirststep);
-		//setTitle(getString(R.string.app_name)+" - " + getString(R.string.lbl_create_account));
+		setTitle(getString(R.string.lbl_create_account));
 		mDbHelper = new MustardDbAdapter(this);
 		mDbHelper.open();
 		mInstanceEdit = (EditText) findViewById(R.id.edit_instance);
@@ -114,9 +114,6 @@ public class OAuthLogin extends Activity {
 	
 	public void doOAuthLogin() {
 		try {
-			// I force a keys download.. 
-//			OAuthKeyFetcher oaf = new OAuthKeyFetcher();
-//			oaf.execute(this, mDbHelper, null);
 			requestToken();
 		} catch (MustardOAuthException e) {
 			new AlertDialog.Builder(OAuthLogin.this)

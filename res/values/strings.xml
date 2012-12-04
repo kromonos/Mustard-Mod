@@ -449,5 +449,8 @@ Russian by @dothidden
 	<string name="spam_group_summary">Group name, where to send dent to, after Spam report. i.e. \"spamreport\". The ! is not needed to add to string.</string>
 	<string name="spam_user">Spam user</string>
 	<string name="spam_user_summary">Username to add to dent to notify. i.e. \"support\". The @ is not needed to add to string.</string>
+	<string name="pc_ask_on">Ask on</string>
+	<string name="ask_on_repeat">Repeat dent</string>
+	<string name="ask_on_block">Block a user</string>
 </resources>
 
