@@ -879,7 +879,13 @@ public class MustardUpdate extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    MenuInflater inflater = getMenuInflater();
 	    inflater.inflate(R.menu.compose, menu);
-	    
+
+	    String urlShortener = mPreferences.getString("url_shortener", "");
+	    Log.i( TAG, "URL Shortener: " + urlShortener );
+		if( urlShortener.equalsIgnoreCase( getString(R.string.disabled) ) ) {
+	    	menu.removeItem( R.id.shorturl );
+		}
+		
 	    return true;
 	}
 	

@@ -4,6 +4,7 @@
 	* Changed font from Roboto-Regular to Roboto-Light
 	* Changed default font size to normal instead of small
 	* Fixed german translation
+	* Option to "disable" URL shortener
 - 2012-12-06
 	* New font sizes
 - 2012-12-04

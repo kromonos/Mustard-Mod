@@ -55,6 +55,7 @@
 	</string-array>
 
 	<string-array name="urlshortener">
+	    <item>@string/disabled</item>
 		<item>b1t.it</item>
 		<item>ur1.ca</item>
 		<item>nd.gd</item>

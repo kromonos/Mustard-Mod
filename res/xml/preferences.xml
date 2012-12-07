@@ -62,7 +62,7 @@
 
 		<ListPreference 
 		    android:key="url_shortener"
-			android:defaultValue="b1t.it"
+			android:defaultValue="@string/disabled"
 			android:title="@string/pref_url_shortener_title"
 			android:summary="@string/pref_url_shortener_summary"
 			android:entries="@array/urlshortener"

@@ -14,15 +14,16 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:layout_marginTop="10dip"
-	        android:textSize="14sp"
+	        android:textSize="12dp"
 	        android:text="@string/send_from_account"
 		    />
 
 		 <Spinner
 		        android:id="@+id/account_spinner"
-		        android:layout_width="fill_parent"
+		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:drawSelectorOnTop="true"
+		        android:textSize="12dp"
 		        android:prompt="@string/menu_account"
 		    />
 		    

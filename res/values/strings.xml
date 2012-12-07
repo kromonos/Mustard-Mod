@@ -30,6 +30,7 @@
     <string name="status">What\'s up?</string>
     <string name="update">Send</string>
     <string name="upload">Upload</string>
+    <string name="disabled">Disabled</string>
     
 
     <string name="enable_update_location">Attach location</string>
@@ -349,7 +350,7 @@ Please wait...
     <string name="pref_show_context_summary">Always show context link inline</string>
 
 	<string name="pref_url_shortener_title">URL shortener</string>
-    <string name="pref_url_shortener_summary">Choose the URL shortener</string>
+    <string name="pref_url_shortener_summary">Choose the URL shortener. Only in use, if you click onto short url on creating a dent</string>
 	<string name="url_shortener">URL shortener</string>
 
     <string name="new_notices_updates">Mustard mentions</string>
