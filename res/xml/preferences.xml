@@ -31,7 +31,13 @@
 			android:defaultValue="true"
 			android:title="@string/pref_show_nick_reply_title"
 			android:summary="@string/pref_show_nick_reply_summary" />
-				
+
+		<CheckBoxPreference android:key="always_reply_all"
+			android:defaultValue="false"
+			android:dependency="show_nick_reply"
+			android:title="@string/pref_always_reply_all"
+			android:summary="@string/pref_always_reply_all_summary" />
+						
 		<CheckBoxPreference android:key="enable_refresh_on_post"
 			android:defaultValue="false"
 			android:title="@string/pref_refresh_after_post_title"

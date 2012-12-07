@@ -74,12 +74,14 @@ public class DirectMessageList extends ListActivity implements GimmeMoreListView
 			fontSize=Integer.parseInt(sFontSize);
 		} catch (NumberFormatException e) {
 			// Not sure but got a cast exception..
-			if(sFontSize.equals(getString(R.string.small))) {
-				fontSize=0;
+			if (sFontSize.equals(getString(R.string.small))) {
+				fontSize = 0;
 			} else if (sFontSize.equals(getString(R.string.medium))) {
-				fontSize=1;
+				fontSize = 1;
+			} else if (sFontSize.equals(getString(R.string.large))) {
+				fontSize = 2;
 			} else {
-				fontSize=2;
+				fontSize = 3;
 			}
 		}
 
@@ -97,6 +99,10 @@ public class DirectMessageList extends ListActivity implements GimmeMoreListView
 			mTextSizeNormal=16;
 			mTextSizeSmall=14;
 			break;
+		case 3:
+			mTextSizeNormal = 18;
+			mTextSizeSmall = 16;
+			break;			
 		}
 
 		mLayoutLegacy = 

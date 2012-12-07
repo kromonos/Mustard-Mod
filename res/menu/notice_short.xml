@@ -8,6 +8,13 @@
         android:icon="@drawable/ic_action_goleft"
 	/>
     <item
+		android:id="@+id/menu_reply_all"
+		android:title="@string/menu_reply_all"
+		android:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_dialog"
+	/>
+    
+    <item
 		android:id="@+id/menu_repeat"
 		android:title="@string/menu_repeat"
 		android:showAsAction="ifRoom"

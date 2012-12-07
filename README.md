@@ -1,4 +1,8 @@
 # Mustard Mod #
+- 2012-12-07
+	* Implemented "Reply All" option
+- 2012-12-06
+	* New font sizes
 - 2012-12-04
 	* New options: Ask for block a user, ask for repeat a dent
 - 2012-12-02

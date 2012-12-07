@@ -29,6 +29,8 @@ import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.mumod.android.Account;
 import org.mumod.android.MustardApplication;
@@ -87,7 +89,9 @@ import android.widget.Toast;
 public class MustardUpdate extends Activity {
 
 	private final String TAG = "MustardUpdate";
-
+	private static String AT_SIGNS_CHARS = "@\uFF20";
+	public static final Pattern AT_SIGNS = Pattern.compile("[" + AT_SIGNS_CHARS + "]");
+	
 	public static final String KEY_ACCOUNT_ID = "_account_id";
 
 	private static final int MSG_REFRESH = 5;
@@ -118,6 +122,7 @@ public class MustardUpdate extends Activity {
 	private String mErrorUpdateDescription = "";
 	protected static SharedPreferences mPreferences = null;
 	private MustardApplication mMustardApplication ;
+	private static boolean mReplyAll;
 
 	//	private long mSenderAccountId = -1;
 	//	private int mTextLimit = 0;
@@ -158,7 +163,7 @@ public class MustardUpdate extends Activity {
 			//			mMultiAccount=false;
 		} else if (mRowId != null) {
 			mStatusType = extras.getInt(Preferences.STATUS_TYPE);
-//			Log.i(TAG,"REPLY/REDENT: " + mStatusType + " of rowid: " + mRowId);
+			Log.i(TAG,"REPLY/REDENT: " + mStatusType + " of rowid: " + mRowId);
 			Cursor dent = mDbHelper.fetchStatus(mRowId);
 			if (dent != null && dent.getCount()>0) {
 				try {
@@ -167,20 +172,40 @@ public class MustardUpdate extends Activity {
 					onSetAccount(dent.getLong(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_ACCOUNT_ID)));
 
 					switch(mStatusType) {
-					case Preferences.STATUS_TYPE_REDENT:
-						text ="\u267B @"+dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_SCREEN_NAME));
-						text += " " + dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_STATUS));
-						text = Html.fromHtml(text).toString();
-						break;
-					case Preferences.STATUS_TYPE_REPLY:
-						boolean shownick = mPreferences.getBoolean(Preferences.SHOW_NICKNAME_IN_REPLY_KEY, true);
-						String mentionnick = dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_SCREEN_NAME));
-						if(shownick) {
-							text="@"+mentionnick+" ";
-						} else {
-							((TextView) findViewById(R.id.status_text)).setText("Reply to @"+mentionnick);
-						}
-						break;
+						case Preferences.STATUS_TYPE_REDENT:
+							text ="\u267B @"+dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_SCREEN_NAME));
+							text += " " + dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_STATUS));
+							text = Html.fromHtml(text).toString();
+							break;
+						case Preferences.STATUS_TYPE_REPLY:
+							boolean shownick = mPreferences.getBoolean(Preferences.SHOW_NICKNAME_IN_REPLY_KEY, true);
+							boolean replyall = mPreferences.getBoolean("always_reply_all", false);
+							String mentionnick = dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_SCREEN_NAME));
+							if(shownick) {
+								text="@"+mentionnick+" ";
+							} else {
+								((TextView) findViewById(R.id.status_text)).setText("Reply to @"+mentionnick);
+							}
+							Log.i(TAG, "Reply all: " + replyall + ", mReplyAll: " + mReplyAll);
+							if( replyall || mReplyAll ) {
+								String status = " " + dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_STATUS));
+								status = Html.fromHtml(status).toString();
+								String sUserName = org.mumod.android.MustardApplication.sUserName;
+								
+								Pattern pattern = Pattern.compile("([^a-z0-9_!#$%&*" + AT_SIGNS_CHARS + "]|^|RT:?)(" + AT_SIGNS + "+)([a-z0-9_]{1,20})(/[a-z][a-z0-9_\\-]{0,24})?", Pattern.CASE_INSENSITIVE);
+								CharSequence inputStr = status;
+								Matcher matcher = pattern.matcher(inputStr);
+								while( matcher.find() ) {
+									int start = matcher.start();
+									int end = matcher.end();
+									String nick = inputStr.subSequence(start, end).toString();
+									boolean sameNick = nick.trim().equalsIgnoreCase("@" + mentionnick.trim());
+									if( !sameNick && !nick.trim().equalsIgnoreCase("@" + sUserName.trim()) ) {
+										text = text + nick + " ";
+									}
+								}
+							}
+							break;
 					}
 				} catch (Exception e) {
 					if (MustardApplication.DEBUG) Log.e(TAG,e.toString());
@@ -896,8 +921,9 @@ public class MustardUpdate extends Activity {
 		return i;
 	}
 
-	public static void actionReply(Context context,Handler handler,long rowid) {
+	public static void actionReply(Context context,Handler handler,long rowid, boolean replyall) {
 		mHandler=handler;
+		mReplyAll = replyall;
 		Intent i = new Intent(context, MustardUpdate.class);
 		i.putExtra(MustardDbAdapter.KEY_ROWID, rowid);
 		i.putExtra(Preferences.STATUS_TYPE, Preferences.STATUS_TYPE_REPLY);

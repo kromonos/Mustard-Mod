@@ -314,6 +314,9 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			case R.id.menu_reply:
 				doReply(mCurrentRowId);
 				break;
+			case R.id.menu_reply_all:
+				doReplyAll(mCurrentRowId);
+				break;
 			case R.id.menu_forward:
 				doForward(mCurrentRowId);
 				break;
@@ -782,10 +785,15 @@ public abstract class MustardBaseActivity extends ListActivity implements
 	}
 
 	private void doReply(long id) {
-		MustardUpdate.actionReply(this, mHandler, id);
+		MustardUpdate.actionReply(this, mHandler, id, false);
 		dismissQuickAction();
 	}
 
+	private void doReplyAll(long id) {
+		MustardUpdate.actionReply(this, mHandler, id, true);
+		dismissQuickAction();
+	}
+	
 	private void doForward(long id) {
 		MustardUpdate.actionForward(this, mHandler, id);
 		dismissQuickAction();
@@ -1057,10 +1065,16 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			fontSize = Integer.parseInt(sFontSize);
 		} catch (NumberFormatException e) {
 			// Not sure but got a cast exception..
-			if (sFontSize.equals(getString(R.string.small))) {
+			if (sFontSize.equals(getString(R.string.extrasmall))) {
 				fontSize = 0;
-			} else if (sFontSize.equals(getString(R.string.medium))) {
+			} else if (sFontSize.equals(getString(R.string.small))) {
 				fontSize = 1;
+			} else if (sFontSize.equals(getString(R.string.medium))) {
+				fontSize = 2;
+			} else if (sFontSize.equals(getString(R.string.large))) {
+				fontSize = 3;
+			} else if (sFontSize.equals(getString(R.string.extraLarge))) {
+				fontSize = 4;
 			} else {
 				fontSize = 2;
 			}
@@ -1068,16 +1082,24 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 		switch (fontSize) {
 		case 0:
+			mTextSizeNormal = 10;
+			mTextSizeSmall = 8;
+			break;
+		case 1:
 			mTextSizeNormal = 12;
 			mTextSizeSmall = 10;
 			break;
-		case 1:
+		case 2:
 			mTextSizeNormal = 14;
 			mTextSizeSmall = 12;
 			break;
-		case 2:
+		case 3:
 			mTextSizeNormal = 16;
 			mTextSizeSmall = 14;
+			break;
+		case 4:
+			mTextSizeNormal = 18;
+			mTextSizeSmall = 16;
 			break;
 		}
 

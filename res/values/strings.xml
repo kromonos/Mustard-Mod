@@ -174,6 +174,7 @@ Please wait and retry."
     <string name="menu_delete">Delete</string>    
     <string name="menu_forward">Forward</string>
     <string name="menu_reply">Reply</string>
+    <string name="menu_reply_all">Reply all</string>
     <string name="menu_repeat">Repeat</string>
     <string name="menu_sub">Subscribe</string>
     <string name="menu_unsub">Unsubscribe</string>
@@ -311,6 +312,8 @@ Please wait...
     <string name="pref_new_repeat_summary">Enable new repeat API</string>
     <string name="pref_show_nick_reply_title">Include nickname in reply?</string>
     <string name="pref_show_nick_reply_summary">Include author nickname in replies</string>
+    <string name="pref_always_reply_all">Always reply all?</string>
+    <string name="pref_always_reply_all_summary">Include all nicknames in replies</string>
 	<string name="pref_refresh_after_post_title">Refresh after post?</string>
 	<string name="pref_refresh_after_post_summary">If enabled, timeline will be refreshed after a post</string>
 	<string name="pref_auto_refresh_title">Auto refresh timeline?</string>
@@ -375,10 +378,12 @@ Please wait...
 	<string name="lbl_add">Add</string>
 	
 	<string name="font_size">Font size</string>
+	<string name="extrasmall">Extra small</string>
 	<string name="small">Small</string>
-	<string name="medium">Medium</string>
+	<string name="medium">Normal</string>
 	<string name="large">Large</string>
-	
+	<string name="extraLarge">Extra large</string>
+			
 	<string name="from">from</string>
 	<string name="show_conversation">in context</string>
 	

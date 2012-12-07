@@ -31,15 +31,19 @@
 	</string-array>
 	
 	<string-array name="fontsizes">
-		<item>@string/small</item>
+		<item>@string/extrasmall</item>
+   		<item>@string/small</item>
 		<item>@string/medium</item>
 		<item>@string/large</item>
+		<item>@string/extraLarge</item>
 	</string-array>
 	
 	<string-array name="fontsizesval">
 		<item>0</item>
 		<item>1</item>
 		<item>2</item>
+		<item>3</item>
+		<item>4</item>
 	</string-array>
 	
 	<string-array name="geo_fuzzy_position">
