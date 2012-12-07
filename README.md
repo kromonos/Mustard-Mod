@@ -1,6 +1,8 @@
 # Mustard Mod #
 - 2012-12-07
 	* Implemented "Reply All" option
+	* Changed font from Roboto-Regular to Roboto-Light
+	* Changed default font size to normal instead of small
 - 2012-12-06
 	* New font sizes
 - 2012-12-04

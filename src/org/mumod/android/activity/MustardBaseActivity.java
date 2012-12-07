@@ -244,7 +244,11 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				mDbHelper.close();
 			}
 						
-
+			boolean replyall = mPreferences.getBoolean("always_reply_all", false);
+			if( replyall ) {
+				menu.removeItem( R.id.menu_reply_all );
+			}
+			
 			MenuItem fav = menu.findItem(R.id.menu_favunfav);
 			if(favorited) {
 				fav.setIcon(R.drawable.ic_action_star_0);
