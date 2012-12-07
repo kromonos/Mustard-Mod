@@ -317,9 +317,11 @@ Mitteilung wird gesendet …
 	<string name="lbl_add">Hinzufügen</string> 
 	
 	<string name="font_size">Schriftgröße</string> 
-	<string name="small">Klein</string> 
-	<string name="medium">Mittel</string> 
-	<string name="large">Groß</string> 
+	<string name="extrasmall">Extra klein</string>
+	<string name="small">Klein</string>
+	<string name="medium">Normal</string>
+	<string name="large">Groß</string>
+	<string name="extraLarge">Extra groß</string>
 	
 	<string name="from">via</string>
 	<string name="show_conversation">im Zusammenhang</string>
@@ -332,16 +334,16 @@ Mitteilung wird gesendet …
 	<string name="theme_wb">Black on White</string>
 	
 	<!-- Dates -->
-	<string name="few_seconds">vor ein paar Sekunden</string>
-	<string name="one_minute_ago">"vor einer Minute"</string>
+	<string name="few_seconds">gerade</string>
+	<string name="one_minute_ago">vor 1 Minute</string>
 	<string name="minutes_ago">"vor %1$s Minuten"</string>
-	<string name="one_hour_ago">"vor einer Stunde"</string>
+	<string name="one_hour_ago">"vor 1 Stunde"</string>
 	<string name="hours_ago">"vor %1$s Stunden"</string>
-	<string name="one_day_ago">"vor einem Tag"</string>
+	<string name="one_day_ago">"vor 1 Tag"</string>
 	<string name="days_ago">"vor %1$s Tagen"</string>
-	<string name="one_month_ago">"vor einem Monat"</string>
-	<string name="months_ago">"vor %1$s Monat"</string>
-	<string name="one_year_ago">"vor einem Jahr"</string>	
+	<string name="one_month_ago">"vor 1 Monat"</string>
+	<string name="months_ago">"vor %1$s Monaten"</string>
+	<string name="one_year_ago">"vor 1 Jahr"</string>	
 
 	<!-- Errors -->
 	<string name="noAuth_URL">Keine AuthURL gefunden. Bitte später versuchen.</string>
@@ -351,7 +353,7 @@ Mitteilung wird gesendet …
 	<string name="emptyKeys">Keine App Keys erhalten.</string>
 		
 		
-	<string name="in_reply_to">"als Antwort an"</string>		
+	<string name="in_reply_to">»</string>		
 	<string name="about_message">"
 Mustard {MOD} %s ist ein Holo Mod der beliebten Mikroblogging-App Mustard 
 für StatusNet und Twitter, entwickelt von @macno.
@@ -373,7 +375,7 @@ Graphics:
 @0x6d686b
 
 Übersetzungen:
-Deutsch von @eike, @jancborchardt
+Deutsch von @eike, @jancborchardt, @kromonos
 Italienisch von @macno
 Französisch von @stemp, @jpec
 Portugiesisch von @apf, @BUGabundo

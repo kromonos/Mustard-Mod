@@ -3,6 +3,7 @@
 	* Implemented "Reply All" option
 	* Changed font from Roboto-Regular to Roboto-Light
 	* Changed default font size to normal instead of small
+	* Fixed german translation
 - 2012-12-06
 	* New font sizes
 - 2012-12-04
