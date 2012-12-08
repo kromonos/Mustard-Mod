@@ -313,8 +313,8 @@ Please wait...
     <string name="pref_new_repeat_summary">Enable new repeat API</string>
     <string name="pref_show_nick_reply_title">Include nickname in reply?</string>
     <string name="pref_show_nick_reply_summary">Include author nickname in replies</string>
-    <string name="pref_show_nick_reply_summary_enabled">Enable to add authors nickname to reply.</string>
-    <string name="pref_show_nick_reply_summary_disabled">Authors nickname will be added to reply. If you\'re using twitterbridge plugin, authors username will still be added to dents (But only, if they come from Twitter).</string>
+    <string name="pref_show_nick_reply_summary_enabled">Authors nickname will be added to reply.</string>
+    <string name="pref_show_nick_reply_summary_disabled">Authors nickname will not be added to reply. If you\'re using twitterbridge plugin, authors username will still be added to dents (But only, if they come from Twitter).</string>
     
     <string name="pref_always_reply_all">Always reply all?</string>
     <string name="pref_always_reply_all_summary">Include all nicknames in replies</string>
