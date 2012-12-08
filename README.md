@@ -1,5 +1,6 @@
 # Mustard Mod #
 - 2012-12-08
+	* Simple toastie fix
 	* Finished todo in MustardBaseActivity, for highlighting dents where username is called
 	* Added translation option for spam report.
 	* Fixed a bug in spam reporting option

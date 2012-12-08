@@ -186,7 +186,7 @@ public class MustardUpdate extends Activity {
 							boolean fromTwitter = source.equalsIgnoreCase("twitter");
 							String mentionnick = dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_SCREEN_NAME));
 
-							if ( fromTwitter ) {
+							if ( !shownick && fromTwitter ) {
 								Toast.makeText(this, getString(R.string.fromTwitter, source), Toast.LENGTH_LONG).show();
 							}
 							
