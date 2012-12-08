@@ -30,7 +30,7 @@
 		<CheckBoxPreference android:key="show_nick_reply"
 			android:defaultValue="true"
 			android:title="@string/pref_show_nick_reply_title"
-			android:summary="@string/pref_show_nick_reply_summary" />
+			android:summary="@string/pref_show_nick_reply_summary" android:summaryOn="@string/pref_show_nick_reply_summary_enabled" android:summaryOff="@string/pref_show_nick_reply_summary_disabled"/>
 
 		<CheckBoxPreference android:key="always_reply_all"
 			android:defaultValue="false"

@@ -56,6 +56,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
@@ -181,30 +182,37 @@ public class MustardUpdate extends Activity {
 						case Preferences.STATUS_TYPE_REPLY:
 							boolean shownick = mPreferences.getBoolean(Preferences.SHOW_NICKNAME_IN_REPLY_KEY, true);
 							boolean replyall = mPreferences.getBoolean("always_reply_all", false);
+							String source = " " + dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_SOURCE));
+							source = Html.fromHtml(source).toString();
+							boolean fromTwitter = source.equalsIgnoreCase("twitter");
 							String mentionnick = dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_SCREEN_NAME));
-							if(shownick) {
-								text="@"+mentionnick+" ";
-							} else {
-								((TextView) findViewById(R.id.status_text)).setText("Reply to @"+mentionnick);
+
+							if ( fromTwitter ) {
+								Toast.makeText(this, getString(R.string.fromTwitter, source), Toast.LENGTH_LONG).show();
 							}
-							Log.i(TAG, "Reply all: " + replyall + ", mReplyAll: " + mReplyAll);
-							if( replyall || mReplyAll ) {
-								String status = " " + dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_STATUS));
-								status = Html.fromHtml(status).toString();
-								String sUserName = org.mumod.android.MustardApplication.sUserName;
-								
-								Pattern pattern = Pattern.compile("([^a-z0-9_!#$%&*" + AT_SIGNS_CHARS + "]|^|RT:?)(" + AT_SIGNS + "+)([a-z0-9_]{1,20})(/[a-z][a-z0-9_\\-]{0,24})?", Pattern.CASE_INSENSITIVE);
-								CharSequence inputStr = status;
-								Matcher matcher = pattern.matcher(inputStr);
-								while( matcher.find() ) {
-									int start = matcher.start();
-									int end = matcher.end();
-									String nick = inputStr.subSequence(start, end).toString();
-									boolean sameNick = nick.trim().equalsIgnoreCase("@" + mentionnick.trim());
-									if( !sameNick && !nick.trim().equalsIgnoreCase("@" + sUserName.trim()) ) {
-										text = text + nick + " ";
+							
+							if( shownick || fromTwitter ) {
+								text="@"+mentionnick+" ";
+								if( replyall || mReplyAll ) {
+									String status = " " + dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_STATUS));
+									status = Html.fromHtml(status).toString();
+									String sUserName = org.mumod.android.MustardApplication.sUserName;
+									
+									Pattern pattern = Pattern.compile("([^a-z0-9_!#$%&*" + AT_SIGNS_CHARS + "]|^|RT:?)(" + AT_SIGNS + "+)([a-z0-9_]{1,20})(/[a-z][a-z0-9_\\-]{0,24})?", Pattern.CASE_INSENSITIVE);
+									CharSequence inputStr = status;
+									Matcher matcher = pattern.matcher(inputStr);
+									while( matcher.find() ) {
+										int start = matcher.start();
+										int end = matcher.end();
+										String nick = inputStr.subSequence(start, end).toString();
+										boolean sameNick = nick.trim().equalsIgnoreCase("@" + mentionnick.trim());
+										if( !sameNick && !nick.trim().equalsIgnoreCase("@" + sUserName.trim()) ) {
+											text = text + nick + " ";
+										}
 									}
 								}
+							} else {
+								((TextView) findViewById(R.id.status_text)).setText("Reply to @"+mentionnick);
 							}
 							break;
 					}
@@ -966,7 +974,8 @@ public class MustardUpdate extends Activity {
 		else {
 			sUser = "";
 		}
-		i.putExtra(Preferences.STATUS_TEXT, sUser +""+ user + " ID "+userid+" is spamming" + sGroup );
+		String spamDent = context.getString(R.string.spamReportDent, sUser, user, userid, sGroup);
+		i.putExtra(Preferences.STATUS_TEXT, spamDent);		
 		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		context.startActivity(i);
 	}
