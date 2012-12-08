@@ -174,7 +174,7 @@ public class MustardUpdate extends Activity {
 
 					switch(mStatusType) {
 						case Preferences.STATUS_TYPE_REDENT:
-							text ="\u267B @"+dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_SCREEN_NAME));
+							text = " " + getString(R.string.redentString) + " @"+dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_SCREEN_NAME));
 							text += " " + dent.getString(dent.getColumnIndexOrThrow(MustardDbAdapter.KEY_STATUS));
 							text = Html.fromHtml(text).toString();
 							break;
