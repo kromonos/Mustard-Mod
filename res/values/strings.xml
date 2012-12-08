@@ -453,15 +453,27 @@ Russian by @dothidden
 	<string name="txt_show_source_summary">Display source, i.e. \"from identi.ca\", under dents</string>
 	<string name="txt_oauth_summary">Experimental and needs testing!</string>
 	<string name="menu_share_and_fav">Repeat + Fav</string>
+	
+	<!-- Spam report settings -->
 	<string name="spam_settings">Spamsettings</string>
 	<string name="spam_group">Spam group</string>
 	<string name="spam_group_summary">Group name, where to send dent to, after Spam report. i.e. \"spamreport\". The ! is not needed to add to string.</string>
 	<string name="spam_user">Spam user</string>
 	<string name="spam_user_summary">Username to add to dent to notify. i.e. \"support\". The @ is not needed to add to string.</string>
+	<string name="spam_showid">Include spammers ID?</string>
+	<string name="spam_showid_summary">Add the user id of the spammer to the dent. Only works correct, if user id spamreport group/user is on same StatusNet instance as the spammer, i.e. at identi.ca</string>
+	<string name="spamReportDent">"%1$s %2$s %3$s is spamming %4$s"</string>
+	<string name="spamDentIDString">with ID %s</string>
+	
 	<string name="pc_ask_on">Ask on</string>
 	<string name="ask_on_repeat">Repeat dent</string>
 	<string name="ask_on_block">Block a user</string>
 	<string name="fromTwitter">"Source on StatusNet Node is %s. Username was added automatically."</string>
-	<string name="spamReportDent">"%1$s %2$s with ID %3$s is spamming %4$s"</string>
+
+	<!-- Pull to refresh -->
+    <string name="pull_to_refresh_pull_label">Pull to refresh...</string>
+    <string name="pull_to_refresh_release_label">Release to refresh...</string>
+    <string name="pull_to_refresh_refreshing_label">Loading...</string>
+    <string name="pull_to_refresh_tap_label">Tap to refresh...</string>
 </resources>
 

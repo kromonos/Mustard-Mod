@@ -91,6 +91,12 @@
 			android:dependency="enable_spamreport_on_block"
 		    android:summary="@string/spam_user_summary" 
 		    android:title="@string/spam_user"/>
+	    <CheckBoxPreference 
+	        android:key="spam_showid" 
+			android:dependency="enable_spamreport_on_block"
+	        android:defaultValue="false" 
+	        android:title="@string/spam_showid" 
+	        android:summary="@string/spam_showid_summary" />		
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/preferences_geolocation">

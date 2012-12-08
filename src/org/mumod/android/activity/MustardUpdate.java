@@ -954,26 +954,35 @@ public class MustardUpdate extends Activity {
 		context.startActivity(i);
 	}
 	
-	public static void actionSpamReport(Context context,Handler handler,String user, long userid, String SpamUser, String SpamGroup) {
+	public static void actionSpamReport(Context context,Handler handler,String user, long userid, String SpamUser, String SpamGroup, boolean spam_showid) {
 		mHandler=handler;
 		Intent i = new Intent(context, MustardUpdate.class);
 		String sGroup;
 		String sUser;
+		String sSpam;
 		
 		if( !SpamGroup.equals("") ) {
 			sGroup = " !" + SpamGroup;  
 		}
 		else {
-			sGroup = "";
+			sGroup = "".trim();
 		}
 		
 		if( !SpamUser.equals("") ) {
 			sUser = "@" + SpamUser + " ";
 		}
 		else {
-			sUser = "";
+			sUser = "".trim();
 		}
-		String spamDent = context.getString(R.string.spamReportDent, sUser, user, userid, sGroup);
+		
+		if( spam_showid ) {
+			sSpam = context.getString(R.string.spamDentIDString, userid);
+		}
+		else {
+			sSpam = "".trim();
+		}
+ 
+		String spamDent = context.getString(R.string.spamReportDent, sUser, user, sSpam, sGroup);
 		i.putExtra(Preferences.STATUS_TEXT, spamDent);		
 		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		context.startActivity(i);

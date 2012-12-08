@@ -1720,11 +1720,14 @@ public abstract class MustardBaseActivity extends ListActivity implements
 										if( mPreferences.getBoolean(Preferences.SPAMREPORT_ON_BLOCK, false) ) {
 											String SpamGroup = mPreferences.getString("spam_group", "");
 											String SpamUser = mPreferences.getString("spam_user", "");
+											boolean spam_showid = mPreferences.getBoolean("spam_showid", false);
+											
 											MustardUpdate.actionSpamReport(context,
 													mHandler, rs.getScreenName(),
 													rs.getUserId(),
 													SpamUser,
-													SpamGroup
+													SpamGroup,
+													spam_showid
 													);
 										}
 										dbHelper.close();
@@ -1752,11 +1755,14 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				if ( mPreferences.getBoolean(Preferences.SPAMREPORT_ON_BLOCK, false) ) {
 					String SpamGroup = mPreferences.getString("spam_group", "");
 					String SpamUser = mPreferences.getString("spam_user", "");
+					boolean spam_showid = mPreferences.getBoolean("spam_showid", false);
+
 					MustardUpdate.actionSpamReport(context,
 							mHandler, rs.getScreenName(),
 							rs.getUserId(),
 							SpamUser,
-							SpamGroup
+							SpamGroup,
+							spam_showid
 							);
 				}
 				dbHelper.close();

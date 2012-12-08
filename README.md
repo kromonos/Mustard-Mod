@@ -5,6 +5,7 @@
 	* Added translation option for spam report.
 	* Fixed a bug in spam reporting option
 	* Small "fix" in strings
+	* Added option to include/exclude user id of spammer in spamreport
 - 2012-12-07
 	* Implemented "Reply All" option
 	* Changed font from Roboto-Regular to Roboto-Light
