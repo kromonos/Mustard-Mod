@@ -1,4 +1,6 @@
 # Mustard Mod #
+- 2012-12-08
+	* Finished todo in MustardBaseActivity, for highlighting dents where username is called
 - 2012-12-07
 	* Implemented "Reply All" option
 	* Changed font from Roboto-Regular to Roboto-Light

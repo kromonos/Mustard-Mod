@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.mumod.android.Controller;
 import org.mumod.android.MessagingListener;
@@ -94,6 +96,8 @@ import android.widget.Toast;
 
 public abstract class MustardBaseActivity extends ListActivity implements
 		GimmeMoreListView.OnNeedMoreListener {
+	private static String AT_SIGNS_CHARS = "@\uFF20";
+	public static final Pattern AT_SIGNS = Pattern.compile("[" + AT_SIGNS_CHARS + "]");
 	
 	protected String TAG = "MustardBaseActivity";
 
@@ -638,14 +642,29 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				else {
 					vh.in_reply_to.setVisibility( View.GONE );
 				}
-/*				// TODO: Regex check status, if username was called
-				if ( getString(vh.status).matches(sUserName) ) {
-					v.setBackgroundColor( getResources().getColor(android.R.color.holo_blue_dark) );					
+				String sstatus = status.getStatus();
+				if (sstatus.indexOf("<") >= 0)
+					sstatus = sstatus.replaceAll("<", "&lt;");
+				if (sstatus.indexOf(">") >= 0)
+					sstatus = sstatus.replaceAll(">", "&gt;");
+				
+				Pattern pattern = Pattern.compile("([^a-z0-9_!#$%&*" + AT_SIGNS_CHARS + "]|^|RT:?)(" + AT_SIGNS + "+)([a-z0-9_]{1,20})(/[a-z][a-z0-9_\\-]{0,24})?", Pattern.CASE_INSENSITIVE);
+				CharSequence inputStr = Html.fromHtml(sstatus).toString();
+				Matcher matcher = pattern.matcher(inputStr);
+
+				while( matcher.find() ) {
+					int start = matcher.start();
+					int end = matcher.end();
+					String nick = inputStr.subSequence(start, end).toString();
+					boolean sameNick = nick.trim().equalsIgnoreCase("@" + sUserName.trim());
+					Log.i(TAG, "sUserName: " + sUserName + " - nick: " + nick + " - Samenick: " + sameNick);
+					if( sameNick ) {
+						v.setBackgroundColor( getResources().getColor(android.R.color.holo_blue_dark) );
+					}
+					else {
+						v.setBackgroundColor( getResources().getColor(android.R.color.transparent) );
+					}
 				}
-				else {
-					v.setBackgroundColor( getResources().getColor(android.R.color.transparent) );
-				}
-*/			
 				vh.screen_name.setText( status.getScreenName() );
 			}
 			boolean isTwitterStatus = mStatusNet.isTwitterInstance();

@@ -34,7 +34,6 @@
 
 		<CheckBoxPreference android:key="always_reply_all"
 			android:defaultValue="false"
-			android:dependency="show_nick_reply"
 			android:title="@string/pref_always_reply_all"
 			android:summary="@string/pref_always_reply_all_summary" />
 						
@@ -157,13 +156,6 @@
 			android:entries="@array/themes"
 			android:entryValues="@array/themes"
 			android:dialogTitle="@string/theme" android:enabled="false"/>
-			
-		<!-- 
-		<CheckBoxPreference android:key="legacy_layout"
-			android:defaultValue="true"
-			android:title="@string/pref_legacy_layout_title"
-			android:summary="@string/pref_legacy_layout_summary" />
-		 -->
             
 		<ListPreference android:key="font_size"
 			android:defaultValue="2"

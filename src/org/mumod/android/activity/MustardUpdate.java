@@ -38,6 +38,7 @@ import org.mumod.android.MustardDbAdapter;
 import org.mumod.android.Preferences;
 import org.mumod.android.R;
 import org.mumod.android.provider.StatusNet;
+import org.mumod.statusnet.RowStatus;
 import org.mumod.urlshortener.B1tit;
 import org.mumod.urlshortener.Ndgd;
 import org.mumod.urlshortener.Ur1ca;
