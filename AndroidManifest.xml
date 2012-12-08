@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.mumod.android"
     android:installLocation="preferExternal"
-    android:versionCode="163"
+    android:versionCode="164"
     android:versionName="0.4.0.14" >
 
     <uses-sdk

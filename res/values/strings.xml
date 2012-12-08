@@ -462,7 +462,7 @@ Russian by @dothidden
 	<string name="spam_user_summary">Username to add to dent to notify. i.e. \"support\". The @ is not needed to add to string.</string>
 	<string name="spam_showid">Include spammers ID?</string>
 	<string name="spam_showid_summary">Add the user id of the spammer to the dent. Only works correct, if user id spamreport group/user is on same StatusNet instance as the spammer, i.e. at identi.ca</string>
-	<string name="spamReportDent">"%1$s %2$s %3$s is spamming %4$s"</string>
+	<string name="spamReportDent">"%1$s User @%2$s %3$s is spamming! %4$s"</string>
 	<string name="spamDentIDString">with ID %s</string>
 	
 	<string name="pc_ask_on">Ask on</string>
