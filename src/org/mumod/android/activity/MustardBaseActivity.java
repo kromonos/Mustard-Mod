@@ -1717,12 +1717,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 										RowStatus rs = getRowStatus(rowid, dbHelper);
 										StatusNet sn = getStatusNetFromRowStatus(
 												rs, dbHelper);
-										if (mPreferences.getBoolean(
-												Preferences.SPAMREPORT_ON_BLOCK,
-												false)
-												&& sn.getAccount().getInstance()
-														.endsWith("identi.ca")) {
-
+										if( mPreferences.getBoolean(Preferences.SPAMREPORT_ON_BLOCK, false) ) {
 											String SpamGroup = mPreferences.getString("spam_group", "");
 											String SpamUser = mPreferences.getString("spam_user", "");
 											MustardUpdate.actionSpamReport(context,
@@ -1754,12 +1749,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				RowStatus rs = getRowStatus(rowid, dbHelper);
 				StatusNet sn = getStatusNetFromRowStatus(
 						rs, dbHelper);
-				if (mPreferences.getBoolean(
-						Preferences.SPAMREPORT_ON_BLOCK,
-						false)
-						&& sn.getAccount().getInstance()
-								.endsWith("identi.ca")) {
-
+				if ( mPreferences.getBoolean(Preferences.SPAMREPORT_ON_BLOCK, false) ) {
 					String SpamGroup = mPreferences.getString("spam_group", "");
 					String SpamUser = mPreferences.getString("spam_user", "");
 					MustardUpdate.actionSpamReport(context,
