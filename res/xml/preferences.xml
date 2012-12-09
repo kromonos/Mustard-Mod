@@ -57,23 +57,35 @@
 			android:entryValues="@array/check_intervals"
 			android:dialogTitle="@string/pref_check_updates_interval_dialog_title" />
 
-		
-
-		<ListPreference 
-		    android:key="url_shortener"
-			android:defaultValue="@string/disabled"
-			android:title="@string/pref_url_shortener_title"
-			android:summary="@string/pref_url_shortener_summary"
-			android:entries="@array/urlshortener"
-			android:entryValues="@array/urlshortener"
-			android:dialogTitle="@string/url_shortener" />
 		<CheckBoxPreference 
 		    android:disableDependentsState="false" 
 		    android:title="@string/txt_show_source" 
 		    android:key="display_source" 
 		    android:summary="@string/txt_show_source_summary"/>
 	</PreferenceCategory>
-	
+
+	<PreferenceCategory android:title="@string/url_shortener_cat">
+    		<ListPreference 
+			    android:key="url_shortener"
+				android:defaultValue="@string/disabled"
+				android:title="@string/pref_url_shortener_title"
+				android:summary="@string/pref_url_shortener_summary"
+				android:entries="@array/urlshortener"
+				android:entryValues="@array/urlshortener"
+				android:dialogTitle="@string/url_shortener" />
+    		<EditTextPreference 
+    		    android:summary="@string/yourls_url_summary" 
+    		    android:title="@string/yourls_url" 
+    		    android:key="yourls_url"/>
+    		<EditTextPreference 
+    		    android:summary="@string/yourls_api_key_summary"
+    		    urlStr="@string/yourls_api_key" 
+    		    android:title="@string/yourls_api_key" 
+    		    android:key="yourls_api_key" 
+    		    android:dependency="yourls_url"/>
+    		
+	</PreferenceCategory>
+		
 	<PreferenceCategory android:title="@string/spam_settings">
 	    <CheckBoxPreference 
 	        android:key="enable_spamreport_on_block" 

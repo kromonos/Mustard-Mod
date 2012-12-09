@@ -32,10 +32,10 @@ public class Ndgd implements UrlShortener {
 
 	public String doShort(String longUrl, HashMap<String, String> params)
 	throws MustardException {
-		return doShort(longUrl);
+		return doShort(longUrl, "", "");
 	}
 
-	public String doShort(String longUrl) throws MustardException {
+	public String doShort(String longUrl, String urlStr, String yourlsAPIKey) throws MustardException {
 		URL uri = null;
 		try {
 			uri =new URL(lilUrl);

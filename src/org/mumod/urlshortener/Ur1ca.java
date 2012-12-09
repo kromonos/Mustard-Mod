@@ -1,5 +1,7 @@
 package org.mumod.urlshortener;
 
+import org.mumod.util.MustardException;
+
 import android.content.Context;
 
 

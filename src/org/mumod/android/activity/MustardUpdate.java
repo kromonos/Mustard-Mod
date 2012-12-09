@@ -42,6 +42,7 @@ import org.mumod.statusnet.RowStatus;
 import org.mumod.urlshortener.B1tit;
 import org.mumod.urlshortener.Ndgd;
 import org.mumod.urlshortener.Ur1ca;
+import org.mumod.urlshortener.Yourls;
 import org.mumod.urlshortener.UrlShortener;
 import org.mumod.util.AuthException;
 import org.mumod.util.ImageUtil;
@@ -568,6 +569,9 @@ public class MustardUpdate extends Activity {
 
 	private void shortUrl() {
 		String status = mBodyText.getText().toString();
+		String urlStr = mPreferences.getString("yourls_url", "");
+		String yourlsAPIKey = mPreferences.getString("yourls_api_key", "");
+		
 		if (status == null || "".equals(status))
 			return;
 		int pos=0;
@@ -598,19 +602,22 @@ public class MustardUpdate extends Activity {
 				shortener = new B1tit(this);
 			else if (urlShortener.equalsIgnoreCase("nd.gd"))
 				shortener = new Ndgd(this);
+			else if (urlShortener.equalsIgnoreCase("yourls")) {
+				shortener = new Yourls(this);
+			}
 			else
 				shortener = new Ur1ca(this);
-
+			Log.d(TAG, "Shortener: " + urlShortener);
 			String shortUrl = "";
 			try {
-				shortUrl = shortener.doShort(longUrl);
+				shortUrl = shortener.doShort(longUrl, urlStr, yourlsAPIKey);
 			} catch (Exception e) {
 				Toast.makeText(getApplicationContext(), "Can't short the URL",
 						Toast.LENGTH_LONG).show();
-				Log.e(MustardApplication.APPLICATION_NAME, "ShortURL: " + e.getMessage());
-				if (MustardApplication.DEBUG)
-					e.printStackTrace();
+				Log.e( MustardApplication.APPLICATION_NAME, "ShortURL: " + e.getMessage() );
+				e.printStackTrace();
 			}
+			Log.d(TAG, "Short URL: " + shortUrl);
 			if (!shortUrl.equals("")) {
 				if (MustardApplication.DEBUG)
 					Log.d("Mustard", "ShortURL: " + shortUrl);
@@ -822,7 +829,6 @@ public class MustardUpdate extends Activity {
 				long nid = mStatusNet.update(
 						mBodyText.getText().toString(), 
 						String.valueOf(mInReplyTo), lon, lat, mFilename);
-				//				System.out.println(">>>>>>>>>>>>>> Nid: " + nid);
 				if (nid < 0) {
 					mErrorUpdateDescription = getString(R.string.error_generic);
 					return KO;

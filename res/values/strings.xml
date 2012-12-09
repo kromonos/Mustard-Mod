@@ -470,12 +470,19 @@ Russian by @dothidden
 	<string name="ask_on_block">Block a user</string>
 	<string name="fromTwitter">"Source on StatusNet Node is %s. Username was added automatically."</string>
 
-	<!-- Pull to refresh -->
+	<!-- Pull to refresh ## Not yet implemented ## -->
     <string name="pull_to_refresh_pull_label">Pull to refresh...</string>
     <string name="pull_to_refresh_release_label">Release to refresh...</string>
     <string name="pull_to_refresh_refreshing_label">Loading...</string>
     <string name="pull_to_refresh_tap_label">Tap to refresh...</string>
 
 	<string name="redentString">RT</string>
+	
+	<!-- URL Shortener Service -->
+	<string name="url_shortener_cat">URL Shortener Service</string>
+	<string name="yourls_url">Yourls URL</string>
+	<string name="yourls_url_summary">URL to your yourls installation. Set shortener to \"yourls\" to use it.</string>
+	<string name="yourls_api_key">Yourls Signature token</string>
+	<string name="yourls_api_key_summary">Optional. If API key is needed, enter it here.</string>
 </resources>
 

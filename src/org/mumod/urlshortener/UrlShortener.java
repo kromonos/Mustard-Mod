@@ -10,6 +10,6 @@ public interface UrlShortener {
 	
 	public String doShort(String longUrl, HashMap<String, String> params) throws MustardException;
 	
-	public String doShort(String longUrl) throws MustardException;
+	public String doShort(String longUrl, String urlStr, String yourlsAPIKey) throws MustardException;
 	
 }
