@@ -481,7 +481,7 @@ Russian by @dothidden
 	<!-- URL Shortener Service -->
 	<string name="url_shortener_cat">URL Shortener Service</string>
 	<string name="yourls_url">Yourls URL</string>
-	<string name="yourls_url_summary">URL to your yourls installation. Set shortener to \"yourls\" to use it.</string>
+	<string name="yourls_url_summary">EXPERIMENTAL!\nURL to your yourls installation. Set shortener to \"yourls\" to use it.</string>
 	<string name="yourls_api_key">Yourls Signature token</string>
 	<string name="yourls_api_key_summary">Optional. If API key is needed, enter it here.</string>
 </resources>
