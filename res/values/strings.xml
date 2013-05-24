@@ -410,6 +410,7 @@ Please wait...
 	<string name="months_ago">" %1$s months ago"</string>
 	<string name="one_year_ago">"a year ago"</string>
 	<string name="in_reply_to">»</string>
+	<string name="repeated_by">RT by</string>
 	
 	 <string name="about_message">
     "
