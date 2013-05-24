@@ -71,6 +71,8 @@ public class MustardDbAdapter {
 	public static final String KEY_SOURCE = "source";
 	public static final String KEY_IN_REPLY_TO = "in_reply_to";
 	public static final String KEY_IN_REPLY_TO_SCREEN_NAME = "in_reply_to_screen_name";
+	public static final String KEY_REPEATED_ID = "repeated_id";
+	public static final String KEY_REPEATED_BY_SCREEN_NAME = "repeated_by_screen_name";
 	public static final String KEY_STATUS = "status";
 	public static final String KEY_FAVORITE = "favorite";
 	public static final String KEY_FOLLOWING = "following";
@@ -139,6 +141,8 @@ public class MustardDbAdapter {
 		"source text null, " +
 		"in_reply_to integer null, " +
 		"in_reply_to_screen_name text null, " +
+		"repeated_id integer null, " +
+		"repeated_by_screen_name text null, " +
 		"status text not null," +
 		"favorite int null, " +
 		"following int null, " +
@@ -578,6 +582,7 @@ public class MustardDbAdapter {
 				u.getScreen_name(), u.getId(),u.getName(),
 				n.getSource(),n.getIn_reply_to_status_id(),
 				n.getIn_reply_to_screen_name(),
+				n.getRepeated_id(), n.getRepeated_by_screen_name(),
 				n.getText(),
 				u.getProfile_url(),
 				u.getProfile_image_url(),
@@ -602,7 +607,8 @@ public class MustardDbAdapter {
 	}
 
 	private long createStatus(long account_id,int type, String extra, long status_id, String insert_at, String screen_name, long user_id, String name,
-			String source,long in_reply_to, String in_reply_to_screen_name, String status, String user_url, String user_image, int favorited, int following,int blocking,int attachment, boolean geo,double lat, double lon) throws MustardException {
+			String source,long in_reply_to, String in_reply_to_screen_name, long repeated_id, String repeated_by_screen_name, String status,
+			String user_url, String user_image, int favorited, int following,int blocking,int attachment, boolean geo,double lat, double lon) throws MustardException {
 
 		ContentValues initialValues = new ContentValues();
 		initialValues.put(KEY_ACCOUNT_ID, account_id);
@@ -616,6 +622,8 @@ public class MustardDbAdapter {
 		initialValues.put(KEY_SOURCE, source);
 		initialValues.put(KEY_IN_REPLY_TO, in_reply_to);
 		initialValues.put(KEY_IN_REPLY_TO_SCREEN_NAME, in_reply_to_screen_name);
+                initialValues.put(KEY_REPEATED_ID, repeated_id);
+                initialValues.put(KEY_REPEATED_BY_SCREEN_NAME, repeated_by_screen_name);
 		initialValues.put(KEY_STATUS, status);
 		initialValues.put(KEY_USER_URL, user_url);
 		initialValues.put(KEY_USER_IMAGE, user_image);
@@ -787,7 +795,8 @@ public class MustardDbAdapter {
 				ret = mDb.query(true,DATABASE_STATUS_TABLE, 
 						new String[] {
 						KEY_ROWID, KEY_ACCOUNT_ID, KEY_STATUS_ID, KEY_STATUS,
-						KEY_IN_REPLY_TO, KEY_IN_REPLY_TO_SCREEN_NAME, KEY_SOURCE,
+						KEY_IN_REPLY_TO, KEY_IN_REPLY_TO_SCREEN_NAME,
+						KEY_REPEATED_ID, KEY_REPEATED_BY_SCREEN_NAME, KEY_SOURCE,
 						KEY_SCREEN_NAME, KEY_INSERT_AT, KEY_USER_IMAGE, KEY_USER_URL, 
 						KEY_FAVORITE, KEY_FOLLOWING,
 						KEY_BLOCKING,
@@ -800,7 +809,8 @@ public class MustardDbAdapter {
 						DATABASE_STATUS_TABLE, 
 						new String[] {
 						KEY_ROWID, KEY_ACCOUNT_ID, KEY_STATUS_ID, KEY_STATUS,
-						KEY_IN_REPLY_TO, KEY_IN_REPLY_TO_SCREEN_NAME, KEY_SOURCE,
+						KEY_IN_REPLY_TO, KEY_IN_REPLY_TO_SCREEN_NAME,
+						KEY_REPEATED_ID, KEY_REPEATED_BY_SCREEN_NAME, KEY_SOURCE,
 						KEY_SCREEN_NAME, KEY_INSERT_AT, KEY_USER_IMAGE, KEY_USER_URL,
 						KEY_FAVORITE, KEY_FOLLOWING,
 						KEY_BLOCKING,
@@ -833,6 +843,8 @@ public class MustardDbAdapter {
 					KEY_STATUS,
 					KEY_IN_REPLY_TO,
 					KEY_IN_REPLY_TO_SCREEN_NAME,
+					KEY_REPEATED_ID,
+					KEY_REPEATED_BY_SCREEN_NAME,
 					KEY_SOURCE,
 					KEY_SCREEN_NAME, 
 					KEY_INSERT_AT, 
@@ -1050,7 +1062,7 @@ public class MustardDbAdapter {
 		long ret=-1;
 		Cursor mCursor =
 			mDb.query(DATABASE_STATUS_TABLE, 
-					new String[] { "MAX("+KEY_STATUS_ID+")" 
+					new String[] { "MAX("+KEY_REPEATED_ID+")" 
 			},
 			KEY_ACCOUNT_ID + " = " + account_id + " and " + KEY_ROWTYPE + " = " + rowtype + " and " + KEY_ROWEXTRA + " = '" + extra + "'",
 			null,
@@ -1068,7 +1080,7 @@ public class MustardDbAdapter {
 		long ret=-1;
 		Cursor cursor =
 			mDb.query(DATABASE_STATUS_TABLE, 
-					new String[] { "MIN("+KEY_STATUS_ID+")" 
+					new String[] { "MIN("+KEY_REPEATED_ID+")" 
 			}, 
 			KEY_ACCOUNT_ID + " = " + account_id + " and " + KEY_ROWTYPE + " = " + rowtype + " and " + KEY_ROWEXTRA + " = '" + extra + "'",
 			null,

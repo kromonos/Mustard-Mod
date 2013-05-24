@@ -40,6 +40,8 @@ public class Notice {
 	private double lon;
 	private double lat;
 	private String statusnet_text;
+	private long repeated_id;
+	private String repeated_by_screen_name;
 	
 	public String getStatusnet_text() {
 		return statusnet_text;
@@ -125,4 +127,16 @@ public class Notice {
 	public void setFavorited(boolean favorited) {
 		this.favorited = favorited;
 	}
+        public long getRepeated_id() {
+                return repeated_id;
+        }
+        public void setRepeated_id(long repeated_id) {
+                this.repeated_id = repeated_id;
+        }
+        public String getRepeated_by_screen_name() {
+                return repeated_by_screen_name;
+        }
+        public void setRepeated_by_screen_name(String repeated_by_screen_name) {
+                this.repeated_by_screen_name = repeated_by_screen_name;
+        }
 }

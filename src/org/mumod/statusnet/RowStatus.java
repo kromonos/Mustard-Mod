@@ -10,6 +10,8 @@ public class RowStatus {
 	private String source;
 	private long inReplyTo;
 	private String inReplyToScreenName;
+	private long repeatedId;
+	private String repeatedByScreenName;
 	private String profileImage;
 	private String profileUrl;
 	private long dateTime;
@@ -44,6 +46,12 @@ public class RowStatus {
 	public void setInReplyToScreenName(String inReplyToScreenName) {
 		this.inReplyToScreenName = inReplyToScreenName;
 	}
+        public String getRepeatedByScreenName() {
+                return repeatedByScreenName;
+        }
+        public void setRepeatedByScreenName(String repeatedByScreenName) {
+                this.repeatedByScreenName = repeatedByScreenName;
+        }
 	public String getSource() {
 		return source;
 	}
@@ -56,6 +64,12 @@ public class RowStatus {
 	public void setInReplyTo(long inReplyTo) {
 		this.inReplyTo = inReplyTo;
 	}
+        public long getRepeatedId() {
+                return repeatedId;
+        }
+        public void setRepeatedId(long repeatedId) {
+                this.repeatedId = repeatedId;
+        }
 	public String getProfileImage() {
 		return profileImage;
 	}

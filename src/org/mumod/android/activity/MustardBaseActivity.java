@@ -238,6 +238,10 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					: false;
 			long in_reply_to = c.getLong(c
 					.getColumnIndex(MustardDbAdapter.KEY_IN_REPLY_TO));
+			long repeated_id = c.getLong(c
+					.getColumnIndex(MustardDbAdapter.KEY_REPEATED_ID));
+			String repeated_by_screen_name = c.getString(c
+					.getColumnIndex(MustardDbAdapter.KEY_REPEATED_BY_SCREEN_NAME));
 			int geo = c.getInt(c.getColumnIndex(MustardDbAdapter.KEY_GEO));
 			int attachment = c.getInt(c
 					.getColumnIndex(MustardDbAdapter.KEY_ATTACHMENT));
@@ -514,6 +518,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			TextView screen_name;
 			TextView account_name;
 			TextView in_reply_to;
+			TextView repeated_by;
 			TextView location;
 			TextView markers;
 			MustardStatusTextView status;
@@ -555,6 +560,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				
 				vh.screen_name = (TextView) v.findViewById(R.id.screen_name);
 				vh.in_reply_to = (TextView) v.findViewById( R.id.in_reply_to );
+				vh.repeated_by = (TextView) v.findViewById( R.id.repeated_by );
 				vh.markers = (TextView) v.findViewById( R.id.marks );
 				vh.status = (MustardStatusTextView) v.findViewById(R.id.status);
 				
@@ -568,6 +574,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				Typeface tf = Typeface.createFromAsset(getAssets(), MustardApplication.MUSTARD_FONT_NAME);
 				vh.status.setTypeface(tf);
 				vh.in_reply_to.setTypeface(tf);
+				vh.repeated_by.setTypeface(tf);
 				vh.datetime = (TextView) v.findViewById(R.id.datetime);
 				vh.datetime.setTypeface(tf);
 
@@ -641,6 +648,13 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				}
 				else {
 					vh.in_reply_to.setVisibility( View.GONE );
+				}
+				if (status.getRepeatedByScreenName() != null ) {
+                                        vh.repeated_by.setTextSize( mTextSizeSmall );
+                                        vh.repeated_by.setText(" " + getString(R.string.repeated_by) + " " + status.getRepeatedByScreenName() );
+                                        vh.repeated_by.setVisibility( View.VISIBLE );
+				} else {
+					vh.repeated_by.setVisibility( View.GONE );
 				}
 				String sstatus = status.getStatus();
 				if (sstatus.indexOf("<") >= 0)
@@ -731,7 +745,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			Boolean showSource = mPreferences.getBoolean( "display_source" , false );
 			
 			if( showSource ) {
-				vh.source.setText(source, BufferType.SPANNABLE);
+				vh.source.setText(" " + source + " ", BufferType.SPANNABLE);
 				vh.source.setTextSize(mTextSizeSmall);
 			}
 			else {
@@ -760,7 +774,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			}
 			Date d = new Date();
 			d.setTime(status.getDateTime());
-			vh.datetime.setText(DateUtils.getRelativeDate(mContext, d));
+			vh.datetime.setText(" " + DateUtils.getRelativeDate(mContext, d) + " ");
 			vh.datetime.setTextSize(mTextSizeSmall);
 
 			String sstatus = status.getStatus();
@@ -1368,8 +1382,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 						mDbHelper.deleteOlderMergedStatuses(DB_ROW_TYPE,
 								DB_ROW_EXTRA);
 					else
-						mDbHelper
-								.deleteOlderStatuses(DB_ROW_TYPE, DB_ROW_EXTRA);
+						mDbHelper.deleteOlderStatuses(DB_ROW_TYPE, DB_ROW_EXTRA);
 				}
 			} catch (Exception e) {
 				if (MustardApplication.DEBUG)
@@ -2546,6 +2559,10 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					.getColumnIndex(MustardDbAdapter.KEY_IN_REPLY_TO);
 			int mInReplyToScreenNameIdx = cursor
 					.getColumnIndex(MustardDbAdapter.KEY_IN_REPLY_TO_SCREEN_NAME);
+                        int mRepeatedIdIdx = cursor
+                                        .getColumnIndex(MustardDbAdapter.KEY_REPEATED_ID);
+                        int mRepeatedByScreenNameIdx = cursor
+                                        .getColumnIndex(MustardDbAdapter.KEY_REPEATED_BY_SCREEN_NAME);
 			int mProfileImageIdx = cursor
 					.getColumnIndex(MustardDbAdapter.KEY_USER_IMAGE);
 			int mProfileUrlIdx = cursor
@@ -2568,6 +2585,9 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					rs.setInReplyTo(cursor.getLong(mInReplyToIdx));
 					rs.setInReplyToScreenName(cursor
 							.getString(mInReplyToScreenNameIdx));
+                                        rs.setRepeatedId(cursor.getLong(mRepeatedIdIdx));
+                                        rs.setRepeatedByScreenName(cursor
+                                                        .getString(mRepeatedByScreenNameIdx));
 					rs.setProfileImage(cursor.getString(mProfileImageIdx));
 					rs.setProfileUrl(cursor.getString(mProfileUrlIdx));
 					rs.setDateTime(cursor.getLong(mDatetimeIdx));
