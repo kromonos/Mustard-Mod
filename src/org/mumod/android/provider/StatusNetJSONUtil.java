@@ -51,8 +51,30 @@ public class StatusNetJSONUtil {
 	
 	public static Status getStatus(JSONObject json) throws JSONException {
 		Status status = new Status();
-		status.setNotice(getNotice(json));
-		status.setUser(getUser(json.getJSONObject("user")));
+		JSONObject jrepeated = null;
+		try {
+			jrepeated = json.getJSONObject("retweeted_status");
+		} catch  (JSONException e) {
+		}
+		if (jrepeated != null) {
+			Notice n = getNotice(jrepeated);
+			n.setRepeated_id(json.getLong("id"));
+			try {
+				n.setCreated_at(df.parse(json.getString("created_at")));
+			} catch (ParseException e) {
+				if (MustardApplication.DEBUG) Log.e(TAG,e.toString());
+			}
+			// set repeated_by_screen_name with user who RTed
+			JSONObject user = json.getJSONObject("user");
+			n.setRepeated_by_screen_name(user.getString("screen_name"));
+			status.setNotice(n);
+			status.setUser(getUser(jrepeated.getJSONObject("user")));
+		}else{
+			Notice n = getNotice(json);
+                        n.setRepeated_id(json.getLong("id"));
+			status.setNotice(n);
+			status.setUser(getUser(json.getJSONObject("user")));
+		}
 		return status;
 	}
 
