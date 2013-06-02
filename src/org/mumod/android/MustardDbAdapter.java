@@ -210,7 +210,7 @@ public class MustardDbAdapter {
 		" unique (instance) " + 
 		" ) ";
 	
-	public static final int DATABASE_VERSION = 43;
+	public static final int DATABASE_VERSION = 44;
 
 	private final Context mCtx;
 
@@ -340,6 +340,7 @@ public class MustardDbAdapter {
 						db.execSQL("UPDATE " + DATABASE_ACCOUNT_TABLE + " set " + KEY_ATTACHLIMIT + " = 131072 " );
 					}
 				}
+				
 			}
 			db.execSQL("DROP TABLE IF EXISTS " + 
 					DATABASE_STATUS_TABLE );
