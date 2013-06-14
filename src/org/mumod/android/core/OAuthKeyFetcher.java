@@ -62,6 +62,9 @@ public class OAuthKeyFetcher {
 		ArrayList<OAuthInstance> oauths = new ArrayList<OAuthInstance>();
 
 		try {
+			JSONObject o = mHttpManager.getJsonObject(url.toExternalForm());
+			JSONArray keys = o.getJSONArray("keys");
+
 			if( !ownInstance.equals("") && !ownConsumerSecret.equals("") && !ownConsumerKey.equals("") ) {
 				OAuthInstance oi= new OAuthInstance();
 				oi.instance = ownInstance;
@@ -72,9 +75,7 @@ public class OAuthKeyFetcher {
 			else {
 				Log.v(TAG, "No oauth key defined in config");
 			}
-			
-			JSONObject o = mHttpManager.getJsonObject(url.toExternalForm());
-			JSONArray keys = o.getJSONArray("keys");
+
 			if (keys != null) {
 				for (int i=0;i<keys.length();i++) {
 					JSONObject enclosure = keys.getJSONObject(i);
@@ -84,6 +85,13 @@ public class OAuthKeyFetcher {
 					oi.secret = enclosure.getString("secret");
 					oauths.add(oi);
 				}
+			}
+			else {
+				OAuthInstance oi= new OAuthInstance();
+				oi.instance = "";
+				oi.key = "";
+				oi.secret = "";
+				oauths.add(oi);
 			}
 		} 
 		catch(JSONException e) {} 
