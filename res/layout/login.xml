@@ -24,7 +24,6 @@
 			    android:src="@drawable/ic_action_user" />
 			
 			<TextView
-				layout_width="wrap_content"
 				android:layout_width="wrap_content" 
 				android:layout_height="wrap_content" 
 				android:text="@string/lbl_create_account" 

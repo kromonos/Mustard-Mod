@@ -1,4 +1,6 @@
 # Mustard Mod #
+- 2013-06-14
+	* Added settings for own consumer informations
 - 2012-12-08
 	* Simple toastie fix
 	* Finished todo in MustardBaseActivity, for highlighting dents where username is called

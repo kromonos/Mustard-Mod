@@ -22,11 +22,13 @@ package org.mumod.android.activity;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import org.mumod.android.MustardApplication;
 import org.mumod.android.MustardDbAdapter;
 import org.mumod.android.R;
 import org.mumod.android.core.OAuthKeyFetcher;
+import org.mumod.android.provider.OAuthInstance;
 import org.mumod.android.provider.OAuthLoader;
 
 import android.app.Activity;
@@ -42,9 +44,15 @@ import android.widget.EditText;
 public class OAuthSettings extends Activity {
 
 	private String TAG = getClass().getCanonicalName();
+
+	private EditText mConsumerKey;
+	private EditText mConsumerSecret;
+	private EditText mConsumerInstance;
+	
 	
 	private Button mRefreshButton;
 	private Button mNewButton;
+	private Button mConsumerInfoButton;
 	private EditText mOauthUrlEdit;
 	private MustardDbAdapter mDbHelper;
 	
@@ -81,6 +89,42 @@ public class OAuthSettings extends Activity {
 		});
 		
 		mOauthUrlEdit = (EditText) findViewById(R.id.oauth_new_keys);
+		
+		mConsumerInfoButton = (Button) findViewById(R.id.btn_save_instance);
+		mConsumerInfoButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				if (MustardApplication.DEBUG) Log.d(TAG,"Fetching new keys");
+				doSaveInstance();
+			}		
+		});
+		
+		mConsumerKey = (EditText) findViewById(R.id.Consumer_key);
+		mConsumerSecret = (EditText) findViewById(R.id.Consumer_secret);
+		mConsumerInstance = (EditText) findViewById(R.id.Consumer_instance);
+		
+	}
+	
+	private void doSaveInstance() {
+		
+		String instance = mConsumerInstance.getText().toString();
+		String key = mConsumerKey.getText().toString();
+		String secret = mConsumerSecret.getText().toString();
+		
+    	Log.d("mumod", "Saved new instance: " + instance);
+		
+		boolean r = mDbHelper.insertOauth(instance, key, secret, true);
+		if( r ) {
+			new AlertDialog.Builder(OAuthSettings.this)
+	        .setTitle(getString(R.string.save_instance))
+	        .setMessage(getString(R.string.save_success))
+	        .setNeutralButton(getString(R.string.close), null).show();
+		}
+		else {
+			new AlertDialog.Builder(OAuthSettings.this)
+	        .setTitle(getString(R.string.save_instance))
+	        .setMessage(getString(R.string.save_fail))
+	        .setNeutralButton(getString(R.string.close), null).show();
+		}
 		
 	}
 	

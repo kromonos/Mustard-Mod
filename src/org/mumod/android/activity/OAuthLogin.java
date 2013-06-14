@@ -23,7 +23,6 @@ package org.mumod.android.activity;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import oauth.signpost.exception.OAuthNotAuthorizedException;
 
 import org.mumod.android.MustardApplication;
@@ -63,11 +62,13 @@ public class OAuthLogin extends Activity {
 	protected static String EXTRA_INSTANCE = "extra.instance";
 	
 	private EditText mInstanceEdit;
+
 	private CheckBox mForceSSLEdit;
 	private Button mOAuthButton;
 	private Button mLoginButton;
 	
 	private String mInstance;
+
 	private MustardDbAdapter mDbHelper; 
 	private String mSURL;
 	private URL mURL;
@@ -81,6 +82,7 @@ public class OAuthLogin extends Activity {
 		mDbHelper.open();
 		mInstanceEdit = (EditText) findViewById(R.id.edit_instance);
 		mInstanceEdit.setText("");
+		
 		mForceSSLEdit = (CheckBox) findViewById(R.id.force_ssl);
 		
 		mOAuthButton = (Button) findViewById(R.id.button_oauth);
@@ -89,7 +91,7 @@ public class OAuthLogin extends Activity {
 				doOAuthLogin();
 			}
 		});
-
+		
 		mLoginButton = (Button) findViewById(R.id.button_login);
 		mLoginButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
@@ -152,8 +154,8 @@ public class OAuthLogin extends Activity {
 		if (mInstance.toLowerCase().indexOf("twitter.com")>=0) {
 			mForceSSLEdit.setChecked(true);
 			mInstance="twitter.com";
-			instance=mInstance;
-			mSURL = "https://" + mInstance;
+			instance="twitter.com";
+			mSURL = "https://api." + mInstance;
 			mURL = new URL(mSURL);
 			
 			doNextStep(instance,true);
@@ -183,26 +185,25 @@ public class OAuthLogin extends Activity {
 	}
 	
 	private void doNextStep(String instance,boolean isTwitter) {
-//	    Log.i(getPackageName(),"mSURL = " + mSURL);
-//	    Log.i(getPackageName(),"instance = " + instance);
-	   
 	    OAuthLoader om = new OAuthLoader(mDbHelper) ;
-	    OAuthInstance oi =  om.get(instance);
-	    if (oi == null )  {
+	    OAuthInstance oi = om.get(instance);
+
+		if (oi == null )  {
 	    	new AlertDialog.Builder(OAuthLogin.this)
             .setTitle(getString(R.string.error))
             .setMessage(getString(R.string.error_no_oauth,instance))
             .setNeutralButton(getString(R.string.close), null).show();
 			return;
 	    }
-	    
-//        Log.i(getPackageName(),"key: " + oi.key);
-//        Log.i(getPackageName(),"key secret: " + oi.secret);
+	    		
+        Log.d(getPackageName(), "key: " + oi.key);
+        Log.d(getPackageName(), "key secret: " + oi.secret);
+        Log.d(getPackageName(), "instance: " + instance);
         
 	    OAuthManager oauthManager = OAuthManager.getOAuthManager(this);
 	    oauthManager.prepare(
 	    		oi.key,
-	            oi.secret,
+	    		oi.secret,
         		mSURL + (!isTwitter ? "/api" : "") + "/oauth/request_token",
         		mSURL + (!isTwitter ? "/api" : "") + "/oauth/access_token",
         		mSURL + (!isTwitter ? "/api" : "") + "/oauth/authorize");
@@ -217,13 +218,16 @@ public class OAuthLogin extends Activity {
         String cToken = oauthManager.getConsumer().getToken();
         String cTokenSecret = oauthManager.getConsumer().getTokenSecret();
 //        Log.d("Mustard", "Token -> " + cToken);
+		
         mSharedPreferences.edit().putString("Request_token", cToken)
         	.putString("Request_token_secret", cTokenSecret)
         	.putString("oauth_url",mSURL)
         	.putBoolean("is_twitter",isTwitter)
         	.putBoolean("oauth_10a",oauthManager.isOAuth10a())
         	.putString("instance",instance)
-        	.commit();
+        	.commit();			
+
+        
         if(authUrl!=null && !"".equals(authUrl)) {
         	startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(authUrl)));
         	setResult(RESULT_OK);

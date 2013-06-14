@@ -210,7 +210,7 @@ public class MustardDbAdapter {
 		" unique (instance) " + 
 		" ) ";
 	
-	public static final int DATABASE_VERSION = 44;
+	public static final int DATABASE_VERSION = 45;
 
 	private final Context mCtx;
 

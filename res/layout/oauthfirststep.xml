@@ -34,23 +34,24 @@
 			    android:textSize="20sp" />
 
 		</LinearLayout>
-		
-		<TextView android:layout_marginTop="5dp"
-			android:id="@+id/instance_label" android:layout_height="wrap_content"
-			android:layout_width="fill_parent" android:textStyle="italic"
-			android:textSize="13sp" android:text="@string/instance" />
 
-		<EditText android:id="@+id/edit_instance"
-			android:layout_height="wrap_content"
-			android:layout_marginRight="5dp"
-			android:layout_width="fill_parent" android:singleLine="true"
-			android:inputType="textUri" />
+		<EditText
+		    android:id="@+id/edit_instance"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginRight="5dp"
+		    android:ems="10"
+		    android:hint="@string/instance"
+		    android:inputType="textUri"
+		    android:singleLine="true" ><requestFocus /></EditText>
 
 		<CheckBox android:id="@+id/force_ssl"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/label_force_ssl" android:textStyle="italic"
 			android:textSize="13sp" />
+
+
 			
 		<Button
 		    android:id="@+id/button_oauth"

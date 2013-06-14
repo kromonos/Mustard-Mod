@@ -40,14 +40,9 @@ import android.util.Log;
 
 public class OAuthKeyFetcher {
 
-	private SharedPreferences mSharedPreferences;
     private static final String TAG = "mumod";
     
 	public int execute(Context context,MustardDbAdapter dbHelper, URL url) throws Exception {
-		String ownInstance = mSharedPreferences.getString("ownInstance", "");
-		String ownConsumerSecret = mSharedPreferences.getString("ownConsumerSecret", "");
-		String ownConsumerKey = mSharedPreferences.getString("ownConsumerKey", "");
-		
 		boolean reserved = false;
 		try {
 			if (url == null) {
@@ -64,34 +59,16 @@ public class OAuthKeyFetcher {
 		try {
 			JSONObject o = mHttpManager.getJsonObject(url.toExternalForm());
 			JSONArray keys = o.getJSONArray("keys");
-
-			if( !ownInstance.equals("") && !ownConsumerSecret.equals("") && !ownConsumerKey.equals("") ) {
-				OAuthInstance oi= new OAuthInstance();
-				oi.instance = ownInstance;
-				oi.key = ownConsumerKey;
-				oi.secret = ownConsumerSecret;
-				oauths.add(oi);
-			}
-			else {
-				Log.v(TAG, "No oauth key defined in config");
-			}
-
+			
 			if (keys != null) {
 				for (int i=0;i<keys.length();i++) {
 					JSONObject enclosure = keys.getJSONObject(i);
-					OAuthInstance oi= new OAuthInstance();
+					OAuthInstance oi = new OAuthInstance();
 					oi.instance = enclosure.getString("instance");
 					oi.key = enclosure.getString("key");
 					oi.secret = enclosure.getString("secret");
 					oauths.add(oi);
 				}
-			}
-			else {
-				OAuthInstance oi= new OAuthInstance();
-				oi.instance = "";
-				oi.key = "";
-				oi.secret = "";
-				oauths.add(oi);
 			}
 		} 
 		catch(JSONException e) {} 

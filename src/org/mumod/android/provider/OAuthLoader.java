@@ -71,6 +71,8 @@ public class OAuthLoader {
 	public OAuthInstance get(String instance) {
 		OAuthInstance o = null;
 		Cursor c = mDbAdapter.fetchOauth(instance);
+        Log.d("mumod", "Fetching instance: " + instance);
+        
 		if (c.moveToNext()) {
 			o = new OAuthInstance();
 			o.id=c.getLong(c.getColumnIndexOrThrow(MustardDbAdapter.KEY_ROWID));
@@ -90,6 +92,9 @@ public class OAuthLoader {
 			}
 		} catch (Exception e) {
 		}
+		
+        Log.d("mumod", "Got: ID:" + o.id + " - " + o.instance + " - " + o.key + " - " + o.secret);
+		
 		return o;
 	}
 	

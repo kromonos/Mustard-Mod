@@ -486,5 +486,18 @@ Russian by @dothidden
 	<string name="yourls_url_summary">EXPERIMENTAL!\nURL to your yourls installation. Set shortener to \"yourls\" to use it.</string>
 	<string name="yourls_api_key">Yourls Signature token</string>
 	<string name="yourls_api_key_summary">Optional. If API key is needed, enter it here.</string>
+	
+	<!-- Own Consumer Settings -->
+	<string name="Consumer_key">Consumer key</string>
+	<string name="Consumer_secret">Consumer secret</string>
+	<string name="ownConsumerInformations">Use own consumer informations</string>
+	<string name="consumer_help">"Here you can insert own consumer informations. Use twitter.com for Twitter consumer informations.
+Use your StatusNet instance i.e. bka.li, status.jbfavre.org without the http(s) part!
+	    "</string>
+	<string name="consumer_instance">Instance</string>
+	<string name="save_instance">Save new instance</string>
+	<string name="save_success">New instance was saved successfully</string>
+	<string name="save_fail">Error while saving new instance. Please try again.</string>
+	
 </resources>
 

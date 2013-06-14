@@ -33,7 +33,62 @@
 			
 		</LinearLayout>
 		
-		
+<TextView
+			android:layout_margin="10dp"
+			android:layout_height="2dp"
+			android:layout_width="fill_parent"
+			android:background="#ffffffff" 
+			android:textSize="13sp" />
+
+<TextView
+    android:id="@+id/textView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:text="@string/consumer_help" />
+
+		<EditText
+		    android:id="@+id/Consumer_instance"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="10dp"
+		    android:layout_marginRight="10dp"
+		    android:ems="10"
+		    android:hint="@string/consumer_instance"
+		    android:inputType="textUri" >
+
+		    <requestFocus />
+		</EditText>
+
+		<EditText
+		    android:id="@+id/Consumer_key"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:ems="10"
+   			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+		    android:hint="@string/Consumer_key" />
+
+		<EditText
+		    android:id="@+id/Consumer_secret"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"		    
+		    android:ems="10"
+		    android:hint="@string/Consumer_secret" >
+
+		    
+		</EditText>
+
+		<Button
+		    android:id="@+id/btn_save_instance"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="10dp"
+		    android:text="@string/save_instance" />
+				
 		<TextView
 			android:layout_margin="10dp"
 			android:layout_height="2dp"
@@ -85,7 +140,7 @@
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content" 
 			android:text="@string/btn_oauth_new_keys_value" />
-	
+
 
 	</LinearLayout>
 
