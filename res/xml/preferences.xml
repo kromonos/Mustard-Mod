@@ -182,25 +182,8 @@
 			android:entries="@array/fontsizes"
 			android:entryValues="@array/fontsizesval"
 			android:dialogTitle="@string/font_size" />
+		<ListPreference android:entryValues="@array/sm_side" android:entries="@array/sm_side" android:dialogTitle="@string/slidemenue_side" android:title="@string/slidemenue_side_title" android:key="slidemenue_side" android:summary="@string/slidemenue_side_summary" android:defaultValue="@string/sm_right"/>
 			
-	</PreferenceCategory>
-	<PreferenceCategory android:title="@string/txt_oauth">
-		<EditTextPreference 
-		    android:key="ownInstance" 
-		    android:title="@string/instance" 
-		    android:summary="@string/txt_oauth_summary"/>
-		
-		<EditTextPreference 
-		    android:title="@string/txt_oauth_key"
-            android:dependency="ownInstance"  
-		    android:key="ownConsumerKey" 
-		    android:summary="@string/txt_oauth_summary"/>
-		<EditTextPreference 
-		    android:title="@string/txt_oauth_cSecret" 
-            android:dependency="ownConsumerKey"  
-		    android:key="ownConsumerSecret" 
-		    android:summary="@string/txt_oauth_summary"/>
-		
 	</PreferenceCategory>
 	<PreferenceCategory android:title="@string/pc_ask_on">
 		<CheckBoxPreference android:key="ask_on_repeat" android:title="@string/ask_on_repeat" android:defaultValue="true"/>

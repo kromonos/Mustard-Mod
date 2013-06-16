@@ -1,4 +1,8 @@
 # Mustard Mod #
+- 2013-06-16
+	* Added private messaging (experimental)
+	* Added slidemenue (https://github.com/jfeinstein10/SlidingMenu/)
+	* Removed obsolet oauth options
 - 2013-06-14
 	* Added settings for own consumer informations
 - 2012-12-08

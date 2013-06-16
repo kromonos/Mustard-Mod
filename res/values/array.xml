@@ -61,5 +61,10 @@
 		<item>nd.gd</item>
 		<item>yourls</item>
 	</string-array>
+	
+	<string-array name="sm_side">
+	    <item>@string/sm_left</item>
+	    <item>@string/sm_right</item>
+    </string-array>
 
 </resources>

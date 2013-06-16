@@ -91,6 +91,7 @@ public class Preferences {
 	public static final String FONT_SIZE="font_size";
 	public static final String URL_SHORTENER="url_shortener";
 	public static final String THEME="theme";
+	public static final String SLIDEMENUE="slidemenue_side";
 //	public static final String LAYOUT_SHOW_CONTEXT="layout_show_context";
 	
 	

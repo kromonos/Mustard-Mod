@@ -33,35 +33,46 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+
+import android.widget.Button;
+
 import android.widget.TextView;
-import com.markupartist.android.widget.PullToRefreshListView;
-import com.markupartist.android.widget.PullToRefreshListView.OnRefreshListener;
+
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 
 public class MustardMain extends MustardBaseActivity {
 
+	private SlidingMenu mMenuRight;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-//		String ThemeSet = mPreferences.getString(Preferences.THEME, getString(R.string.theme_bw));
-//		boolean mLayoutLight = ThemeSet.equals( getString(R.string.theme_bw) );
-//		if (mLayoutLight) {
-			setTheme(android.R.style.Theme_Holo);
-//		}
-//		else {
-//			setTheme(android.R.style.Theme_Holo_Light);
-//		}
-
-		
 		TAG = getClass().getCanonicalName();
 		super.onCreate(savedInstanceState);
+			
 		deleteOnExit=false;
 		if(mStatusNet!=null) {
 			boolean mMergedTimeline = mPreferences.getBoolean(Preferences.CHECK_MERGED_TL_KEY, false);
+
+			String ThemeSet = mPreferences.getString(Preferences.THEME, getString(R.string.theme_bw));
+			boolean mLayoutLight = ThemeSet.equals( getString(R.string.theme_bw) );
+			mLayoutLight = true;
+			if (mLayoutLight) {
+				setTheme(android.R.style.Theme_Holo);
+			}
+			else {
+				setTheme(android.R.style.Theme_Holo_Light);
+			}
+			
+			
+			doPrepareButtons();
 			
 			TextView tagInfo = (TextView) findViewById(R.id.dent_info);
 			tagInfo.setText(getString(R.string.timeline_main) + (mMergedTimeline ? " (+) " : ""));
@@ -101,7 +112,25 @@ public class MustardMain extends MustardBaseActivity {
 
 	@Override
 	protected void onSetListView() {
-		setContentView(R.layout.legacy_dents_list);
+	     setTitle("Mustard {MOD}");
+	        // set the content view
+	        setContentView(R.layout.legacy_dents_list);
+	        
+	        mMenuRight = new SlidingMenu(this);
+	        if(mPreferences.getString(Preferences.SLIDEMENUE, getString(R.string.sm_right)).equals(getString(R.string.sm_right))) {
+		        mMenuRight.setMode(SlidingMenu.RIGHT);
+	        }
+	        else {
+		        mMenuRight.setMode(SlidingMenu.LEFT);
+	        }
+	        mMenuRight.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+	        mMenuRight.setBehindOffset(100);
+	        mMenuRight.setShadowWidth(15);
+	        mMenuRight.setShadowDrawable(R.drawable.shadow);
+	        mMenuRight.setFadeDegree(0.50f);
+	        mMenuRight.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
+	        mMenuRight.setMenu(R.layout.settings_slidemenu);
+//		setContentView(R.layout.legacy_dents_list);
 	}
 
 	public static void actionHandleTimeline(Context context) {
@@ -112,6 +141,7 @@ public class MustardMain extends MustardBaseActivity {
 
 	private Timer t = new Timer();
 	
+
 	
 	
 	private void startTimerTask() {
@@ -189,4 +219,81 @@ public class MustardMain extends MustardBaseActivity {
 		}
 		return true;
 	}
+	
+	private void doPrepareButtons() {
+		
+		Button mBookmarksButton = (Button) findViewById(R.id.btn_bookmarks);
+		mBookmarksButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				mMenuRight.toggle();
+				doBookmark();
+			}
+		});
+		
+		Button mRepliesButton = (Button) findViewById(R.id.btn_replies);
+		mRepliesButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				mMenuRight.toggle();
+				getMentions();
+			}
+		});
+
+//		DirectMessageList  btn_directMessages
+		Button mDirectMessages = (Button) findViewById(R.id.btn_directMessages);
+		mDirectMessages.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				mMenuRight.toggle();
+				doStartActivity( DirectMessageList.class );
+			}
+		});
+		
+//		DirectMessageNew 	btn_composeMessage		
+		Button mDirectMessageNew = (Button) findViewById(R.id.btn_composeMessage);
+		mDirectMessageNew.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				mMenuRight.toggle();
+				doStartActivity( DirectMessageNew.class );
+			}
+		});
+		
+		
+		Button mGlobalButton = (Button) findViewById(R.id.btn_global_settings);
+		mGlobalButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				mMenuRight.toggle();
+				doStartActivity( GlobalSettings.class );
+			}
+		});
+		
+		Button mAccountButton = (Button) findViewById(R.id.btn_account_settings);
+		mAccountButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				mMenuRight.toggle();
+				doStartActivity( AccountSettings.class );
+			}
+		});
+		
+		Button mOAuthButton = (Button) findViewById(R.id.btn_oauth_settings);
+		mOAuthButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				mMenuRight.toggle();
+				doStartActivity( OAuthSettings.class );
+			}
+		});
+		
+		Button mFilterButton = (Button) findViewById(R.id.btn_filter_settings);
+		mFilterButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				mMenuRight.toggle();
+				doStartActivity( FilterSettings.class );
+			}
+		});
+		
+	}
+
+	private void doStartActivity(Class<?> c) {
+		Intent i = new Intent(this, c);
+		startActivity(i);
+	}
+
 }

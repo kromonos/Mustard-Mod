@@ -35,7 +35,6 @@ import org.mumod.android.provider.OAuthLoader;
 import org.mumod.util.HttpManager;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 public class OAuthKeyFetcher {
