@@ -23,7 +23,7 @@
 
 	<PreferenceCategory android:title="@string/preferences_general">
 		<CheckBoxPreference android:key="enable_new_repeat"
-			android:defaultValue="false"
+			android:defaultValue="true"
 			android:title="@string/pref_new_repeat_title"
 			android:summary="@string/pref_new_repeat_summary" />
 		
@@ -33,7 +33,7 @@
 			android:summary="@string/pref_show_nick_reply_summary" android:summaryOn="@string/pref_show_nick_reply_summary_enabled" android:summaryOff="@string/pref_show_nick_reply_summary_disabled"/>
 
 		<CheckBoxPreference android:key="always_reply_all"
-			android:defaultValue="false"
+			android:defaultValue="true"
 			android:title="@string/pref_always_reply_all"
 			android:summary="@string/pref_always_reply_all_summary" />
 						
@@ -167,14 +167,15 @@
 	<PreferenceCategory
 		android:title="@string/preferences_layout">
 		
-		<ListPreference android:key="theme"
+		<!--
+		  <ListPreference android:key="theme"
 			android:defaultValue="@string/theme_bw"
 			android:title="@string/pref_theme_layout_title"
 			android:summary="@string/pref_theme_layout_summary"
 			android:entries="@array/themes"
 			android:entryValues="@array/themes"
 			android:dialogTitle="@string/theme" android:enabled="false"/>
-            
+        -->    
 		<ListPreference android:key="font_size"
 			android:defaultValue="2"
 			android:title="@string/pref_font_size_title"
@@ -182,9 +183,18 @@
 			android:entries="@array/fontsizes"
 			android:entryValues="@array/fontsizesval"
 			android:dialogTitle="@string/font_size" />
-		<ListPreference android:entryValues="@array/sm_side" android:entries="@array/sm_side" android:dialogTitle="@string/slidemenue_side" android:title="@string/slidemenue_side_title" android:key="slidemenue_side" android:summary="@string/slidemenue_side_summary" android:defaultValue="@string/sm_right"/>
+		
+		<ListPreference android:entryValues="@array/sm_side" 
+		    android:entries="@array/sm_side" 
+		    android:dialogTitle="@string/slidemenu_side_title" 
+		    android:title="@string/slidemenu_side_title" 
+		    android:key="slidemenue_side" 
+		    android:summary="@string/slidemenu_side_summary" 
+		    android:defaultValue="@string/sm_left" />
+		<CheckBoxPreference android:title="@string/slidemenu_fswype" android:key="settings_fswype" android:summary="@string/slidemenu_fswype_summary" android:enabled="true" android:selectable="true"/>
 			
 	</PreferenceCategory>
+	
 	<PreferenceCategory android:title="@string/pc_ask_on">
 		<CheckBoxPreference android:key="ask_on_repeat" android:title="@string/ask_on_repeat" android:defaultValue="true"/>
 		<CheckBoxPreference android:key="ask_on_block" android:title="@string/ask_on_block" android:defaultValue="true"/>

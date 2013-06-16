@@ -48,6 +48,7 @@ import org.mumod.util.MustardException;
 import org.mumod.util.StatusNetUtils;
 
 import android.R.color;
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
@@ -1182,6 +1183,8 @@ public abstract class MustardBaseActivity extends ListActivity implements
 		}
 	}
 
+	// Suppress? ... TODO 
+	@SuppressLint("ValidFragment")
 	public class ListContentFragment extends Fragment {
 		private String mText;
 

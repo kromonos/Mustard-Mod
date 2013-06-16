@@ -386,5 +386,51 @@ Chinesisch von @lovenemesis
 Spanisch von @jjardon
 Polnisch von @blogoo.pl
 "</string>
-	 <string name="no_attachment">Kein Anhang</string> 
+	 <string name="no_attachment">Kein Anhang</string>
+
+ 	<string name="redentString">RT</string>
+ 	
+	<string name="txt_show_source">Zeige Dent Quelle</string>
+	<string name="txt_show_source_summary">Zeige die Quelle des Eintrages, z.B. \"via identi.ca\", unter den Dents</string>
+	<string name="menu_share_and_fav">Favorisieren und Teilen</string>
+	
+	<!-- Spam report settings -->
+	<string name="spam_settings">Spam Einstellungen</string>
+	<string name="spam_group">Spam Gruppe</string>
+	<string name="spam_group_summary">Gruppenname, an den der Spamreport gerichtet werden soll. Z.B. \"spamreport\". Das ! wird im Namen nicht benötigt.</string>
+	<string name="spam_user">Spam Benutzer</string>
+	<string name="spam_user_summary">Benutzername, an den der Spamreport gerichtet werden soll. Z.B. \"support\". Das @ wird im Namen nicht benötigt.</string>
+	<string name="spam_showid">Spammer ID hinzufügen?</string>
+	<string name="spam_showid_summary">Benutzer ID des Spammers in den Report mit einschließen.\nAchtung: Dies funktioniert nur korrekt, wenn die Spamgruppe und/oder der Spambenutzer sich ebenfalls auf der Lokalen StatusNet Instanz befindet.</string>
+	<string name="spamReportDent">"%1$s User @%2$s %3$s is spamming! %4$s"</string>
+	<string name="spamDentIDString">with ID %s</string>
+	
+	<string name="pc_ask_on">Nachfragen bei</string>
+	<string name="ask_on_repeat">Dent wiederholen</string>
+	<string name="ask_on_block">Benutzer blockieren</string>
+	<string name="fromTwitter">"Quelle der StatusNet Instanz ist %s. Die Benutzernamen wurden automatisch hinzugefügt.."</string>
+ 		 
+	 	 
+	  	<!-- Own Consumer Settings -->
+	<string name="Consumer_key">Anwender-Schlüssel</string>
+	<string name="Consumer_secret">Anwender-Geheimnis</string>
+	<string name="ownConsumerInformations">Eigene Anwendungsinformationen nutzen</string>
+	<string name="consumer_help">"Nutze bei den folgenden Einstellungen deine persönlichen Anwendungsinformationen.\n
+	    Solltest du Twitter nutzen, gebe hier bitte twitter.com ein.\n
+	    Als Instanz bitte die URL ohne http(s) Teil nutzen!
+	    "</string>
+	<string name="consumer_instance">Instanz</string>
+	<string name="save_instance">Neue Instanz speichern</string>
+	<string name="save_success">Neue Instanz erfolgreich gespeichert</string>
+	<string name="save_fail">Fehler beim speichern der Instanz. Bitte versuche es erneut.</string>
+	
+	<string name="slidemenu_side_title">Swypemenü Seite</string>
+	<string name="slidemenu_side_summary">Auf welcher Seite soll das Swypemenü eingeblendet werden können?</string>
+	<string name="slidemenu_fswype">Fullscreenswype</string>
+	<string name="slidemenu_fswype_summary">Swype über den kompletten Bildschirm um das Menü zu öffnen</string>
+	<string name="sm_left">Links</string>
+	<string name="sm_right">Rechts</string>
+	<string name="txt_settings">Einstellungen</string>
+	<string name="btn_directMessage">Direktnachrichten</string>
+	<string name="btn_compose_message">Neue DN schreiben</string>
 </resources> 

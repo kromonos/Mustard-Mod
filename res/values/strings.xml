@@ -448,9 +448,7 @@ Russian by @dothidden
     </string>
 	
 	<string name="no_attachment">No attachment</string>
-	<string name="txt_oauth">OAuth Settings</string>
-	<string name="txt_oauth_key">Own OAuth Consumer Key</string>
-	<string name="txt_oauth_cSecret">Own OAuth Consumer Secret</string>
+
 	<string name="txt_show_source">Display source in dents</string>
 	<string name="txt_show_source_summary">Display source, i.e. \"from identi.ca\", under dents</string>
 	<string name="txt_oauth_summary">Experimental and needs testing!</string>
@@ -471,12 +469,6 @@ Russian by @dothidden
 	<string name="ask_on_repeat">Repeat dent</string>
 	<string name="ask_on_block">Block a user</string>
 	<string name="fromTwitter">"Source on StatusNet Node is %s. Username was added automatically."</string>
-
-	<!-- Pull to refresh ## Not yet implemented ## -->
-    <string name="pull_to_refresh_pull_label">Pull to refresh...</string>
-    <string name="pull_to_refresh_release_label">Release to refresh...</string>
-    <string name="pull_to_refresh_refreshing_label">Loading...</string>
-    <string name="pull_to_refresh_tap_label">Tap to refresh...</string>
 
 	<string name="redentString">RT</string>
 	
@@ -499,13 +491,14 @@ Use your StatusNet instance i.e. bka.li without the http(s) part!
 	<string name="save_success">New instance was saved successfully</string>
 	<string name="save_fail">Error while saving new instance. Please try again.</string>
 	
-	<string name="slidemenue_side">Show slidemenue on the</string>
-	<string name="slidemenue_side_title">Slidemenue side</string>
-	<string name="slidemenue_side_summary">Decide, on which side you want to have the slidemenue</string>
-	<string name="sm_left">Left side</string>
-	<string name="sm_right">Right side</string>
+	<string name="slidemenu_side_title">Slidemenu side</string>
+	<string name="slidemenu_side_summary">Decide, on which side you want to have the slidemenu</string>
+	<string name="slidemenu_fswype">Fullscreenswype</string>
+	<string name="slidemenu_fswype_summary">Use entire screen for opening slide menu</string>
+	<string name="sm_left">Left</string>
+	<string name="sm_right">Right</string>
 	<string name="txt_settings">Settings</string>
-	<string name="btn_directMessage">Direct Messages</string>
+	<string name="btn_directMessage">Direct messages</string>
 	<string name="btn_compose_message">Compose new PM</string>
 	
 </resources>

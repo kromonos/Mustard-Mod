@@ -5,7 +5,7 @@
     <item android:state_enabled="true" android:state_selected="true" 
         android:state_window_focused="true"
     android:drawable="@drawable/list_highlight_inactive" />
-    <item android:state_enabled="true" android:state_window_focused="true" 
+    <!--<item android:state_enabled="true" android:state_window_focused="true" 
         android:drawable="@color/item_body" />
-    <item android:drawable="@color/item_body" />
+    <item android:drawable="@color/item_body" /> -->
 </selector>

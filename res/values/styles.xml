@@ -3,25 +3,17 @@
 
 <resources>
 
-    <style name="WidgetBackgroundPortrait">
-        <item name="android:background">@drawable/m_widget_portrait</item>
-    </style>
-
-    <style name="WidgetBackgroundLandscape">
-        <item name="android:background">@drawable/m_widget_landscape</item>
-    </style>
-
 	<style name="Text"></style>
 	
     <style name="Text.High">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@android:color/white</item>
     </style>
 
     <style name="Text.Low">
         <item name="android:textSize">15sp</item>
-        <item name="android:textColor">@color/semi_white</item>
+        <item name="android:textColor">@android:color/widget_edittext_dark</item>
     </style>
 
 	<style name="Animations" />

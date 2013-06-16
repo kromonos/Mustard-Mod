@@ -58,6 +58,7 @@ public class MustardMain extends MustardBaseActivity {
 		super.onCreate(savedInstanceState);
 			
 		deleteOnExit=false;
+
 		if(mStatusNet!=null) {
 			boolean mMergedTimeline = mPreferences.getBoolean(Preferences.CHECK_MERGED_TL_KEY, false);
 
@@ -70,7 +71,7 @@ public class MustardMain extends MustardBaseActivity {
 			else {
 				setTheme(android.R.style.Theme_Holo_Light);
 			}
-			
+					
 			
 			doPrepareButtons();
 			
@@ -116,14 +117,15 @@ public class MustardMain extends MustardBaseActivity {
 	        // set the content view
 	        setContentView(R.layout.legacy_dents_list);
 	        
+	        String smOrientation = mPreferences.getString(Preferences.SLIDEMENUE, getString(R.string.sm_right));
+	        String smRight = getString(R.string.sm_right);
+	        boolean fullscreenSwype = mPreferences.getBoolean("settings_fswype", false);
+	        
 	        mMenuRight = new SlidingMenu(this);
-	        if(mPreferences.getString(Preferences.SLIDEMENUE, getString(R.string.sm_right)).equals(getString(R.string.sm_right))) {
-		        mMenuRight.setMode(SlidingMenu.RIGHT);
-	        }
-	        else {
-		        mMenuRight.setMode(SlidingMenu.LEFT);
-	        }
-	        mMenuRight.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+	        if(smOrientation.equals(smRight)) { mMenuRight.setMode(SlidingMenu.RIGHT); }
+	        else { mMenuRight.setMode(SlidingMenu.LEFT); }
+	        if(fullscreenSwype) { mMenuRight.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN); }
+	        else { mMenuRight.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN); }
 	        mMenuRight.setBehindOffset(100);
 	        mMenuRight.setShadowWidth(15);
 	        mMenuRight.setShadowDrawable(R.drawable.shadow);
