@@ -1,5 +1,8 @@
 # Mustard Mod #
 - 2013-06-16
+	* Added option to define slidemenu margin
+	* Changes slidemenu right/left to boolean
+	** (If Mustard {MOD} crashes after update, please reinstall)
 	* Merged spanish fix from @larjona
 	* Added private messaging (experimental)
 	* Added slidemenue (https://github.com/jfeinstein10/SlidingMenu/)

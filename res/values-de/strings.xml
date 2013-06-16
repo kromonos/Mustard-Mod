@@ -424,8 +424,7 @@ Polnisch von @blogoo.pl
 	<string name="save_success">Neue Instanz erfolgreich gespeichert</string>
 	<string name="save_fail">Fehler beim speichern der Instanz. Bitte versuche es erneut.</string>
 	
-	<string name="slidemenu_side_title">Swypemenü Seite</string>
-	<string name="slidemenu_side_summary">Auf welcher Seite soll das Swypemenü eingeblendet werden können?</string>
+	<string name="slidemenu_side_title">Swypemenü rechts?</string>
 	<string name="slidemenu_fswype">Fullscreenswype</string>
 	<string name="slidemenu_fswype_summary">Swype über den kompletten Bildschirm um das Menü zu öffnen</string>
 	<string name="sm_left">Links</string>
@@ -433,4 +432,10 @@ Polnisch von @blogoo.pl
 	<string name="txt_settings">Einstellungen</string>
 	<string name="btn_directMessage">Direktnachrichten</string>
 	<string name="btn_compose_message">Neue DN schreiben</string>
+	
+	<string name="slidemenu_margin">Swypemenü breite</string>
+	<string name="slidemenu_margin_summary">Wie viele Pixel sollen von der Timeline, bei geöffnetem Swypemenü, noch sichtbar bleiben? (Standard: 100)</string>
+	<string name="slidemenu_side_right">Swypemenü öffnet auf der rechten Seite</string>
+	<string name="slidemenu_side_left">Swypemenü öffnet auf der linken Seite</string>	
+		
 </resources> 

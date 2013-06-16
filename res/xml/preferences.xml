@@ -183,15 +183,13 @@
 			android:entries="@array/fontsizes"
 			android:entryValues="@array/fontsizesval"
 			android:dialogTitle="@string/font_size" />
+		<EditTextPreference android:defaultValue="100" android:inputType="number" android:key="slidemenu_margin" android:summary="@string/slidemenu_margin_summary" android:enabled="true" android:selectable="true" android:title="@string/slidemenu_margin" /><CheckBoxPreference android:title="@string/slidemenu_fswype" 
+		    android:key="settings_fswype" 
+		    android:summary="@string/slidemenu_fswype_summary" 
+		    android:enabled="true" 
+		    android:selectable="true"/>
 		
-		<ListPreference android:entryValues="@array/sm_side" 
-		    android:entries="@array/sm_side" 
-		    android:dialogTitle="@string/slidemenu_side_title" 
-		    android:title="@string/slidemenu_side_title" 
-		    android:key="slidemenue_side" 
-		    android:summary="@string/slidemenu_side_summary" 
-		    android:defaultValue="@string/sm_left" />
-		<CheckBoxPreference android:title="@string/slidemenu_fswype" android:key="settings_fswype" android:summary="@string/slidemenu_fswype_summary" android:enabled="true" android:selectable="true"/>
+		<CheckBoxPreference android:key="slidemenue_side" android:selectable="true" android:title="@string/slidemenu_side_title" android:enabled="true" android:defaultValue="true" android:summaryOff="@string/slidemenu_side_left" android:summaryOn="@string/slidemenu_side_right"/>
 			
 	</PreferenceCategory>
 	

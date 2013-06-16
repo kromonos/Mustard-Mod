@@ -29,6 +29,7 @@ import org.mumod.android.MustardDbAdapter;
 import org.mumod.android.Preferences;
 import org.mumod.android.R;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -111,22 +112,25 @@ public class MustardMain extends MustardBaseActivity {
 	protected void onAfterFetch() {		
 	}
 
+	@SuppressLint("UseValueOf")
 	@Override
 	protected void onSetListView() {
 	     setTitle("Mustard {MOD}");
 	        // set the content view
 	        setContentView(R.layout.legacy_dents_list);
 	        
-	        String smOrientation = mPreferences.getString(Preferences.SLIDEMENUE, getString(R.string.sm_right));
-	        String smRight = getString(R.string.sm_right);
+	        boolean smOrientation = mPreferences.getBoolean(Preferences.SLIDEMENUE, true);
 	        boolean fullscreenSwype = mPreferences.getBoolean("settings_fswype", false);
-	        
+	        Integer smMargin = new Integer(mPreferences.getString("slidemenu_margin", "100"));
+	        if( smMargin < 100 ) { smMargin = 100; }
+	        if( smMargin > 400 ) { smMargin = 400; }
+
 	        mMenuRight = new SlidingMenu(this);
-	        if(smOrientation.equals(smRight)) { mMenuRight.setMode(SlidingMenu.RIGHT); }
+	        if( smOrientation ) { mMenuRight.setMode(SlidingMenu.RIGHT); }
 	        else { mMenuRight.setMode(SlidingMenu.LEFT); }
-	        if(fullscreenSwype) { mMenuRight.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN); }
+	        if( fullscreenSwype ) { mMenuRight.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN); }
 	        else { mMenuRight.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN); }
-	        mMenuRight.setBehindOffset(100);
+	        mMenuRight.setBehindOffset(smMargin);
 	        mMenuRight.setShadowWidth(15);
 	        mMenuRight.setShadowDrawable(R.drawable.shadow);
 	        mMenuRight.setFadeDegree(0.50f);
