@@ -1,5 +1,6 @@
 # Mustard Mod #
 - 2013-06-16
+	* Merged spanish fix from @larjona
 	* Added private messaging (experimental)
 	* Added slidemenue (https://github.com/jfeinstein10/SlidingMenu/)
 	* Removed obsolet oauth options

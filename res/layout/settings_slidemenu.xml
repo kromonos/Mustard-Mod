@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:fillViewport="true"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent">
+
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:orientation="vertical"
+	    android:padding="5dp" >
+
+		<Button
+		    android:id="@+id/btn_replies"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:drawableLeft="@drawable/ic_action_dialog"
+		    android:gravity="left|center_vertical|center_horizontal"
+		    android:text="@string/menu_mentions" />
+
+		<Button
+		    android:id="@+id/btn_bookmarks"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:drawableLeft="@drawable/ic_action_bookmark"
+		    android:gravity="left|center_vertical|center_horizontal"
+		    android:text="@string/title_bookmarks" />
+
+		<Button
+		    android:id="@+id/btn_directMessages"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:drawableLeft="@drawable/ic_action_inbox"
+		    android:gravity="left|center_vertical|center_horizontal"
+		    android:text="@string/btn_directMessage" />
+
+		<Button
+		    android:id="@+id/btn_composeMessage"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:drawableLeft="@drawable/ic_action_monolog"
+		    android:gravity="left|center_vertical|center_horizontal"
+		    android:text="@string/btn_compose_message" />
+
+		<TextView
+		    android:id="@+id/txt_settings_"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/txt_settings"
+		    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+		<Button
+		    android:id="@+id/btn_global_settings"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:drawableLeft="@drawable/ic_action_gear"
+		    android:gravity="left|center_vertical|center_horizontal"
+		    android:drawablePadding="10dp"
+		    android:text="@string/lbl_global_settings" />
+		
+		<Button
+		    android:id="@+id/btn_account_settings"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:drawableLeft="@drawable/ic_action_android"
+		    android:gravity="left|center_vertical|center_horizontal"
+		    android:drawablePadding="10dp"
+		    android:text="@string/menu_account_settings" />
+			
+		<Button
+		    android:id="@+id/btn_oauth_settings"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:drawableLeft="@drawable/ic_action_key"
+		    android:gravity="left|center_vertical|center_horizontal"
+		    android:drawablePadding="10dp"
+		    android:text="@string/lbl_oauth_settings" />
+		
+		<Button
+		    android:id="@+id/btn_filter_settings"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:drawableLeft="@drawable/ic_action_filter"
+		    android:gravity="left|center_vertical|center_horizontal"
+		    android:drawablePadding="10dp"
+		    android:text="@string/btn_filter_settings" />
+			
+	</LinearLayout>
+
+</ScrollView>
