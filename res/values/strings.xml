@@ -471,7 +471,8 @@ Russian by @dothidden
 	<string name="fromTwitter">"Source on StatusNet Node is %s. Username was added automatically."</string>
 
 	<string name="redentString">RT</string>
-	
+	<string name="redentIcon">♻</string>
+		
 	<!-- URL Shortener Service -->
 	<string name="url_shortener_cat">URL Shortener Service</string>
 	<string name="yourls_url">Yourls URL</string>
@@ -502,5 +503,7 @@ Use your StatusNet instance i.e. bka.li without the http(s) part!
 	<string name="slidemenu_margin">Slidemenu margin</string>
 	<string name="slidemenu_margin_summary">Decide, how many pixels from timeline keeps visible, when slidemenu is opened. (Default: 100)</string>
 	<string name="slidemenu_side_right">Slidemenu will open on the right side</string>
-	<string name="slidemenu_side_left">Slidemenu will open on the left side</string>	
+	<string name="slidemenu_side_left">Slidemenu will open on the left side</string>
+	<string name="showRTIcon">Show RT as Icon</string>
+	<string name="showRTIcon_summary">Show RT as icon ♻</string>	
 </resources>

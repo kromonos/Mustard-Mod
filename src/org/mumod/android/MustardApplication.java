@@ -76,6 +76,7 @@ public class MustardApplication extends Application {
 	 
 	public static final String MUSTARD_FONT_NAME = "Roboto-Light.ttf";
 	public static String sVersionName;
+	public static Integer sVersionID;
 	public static String sUserName;
 	
 	public static ImageManager sImageManager;
@@ -100,7 +101,8 @@ public class MustardApplication extends Application {
 		
 		try {
 			pi = pm.getPackageInfo(getApplicationContext().getPackageName(), 0);
-			sVersionName=pi.versionName;
+			sVersionName = pi.versionName;
+			sVersionID = pi.versionCode;
 			if(DEBUG) Log.d(TAG,"Version: " + sVersionName);
 		} catch (Exception e) {
 			

@@ -254,6 +254,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			}
 						
 			boolean replyall = mPreferences.getBoolean("always_reply_all", false);
+			
 			if( replyall ) {
 				menu.removeItem( R.id.menu_reply_all );
 			}
@@ -652,7 +653,14 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				}
 				if (status.getRepeatedByScreenName() != null ) {
                                         vh.repeated_by.setTextSize( mTextSizeSmall );
-                                        vh.repeated_by.setText(" " + getString(R.string.repeated_by) + " " + status.getRepeatedByScreenName() );
+                            			boolean repeatedIcon = mPreferences.getBoolean("showRTIcon", false);
+                            			Log.d("mumod_readdents", "Repeated as icon: " + repeatedIcon);
+                                        if( repeatedIcon ) {
+                                        	vh.repeated_by.setText(" " + getString(R.string.redentIcon) + " " + status.getRepeatedByScreenName() );
+                                        }
+                                        else {
+                                        	vh.repeated_by.setText(" " + getString(R.string.repeated_by) + " " + status.getRepeatedByScreenName() );
+                                        }
                                         vh.repeated_by.setVisibility( View.VISIBLE );
 				} else {
 					vh.repeated_by.setVisibility( View.GONE );

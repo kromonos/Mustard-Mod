@@ -27,7 +27,7 @@
 			android:title="@string/pref_new_repeat_title"
 			android:summary="@string/pref_new_repeat_summary" />
 		
-		<CheckBoxPreference android:key="show_nick_reply"
+		<CheckBoxPreference android:title="@string/showRTIcon" android:summary="@string/showRTIcon_summary" android:key="showRTIcon"/><CheckBoxPreference android:key="show_nick_reply"
 			android:defaultValue="true"
 			android:title="@string/pref_show_nick_reply_title"
 			android:summary="@string/pref_show_nick_reply_summary" android:summaryOn="@string/pref_show_nick_reply_summary_enabled" android:summaryOff="@string/pref_show_nick_reply_summary_disabled"/>
@@ -62,6 +62,7 @@
 		    android:title="@string/txt_show_source" 
 		    android:key="display_source" 
 		    android:summary="@string/txt_show_source_summary"/>
+		
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/url_shortener_cat">
