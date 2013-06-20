@@ -117,6 +117,7 @@ public class OAuthCallback extends Activity {
 			}
 
 			mSURL = mSharedPreferences.getString("oauth_url","");
+			Log.d("doCompletelogin", "mSURL: " + mSURL);
 
 			OAuthManager oauthManager = OAuthManager.getOAuthManager(this);
 

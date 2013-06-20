@@ -825,16 +825,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				StatusNetUtils.linkifyGroups(tv, accountId);
 				StatusNetUtils.linkifyTags(tv, accountId);
 			}
-			// } else {
-			// StatusNetUtils.linkifyUsers(v);
-			// if(isTwitterStatus) {
-			// StatusNetUtils.linkifyGroupsForTwitter(v);
-			// StatusNetUtils.linkifyTagsForTwitter(v);
-			// } else {
-			// StatusNetUtils.linkifyGroups(v);
-			// StatusNetUtils.linkifyTags(v);
-			// }
-			// }
 			tv.setTextSize(mTextSizeNormal);
 			
 			return v;

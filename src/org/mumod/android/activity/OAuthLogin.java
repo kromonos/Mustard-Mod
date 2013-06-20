@@ -147,6 +147,8 @@ public class OAuthLogin extends Activity {
 		if (mInstance == null || "".equals(mInstance))
 			return;
 		mInstance=mInstance.toLowerCase();
+		Log.d("requestToken", "mInstance: " + mInstance);
+		
 		if (mInstance.endsWith("/"))
 			mInstance=mInstance.substring(0, mInstance.length()-1);
 	
@@ -201,6 +203,7 @@ public class OAuthLogin extends Activity {
         Log.d(getPackageName(), "instance: " + instance);
         
 	    OAuthManager oauthManager = OAuthManager.getOAuthManager(this);
+	    Log.d("doNextStep", "mSURL: " + mSURL + (!isTwitter ? "/api" : "") + "/oauth/request_token");
 	    oauthManager.prepare(
 	    		oi.key,
 	    		oi.secret,

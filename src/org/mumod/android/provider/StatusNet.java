@@ -71,6 +71,10 @@ public class StatusNet {
 	private final String API_STATUSNET_VERSION = "/statusnet/version.json";
 	private final String API_STATUSNET_CONFIG = "/statusnet/config.json";
 	private final String API_HELP_TEST = "/help/test.json";
+	private final String API_SN_STRING = "/api";
+	
+	// TWITTER API
+	private final String API_TWITTER_STRING = "/1.1";
 
 	// GLOBAL API
 	private final String API_PUBLIC_TIMELINE = "/statuses/public_timeline.json";
@@ -85,7 +89,7 @@ public class StatusNet {
 	private final String API_USER_FAVORITES = "/favorites.json?screen_name=%s";
 	
 	private final String API_USER_FRIENDS_TIMELINE = "/statuses/friends_timeline.json?screen_name=%s";
-	private final String API_USER_FRIENDS_TIMELINE_TWITTER = "/statuses/friends_timeline.json?";
+	private final String API_USER_FRIENDS_TIMELINE_TWITTER = "/statuses/home_timeline.json?";
 	private final String API_USER_SUBSCRIBE = "/friendships/create.json?screen_name=%s";
 	private final String API_USER_UNSUBSCRIBE = "/friendships/destroy.json?screen_name=%s";
 	
@@ -131,6 +135,15 @@ public class StatusNet {
 	
 	private Account mAccount;
 	
+	public void isTwitter() {
+		if(mURL.toExternalForm().endsWith("twitter.com")) {
+			isTwitter = true;
+		}
+		else {
+			isTwitter = false;
+		}			
+	}
+	
 	public Account getAccount() {
 		return mAccount;
 	}
@@ -155,12 +168,12 @@ public class StatusNet {
 		if(host.equalsIgnoreCase("twitter.com")) {
 			host="api.twitter.com";
 			try {
-				mURL = new URL("https://"+host+"/1");
+				mURL = new URL("https://"+host+"/1.1");
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			isTwitter=true;
+			isTwitter = true;
 		}
 		mHttpManager = new HttpManager(mContext,host);
 	}
@@ -208,11 +221,13 @@ public class StatusNet {
 	public User getUser(String username) throws MustardException {
 		if(username==null || "".equals(username))
 			throw new MustardException("Username is null");
+		isTwitter();
+		
 		User user = null;
 		JSONObject json = null;
 		try {
 			String userURL = mURL.toExternalForm()
-					+ (!isTwitter ? "/api" : "") + API_USER_SHOW.replace("%s", username.toLowerCase());
+					+ (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_USER_SHOW.replace("%s", username.toLowerCase());
 			json = mHttpManager.getJsonObject(userURL, HttpManager.GET);
 		} catch (MustardException e) {
 			throw e;
@@ -301,9 +316,10 @@ public class StatusNet {
 	public Group getGroup(String groupname) throws MustardException {
 		Group group = null;
 		JSONObject json = null;
+		isTwitter();
 		try {
 			String userURL = mURL.toExternalForm()
-					+ (!isTwitter ? "/api" : "") + API_GROUP_SHOW.replace("%s", groupname.toLowerCase());
+					+ (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_GROUP_SHOW.replace("%s", groupname.toLowerCase());
 			json = mHttpManager.getJsonObject(userURL, HttpManager.GET);
 		} catch (MustardException e) {
 			throw e;
@@ -410,6 +426,7 @@ public class StatusNet {
 	}
 	
 	private String buildParams(long limit,boolean higher) {
+		isTwitter();
 		if(limit<=0)
 			return  isTwitter ? "&include_rts=true" : "";
 		String sideVersus = "";
@@ -421,8 +438,9 @@ public class StatusNet {
 	}
 	
 	public ArrayList<Status> getPublicTimeline(long sinceId, boolean since) throws MustardException {
+		isTwitter();
 		String sinceParam = buildParams(sinceId,since);
-		String lURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_PUBLIC_TIMELINE + "?count="
+		String lURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_PUBLIC_TIMELINE + "?count="
 				+ mMaxNotices + sinceParam;
 		return getGeneralStatuses(lURL);
 	}
@@ -437,17 +455,19 @@ public class StatusNet {
 		return getGeneralRemoteStatuses(lURL);
 	}
 	public ArrayList<Status> getUserTimeline(String username,long limit,boolean higher) throws MustardException {
+		isTwitter();
 		String sinceParam = buildParams(limit, higher);
 		String lURL = mURL.toExternalForm()
-				+ (!isTwitter ? "/api" : "") + API_USER_TIMELINE.replace("%s", username.toLowerCase())
+				+ (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_USER_TIMELINE.replace("%s", username.toLowerCase())
 				+ "&count=" + mMaxNotices + sinceParam;
 		return getGeneralStatuses(lURL);
 	}
 	
 	public ArrayList<Status> getGroupTimeline(String groupname,long limit,boolean higher) throws MustardException {
+		isTwitter();
 		String sinceParam = buildParams(limit, higher);
 		String lURL = mURL.toExternalForm()
-				+ (!isTwitter ? "/api" : "") + API_GROUP_TIMELINE.replace("%s", groupname.toLowerCase())
+				+ (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_GROUP_TIMELINE.replace("%s", groupname.toLowerCase())
 				+ "?count=" + mMaxNotices + sinceParam;
 		return getGeneralStatuses(lURL);
 	}
@@ -457,13 +477,14 @@ public class StatusNet {
 	}
 	
 	public ArrayList<Status> getFriendsTimeline(String username,long limit,boolean higher) throws MustardException {
+		isTwitter();
 		String sinceParam = buildParams(limit, higher);
 		String lURL = "";
 		if(isTwitter) {
-			lURL = mURL.toExternalForm() + API_USER_FRIENDS_TIMELINE_TWITTER + "count=" + mMaxNotices + sinceParam;
+			lURL = mURL.toExternalForm() + API_TWITTER_STRING + API_USER_FRIENDS_TIMELINE_TWITTER + "count=" + mMaxNotices + sinceParam;
 		} else {
 			lURL = mURL.toExternalForm()
-				+ "/api" + API_USER_FRIENDS_TIMELINE.replace("%s", username
+				+ API_SN_STRING + API_USER_FRIENDS_TIMELINE.replace("%s", username
 						.toLowerCase()) + "&count=" + mMaxNotices + sinceParam;
 		}
 		return getGeneralStatuses(lURL);
@@ -471,48 +492,54 @@ public class StatusNet {
 	
 	public ArrayList<Status> getMentions(String username,long limit,boolean higher) throws MustardException {
 		String sinceParam = buildParams(limit, higher);
+		isTwitter();
 		if(username.equals("-1"))
 			username=getMUsername();
 		String lURL = mURL.toExternalForm()
-				+ (!isTwitter ? "/api" : "") + API_USER_MENTIONS.replace("%s", username.toLowerCase())
+				+ (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_USER_MENTIONS.replace("%s", username.toLowerCase())
 				+ "&count=" + mMaxNotices + sinceParam;
 		return getGeneralStatuses(lURL);
 	}
 	
 	public ArrayList<DirectMessage> getDirectMessages(long limit,boolean higher) throws MustardException {
 		String sinceParam = buildParams(limit, higher);
+		isTwitter();
 		String lURL = mURL.toExternalForm()
-				+ (!isTwitter ? "/api" : "") + API_DM_IN + "?count=" + mMaxNotices + sinceParam;
+				+ (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_DM_IN + "?count=" + mMaxNotices + sinceParam;
 		return getGeneralDirectMessages(DirectMessage.K_IN,lURL);
 	}
 	
 	public ArrayList<DirectMessage> getDirectMessagesSent(long limit,boolean higher) throws MustardException {
 		String sinceParam = buildParams(limit, higher);
+		isTwitter();
 		String lURL = mURL.toExternalForm()
-				+ (!isTwitter ? "/api" : "") + API_DM_OUT + "?count=" + mMaxNotices + sinceParam;
+				+ (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_DM_OUT + "?count=" + mMaxNotices + sinceParam;
 		return getGeneralDirectMessages(DirectMessage.K_OUT,lURL);
 	}
 	
 	public ArrayList<Status> getFavorites(String username,long limit,boolean higher) throws MustardException {
 		String sinceParam = buildParams(limit, higher);
+		isTwitter();
 		String lURL = mURL.toExternalForm()
-				+ (!isTwitter ? "/api" : "") + API_USER_FAVORITES.replace("%s", username.toLowerCase())
+				+ (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_USER_FAVORITES.replace("%s", username.toLowerCase())
 				+ "&count=" + mMaxNotices + sinceParam;
 		return getGeneralStatuses(lURL);
 	}
 
 	public ArrayList<Status> getTagTimeline(String tag,long limit,boolean higher) throws MustardException {
 		String sinceParam = buildParams(limit, higher);
+		isTwitter();
 		String lURL = mURL.toExternalForm()
-		+ (!isTwitter ? "/api" : "") + API_TAG_TIMELINE.replace("%s", tag.toLowerCase())
+		+ (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_TAG_TIMELINE.replace("%s", tag.toLowerCase())
 		+ "?count=" + mMaxNotices + sinceParam;
 		return getGeneralStatuses(lURL);
 	}
 
 	public Status getStatus(String id,boolean single) throws MustardException {
 		Status s = null;
+		isTwitter();
 		String lURL = mURL.toExternalForm()
-		+ (!isTwitter ? "/api" : "") + API_STATUS_SHOW.replace("%s", id);
+		+ (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_STATUS_SHOW.replace("%s", id);
 		try {
 			JSONObject o = mHttpManager.getJsonObject(lURL);
 			s = StatusNetJSONUtil.getStatus(o);
@@ -645,11 +672,12 @@ public class StatusNet {
 	
 	
 	public User checkUser() throws MustardException {
-
+		isTwitter();
+		Log.d("checkUser", "mURL: " + mURL + " -- UserCheckURL: " + mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_USER_CHECK);
 		User user = null;
 		JSONObject json = null;
 		try {
-			String userURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_USER_CHECK;
+			String userURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_USER_CHECK;
 			json = mHttpManager.getJsonObject(userURL, HttpManager.GET);
 		} catch (MustardException e) {
 			throw e;
@@ -669,8 +697,8 @@ public class StatusNet {
 	}
 	
 	public boolean delete(String id) {
-		
-		String deleteURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_NOTICE_DELETE.replace("%s", id);
+		isTwitter();
+		String deleteURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_NOTICE_DELETE.replace("%s", id);
 		try {
 			mHttpManager.getResponseAsString(deleteURL, HttpManager.POST);
 		} catch (Exception e) {
@@ -681,7 +709,8 @@ public class StatusNet {
 	}
 
 	public boolean doFavour(String id) {	
-		String favorURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_NOTICE_FAVOR.replace("%s", id);
+		isTwitter();
+		String favorURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_NOTICE_FAVOR.replace("%s", id);
 		try {
 			mHttpManager.getResponseAsString(favorURL, HttpManager.POST);
 		} catch (Exception e) {
@@ -692,7 +721,8 @@ public class StatusNet {
 	}
 		
 	public boolean doDisfavour(String id) {	
-		String disfavorURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_NOTICE_DISFAVOR.replace("%s", id);
+		isTwitter();
+		String disfavorURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_NOTICE_DISFAVOR.replace("%s", id);
 		try {
 			mHttpManager.getResponseAsString(disfavorURL, HttpManager.POST);
 		} catch (Exception e) {
@@ -703,7 +733,8 @@ public class StatusNet {
 	}
 	
 	public boolean doRepeat(String id) {
-		String favorURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_NOTICE_REPEAT.replace("%s", id);
+		isTwitter();
+		String favorURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_NOTICE_REPEAT.replace("%s", id);
 		try {
 			mHttpManager.getResponseAsString(favorURL, HttpManager.POST);
 		} catch (Exception e) {
@@ -714,7 +745,8 @@ public class StatusNet {
 	}
 	
 	public boolean doSubscribe(String id)  throws MustardException {
-		String subscribeURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_USER_SUBSCRIBE.replace("%s", id);
+		isTwitter();
+		String subscribeURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_USER_SUBSCRIBE.replace("%s", id);
 		try {
 			if (MustardApplication.DEBUG)Log.v(TAG, subscribeURL);
 			mHttpManager.getResponseAsString(subscribeURL, HttpManager.POST);
@@ -729,7 +761,8 @@ public class StatusNet {
 	}
 	
 	public boolean doUnsubscribe(String id) throws MustardException {	
-		String unsubscribeURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_USER_UNSUBSCRIBE.replace("%s", id);
+		isTwitter();
+		String unsubscribeURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_USER_UNSUBSCRIBE.replace("%s", id);
 		try {
 			if (MustardApplication.DEBUG) Log.v(TAG, unsubscribeURL);
 			mHttpManager.getResponseAsString(unsubscribeURL, HttpManager.POST);
@@ -744,7 +777,8 @@ public class StatusNet {
 	}
 	
 	public boolean doBlock(String id) {	
-		String subscribeURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_USER_BLOCK.replace("%s", id);
+		isTwitter();
+		String subscribeURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_USER_BLOCK.replace("%s", id);
 		try {
 			mHttpManager.getResponseAsString(subscribeURL, HttpManager.POST);
 //			Log.d(TAG, "BLOCK: " + ret);
@@ -757,7 +791,8 @@ public class StatusNet {
 	}
 	
 	public boolean doUnblock(String id) {	
-		String unsubscribeURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_USER_UNBLOCK.replace("%s", id);
+		isTwitter();
+		String unsubscribeURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_USER_UNBLOCK.replace("%s", id);
 		try {
 			mHttpManager.getResponseAsString(unsubscribeURL, HttpManager.POST);
 //			Log.d(TAG, "UNBLOCK: " + ret);
@@ -770,7 +805,8 @@ public class StatusNet {
 	}
 	
 	public boolean doJoinGroup(String id) {	
-		String joinGroupURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_GROUP_JOIN.replace("%s", id);
+		isTwitter();
+		String joinGroupURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_GROUP_JOIN.replace("%s", id);
 		try {
 			mHttpManager.getResponseAsString(joinGroupURL, HttpManager.POST);
 		} catch (Exception e) {
@@ -781,7 +817,8 @@ public class StatusNet {
 	}
 	
 	public boolean doLeaveGroup(String id) {	
-		String leaveGroupURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_GROUP_LEAVE.replace("%s", id);
+		isTwitter();
+		String leaveGroupURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_GROUP_LEAVE.replace("%s", id);
 		try {
 			mHttpManager.getResponseAsString(leaveGroupURL, HttpManager.POST);
 		} catch (Exception e) {
@@ -792,6 +829,7 @@ public class StatusNet {
 	}
 	
 	public Relationship getFriendshipStatus(String user) {
+		isTwitter();
 		Relationship r = null;
 		String friendshipExistsURL = mURL.toExternalForm() +
 			API_FRIENDSHIP_SHOW.replace("%s", user);
@@ -809,7 +847,8 @@ public class StatusNet {
 	}
 	
 	public boolean isGroupMember(String group) {
-		String subscribeURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_GROUP_IS_MEMBER.replace("%s", group);
+		isTwitter();
+		String subscribeURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_GROUP_IS_MEMBER.replace("%s", group);
 		try {
 			JSONObject isMember = mHttpManager.getJsonObject(subscribeURL, HttpManager.POST);
 			return isMember.getBoolean("is_member");
@@ -821,10 +860,10 @@ public class StatusNet {
 	}
 	
 	public String getVersion() {
-
+		isTwitter();
 		String version = null;
 		try {
-			String versionURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_STATUSNET_VERSION;
+			String versionURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_STATUSNET_VERSION;
 			version = mHttpManager.getResponseAsString(versionURL, HttpManager.GET);
 			if (version!=null) {
 				version = version.trim();
@@ -875,10 +914,11 @@ public class StatusNet {
 	}
 	
 	public boolean isHelpTest() {
+		isTwitter();
 
 		boolean pass = false;
 		try {
-			String helptestURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_HELP_TEST;
+			String helptestURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_HELP_TEST;
 			String helpTest = mHttpManager.getResponseAsString(helptestURL, HttpManager.GET);
 			if (helpTest!=null) {
 				helpTest = helpTest.trim();
@@ -901,11 +941,12 @@ public class StatusNet {
 	}
 	
 	public long sendDirectMessage(String text, String screen_name) throws MustardException, AuthException {
+		isTwitter();
 		ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
 	    params.add(new BasicNameValuePair("text", text));
 	    params.add(new BasicNameValuePair("screen_name", screen_name));
 	    params.add(new BasicNameValuePair("source", MustardApplication.APPLICATION_NAME));
-	    String updateURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_DM_ADD;
+	    String updateURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_DM_ADD;
 	    JSONObject json = null;
 	    long id=-1;
 	    try {
@@ -927,11 +968,12 @@ public class StatusNet {
 	}
 
 	public StatusNetService getConfiguration() throws MustardException {
+		isTwitter();
 
 		StatusNetService config = new StatusNetService();
 		JSONObject o = null;
 		try {
-			String configURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_STATUSNET_CONFIG;
+			String configURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_STATUSNET_CONFIG;
 			o = mHttpManager.getJsonObject(configURL);
 			// System.out.println(o.toString(3));
 			config = StatusNetJSONUtil.getService(o);
@@ -957,6 +999,7 @@ public class StatusNet {
 	}
 	
 	public long update(String status, String in_reply_to, String lon, String lat, File media) throws MustardException, AuthException {
+		isTwitter();
 	    ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
 	    params.add(new BasicNameValuePair("status", status));
 	    params.add(new BasicNameValuePair("source", MustardApplication.APPLICATION_NAME));
@@ -967,7 +1010,7 @@ public class StatusNet {
 	    if(lat!=null && !"".equals(lat))
 	    	params.add(new BasicNameValuePair("lat", lat));
 
-	    String updateURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_NOTICE_ADD;
+	    String updateURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_NOTICE_ADD;
 	    JSONObject json = null;
 	    long id=-1;
 	    try {
@@ -1001,7 +1044,8 @@ public class StatusNet {
 	}
 	
 	public boolean updateAvatar(File media) throws MustardException {
-		String updateURL = mURL.toExternalForm() + (!isTwitter ? "/api" : "") + API_USER_AVATAR;
+		isTwitter();
+		String updateURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_USER_AVATAR;
 		try {
 			mHttpManager.getJsonObject(updateURL,null,"image",media);
 			return true;

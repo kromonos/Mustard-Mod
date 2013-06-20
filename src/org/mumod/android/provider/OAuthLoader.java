@@ -69,6 +69,9 @@ public class OAuthLoader {
 	}
 	
 	public OAuthInstance get(String instance) {
+		if ( instance.endsWith("twitter.com") ) {
+			instance = "twitter.com";
+		}
 		OAuthInstance o = null;
 		Cursor c = mDbAdapter.fetchOauth(instance);
         Log.d("mumod", "Fetching instance: " + instance);

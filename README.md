@@ -1,4 +1,7 @@
 # Mustard Mod #
+- 2013-06-20
+	* Added selection highlighting
+	* Removed obsolet code
 - 2013-06-16
 	* Added option to define slidemenu margin
 	* Changes slidemenu right/left to boolean
