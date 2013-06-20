@@ -90,6 +90,7 @@ import android.view.Window;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.TextView.BufferType;
@@ -163,6 +164,8 @@ public abstract class MustardBaseActivity extends ListActivity implements
 	protected boolean mFromSavedState = false;
 	protected boolean mForceOnlyBackMenu = false;
 	private boolean mIsOnSaveInstanceState = false;
+	
+	private View mView;
 
 	protected int DB_ROW_TYPE;
 	protected String DB_ROW_EXTRA;
@@ -252,7 +255,11 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			} finally {
 				mDbHelper.close();
 			}
-						
+
+			if( mView != null ) {
+				mView.setBackgroundColor( getResources().getColor(android.R.color.holo_blue_dark) );
+			}
+				
 			boolean replyall = mPreferences.getBoolean("always_reply_all", false);
 			
 			if( replyall ) {
@@ -291,7 +298,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 		// Called when the user selects a contextual menu item
 		public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-			
 			MustardDbAdapter mDbHelper = getDbAdapter();
 			Cursor c = mDbHelper.fetchStatus(mCurrentRowId);			
 
@@ -358,6 +364,9 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 		// Called when the user exits the action mode
 		public void onDestroyActionMode(ActionMode mode) {
+			// TODO Remove markers
+			mView.setBackgroundColor( getResources().getColor(android.R.color.transparent) );
+			mView = null;
 			mActionMode = null;
 		}
 	};
@@ -402,11 +411,14 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				mDbHelper.close();
 			}
 			
+			if( mView != null ) {
+				mView.setBackgroundColor( getResources().getColor(android.R.color.holo_red_dark) );
+			}
+			
 			MenuInflater inflater = mode.getMenuInflater();
 			inflater.inflate(R.menu.notice_long, menu);
-			
+
 			MenuItem user_timeline = menu.findItem(R.id.menu_usertimeline);
-			//user_timeline.setIcon(_icon);
 			user_timeline.setIcon(R.drawable.ic_action_user);
 			user_timeline.setTitle(userName);
 			
@@ -505,6 +517,9 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 		// Called when the user exits the action mode
 		public void onDestroyActionMode(ActionMode mode) {
+			mView.setBackgroundColor( getResources().getColor(android.R.color.transparent) );
+			mView = null;
+			// TODO Clear onClick Markers
 			mActionMode = null;
 		}
 	};
@@ -610,8 +625,9 @@ public abstract class MustardBaseActivity extends ListActivity implements
 						return;
 					}
 					mCurrentRowId = id;
+					// TODO Set background on selected (short click)
+					mView = view;
 					mActionMode = startActionMode(mClickActionModeCallback);
-					//v.setBackgroundColor( getResources().getColor(android.R.color.holo_green_dark) );
 				}
 			});
 			v.setOnLongClickListener(new View.OnLongClickListener() {
@@ -623,9 +639,10 @@ public abstract class MustardBaseActivity extends ListActivity implements
 						return true;
 					}
 					mCurrentRowId = id;
+					// TODO Set background on selected (long click)
+					mView = view;
 					// Start the CAB using the ActionMode.Callback defined above
 					mActionMode = startActionMode(mLongClickActionModeCallback);
-					//v.setBackgroundColor( getResources().getColor(android.R.color.holo_red_dark) );
 					return true;
 				}
 			});
@@ -637,6 +654,8 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			
 			if (vh.screen_name != null) {
 				v.setBackgroundColor( getResources().getColor(android.R.color.transparent) );
+				
+				// In reply to
 				if (inreplyto > 0) {
 					vh.in_reply_to.setTextSize( mTextSizeSmall );
 					vh.in_reply_to.setText(" " + getString(R.string.in_reply_to) + " " + status.getInReplyToScreenName() );
@@ -651,17 +670,19 @@ public abstract class MustardBaseActivity extends ListActivity implements
 				else {
 					vh.in_reply_to.setVisibility( View.GONE );
 				}
+				
+				// Repeated by
 				if (status.getRepeatedByScreenName() != null ) {
-                                        vh.repeated_by.setTextSize( mTextSizeSmall );
-                            			boolean repeatedIcon = mPreferences.getBoolean("showRTIcon", false);
-                            			Log.d("mumod_readdents", "Repeated as icon: " + repeatedIcon);
-                                        if( repeatedIcon ) {
-                                        	vh.repeated_by.setText(" " + getString(R.string.redentIcon) + " " + status.getRepeatedByScreenName() );
-                                        }
-                                        else {
-                                        	vh.repeated_by.setText(" " + getString(R.string.repeated_by) + " " + status.getRepeatedByScreenName() );
-                                        }
-                                        vh.repeated_by.setVisibility( View.VISIBLE );
+                    vh.repeated_by.setTextSize( mTextSizeSmall );
+        			boolean repeatedIcon = mPreferences.getBoolean("showRTIcon", false);
+        			Log.d("mumod_readdents", "Repeated as icon: " + repeatedIcon);
+                    if( repeatedIcon ) {
+                    	vh.repeated_by.setText(" " + getString(R.string.redentIcon) + " " + status.getRepeatedByScreenName() );
+                    }
+                    else {
+                    	vh.repeated_by.setText(" " + getString(R.string.repeated_by) + " " + status.getRepeatedByScreenName() );
+                    }
+                    vh.repeated_by.setVisibility( View.VISIBLE );
 				} else {
 					vh.repeated_by.setVisibility( View.GONE );
 				}
@@ -853,188 +874,9 @@ public abstract class MustardBaseActivity extends ListActivity implements
 			new StatusFavor().execute(rowid);
 	}
 
-//	private void onShowNoticeMenu(View v, final long rowid) {
-//
-//		if (isRemoteTimeline) {
-//			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//			builder.setMessage(
-//					"Sorry, this is a remote profile. It's not possible to interact with it")
-//					.setCancelable(true).setTitle(R.string.warning)
-//					.setPositiveButton(R.string.close, null).create().show();
-//			return;
-//		}
-//		MustardDbAdapter mDbHelper = getDbAdapter();
-//		Cursor c = mDbHelper.fetchStatus(rowid);
-//		BitmapDrawable _icon = new BitmapDrawable(
-//				MustardApplication.sImageManager.get(c.getString(c
-//						.getColumnIndexOrThrow(MustardDbAdapter.KEY_USER_IMAGE))));
-//		MustardApplication _ma = (MustardApplication) getApplication();
-//		final long usernameId = c.getLong(c
-//				.getColumnIndexOrThrow(MustardDbAdapter.KEY_ACCOUNT_ID));
-//		final StatusNet _sn = mMergedTimeline ? _ma.checkAccount(mDbHelper,
-//				false, usernameId) : mStatusNet;
-//		final String userURL = c.getString(c
-//				.getColumnIndexOrThrow(MustardDbAdapter.KEY_USER_URL));
-//		final boolean isLocal = isUserLocal(_sn, userURL);
-//
-//		final String userName = c.getString(c
-//				.getColumnIndexOrThrow(MustardDbAdapter.KEY_SCREEN_NAME));
-//		final boolean favorited = c.getInt(c
-//				.getColumnIndexOrThrow(MustardDbAdapter.KEY_FAVORITE)) == 1 ? true
-//				: false;
-//		long in_reply_to = c.getLong(c
-//				.getColumnIndex(MustardDbAdapter.KEY_IN_REPLY_TO));
-//		int geo = c.getInt(c.getColumnIndex(MustardDbAdapter.KEY_GEO));
-//		int attachment = c.getInt(c
-//				.getColumnIndex(MustardDbAdapter.KEY_ATTACHMENT));
-//		final String lon = c.getString(c
-//				.getColumnIndexOrThrow(MustardDbAdapter.KEY_LON));
-//		final String lat = c.getString(c
-//				.getColumnIndexOrThrow(MustardDbAdapter.KEY_LAT));
-//
-//		try {
-//			c.close();
-//		} catch (Exception e) {
-//		} finally {
-//			mDbHelper.close();
-//		}
-//		// Log.v(TAG, "Username id: " + usernameId + " vs " +
-//		// mStatusNet.getUsernameId());
-//
-//		Display display = getWindowManager().getDefaultDisplay();
-//
-//		int height = display.getHeight();
-//		View tv = null;
-//		if (height < K_MIN_HEIGHT_QA) {
-//			tv = findViewById(R.id.dent_info);
-//			if (tv == null)
-//				tv = v;
-//		} else {
-//			tv = v;
-//		}
-//
-//		mQuickAction = new QuickAction(tv);
-//
-//		ActionItem iconItem = new ActionItem();
-//		iconItem.setTitle(userName);
-//		iconItem.setIcon(_icon);
-//		iconItem.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				if (isLocal) {
-//					doOpenUsertimeline(usernameId, userName);
-//				} else {
-//					doOpenRemoteUserTimeline(usernameId, userURL);
-//				}
-//			}
-//		});
-//		mQuickAction.addActionItem(iconItem);
-//
-//		ActionItem replyItem = new ActionItem();
-//		replyItem.setTitle(getString(R.string.menu_reply));
-//		replyItem.setIcon(getResources().getDrawable(R.drawable.n_icon_reply));
-//		replyItem.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				doReply(rowid);
-//			}
-//		});
-//		mQuickAction.addActionItem(replyItem);
-//
-//		ActionItem forwardAction = new ActionItem();
-//		forwardAction.setTitle(getString(R.string.menu_forward));
-//		forwardAction.setIcon(getResources().getDrawable(
-//				R.drawable.n_icon_forward));
-//		forwardAction.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				doForward(rowid);
-//			}
-//		});
-//		mQuickAction.addActionItem(forwardAction);
-//
-//		ActionItem repeatAction = new ActionItem();
-//		repeatAction.setTitle(getString(R.string.menu_repeat));
-//		repeatAction.setIcon(getResources().getDrawable(
-//				R.drawable.n_icon_repeat));
-//		repeatAction.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				doRepeat(rowid);
-//			}
-//		});
-//		mQuickAction.addActionItem(repeatAction);
-//
-//		ActionItem favAction = new ActionItem();
-//		if (favorited) {
-//			favAction.setTitle(getString(R.string.menu_unfav));
-//			favAction.setIcon(getResources().getDrawable(
-//					R.drawable.n_icon_favorite));
-//
-//		} else {
-//			favAction.setTitle(getString(R.string.menu_fav));
-//			favAction.setIcon(getResources().getDrawable(
-//					R.drawable.n_icon_disfavorite));
-//		}
-//		favAction.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				doFavorite(rowid, favorited);
-//			}
-//		});
-//		mQuickAction.addActionItem(favAction);
-//
-//		if (in_reply_to > 0 && isConversationEnable) {
-//
-//			ActionItem conversationAction = new ActionItem();
-//			conversationAction.setTitle(getString(R.string.menu_conversation));
-//			conversationAction.setIcon(getResources().getDrawable(
-//					R.drawable.n_icon_conversation));
-//			conversationAction.setOnClickListener(new OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					doOpenConversation(rowid);
-//				}
-//			});
-//			mQuickAction.addActionItem(conversationAction);
-//		}
-//
-//		if (attachment > 0) {
-//
-//			ActionItem attachmentAction = new ActionItem();
-//			attachmentAction.setTitle(getString(R.string.menu_view_attachment));
-//			attachmentAction.setIcon(getResources().getDrawable(
-//					R.drawable.n_icon_attachment));
-//			attachmentAction.setOnClickListener(new OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					onShowAttachemntList(rowid);
-//				}
-//			});
-//			mQuickAction.addActionItem(attachmentAction);
-//
-//		}
-//
-//		if (geo == 1) {
-//			ActionItem deleteAction = new ActionItem();
-//			deleteAction.setTitle(getString(R.string.menu_view_geo));
-//			deleteAction.setIcon(getResources().getDrawable(
-//					R.drawable.n_icon_geo));
-//			deleteAction.setOnClickListener(new OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					doShowLocation(lon, lat);
-//				}
-//			});
-//			mQuickAction.addActionItem(deleteAction);
-//
-//		}
-//
-//		mQuickAction.show();
-//	}
-
 	private boolean mSpinnerInit = true;
 
+	
 	private void setAccountsSpinner(ActionBar actionBar) {
 		MustardDbAdapter mDbHelper = getDbAdapter();
 		Cursor cur = mDbHelper.fetchAllAccountsDefaultFirst();
@@ -1153,6 +995,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 		actionBar.setDisplayShowTitleEnabled(false);
 		setAccountsSpinner(actionBar);
 		mLayoutLegacy = true;
+		// TODO Themeing
 		boolean mLayoutLight = mPreferences.getString(Preferences.THEME,
 				getString(R.string.theme_bw)).equals(
 				getString(R.string.theme_bw));
@@ -1453,9 +1296,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 							: R.string.menu_ignore_hide);
 			menu.add(0, SWITCH_ID, 0, R.string.menu_switch).setIcon(
 					android.R.drawable.ic_menu_directions);
-			// menu.add(0, ACCOUNT_SETTINGS_ID, 0,
-			// R.string.menu_account_settings)
-			// .setIcon(android.R.drawable.ic_menu_gallery);
 			menu.add(0, SETTINGS_ID, 0, R.string.menu_settings).setIcon(
 					android.R.drawable.ic_menu_preferences);
 			menu.add(0, LOGOUT_ID, 0, R.string.menu_logout).setIcon(
@@ -1976,320 +1816,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 		}
 		return ret;
 	}
-
-	// @Override
-	// public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo
-	// menuInfo) {
-	// super.onCreateContextMenu(menu, v, menuInfo);
-
-//	private void onShowContextMenu(View v, final long rowid) {
-//
-//		// Log.d(TAG,"Set mCurrentRowid " + mCurrentRowid);
-//		MustardApplication _ma = (MustardApplication) getApplication();
-//		MustardDbAdapter mDbHelper = getDbAdapter();
-//		Cursor c = mDbHelper.fetchStatus(rowid);
-//		final long accountId = c.getLong(c
-//				.getColumnIndexOrThrow(MustardDbAdapter.KEY_ACCOUNT_ID));
-//
-//		BitmapDrawable _icon = new BitmapDrawable(
-//				MustardApplication.sImageManager.get(c.getString(c
-//						.getColumnIndexOrThrow(MustardDbAdapter.KEY_USER_IMAGE))));
-//
-//		final StatusNet _sn = mMergedTimeline ? _ma.checkAccount(mDbHelper,
-//				false, accountId) : mStatusNet;
-//		final String userURL = c.getString(c
-//				.getColumnIndexOrThrow(MustardDbAdapter.KEY_USER_URL));
-//		final boolean isLocal = isUserLocal(_sn, userURL);
-//		final long statusId = c.getLong(c
-//				.getColumnIndexOrThrow(MustardDbAdapter.KEY_STATUS_ID));
-//		final String userName = c.getString(c
-//				.getColumnIndexOrThrow(MustardDbAdapter.KEY_SCREEN_NAME));
-//		final long usernameId = c.getLong(c
-//				.getColumnIndexOrThrow(MustardDbAdapter.KEY_USER_ID));
-//
-//		// final String lon =
-//		// c.getString(c.getColumnIndexOrThrow(MustardDbAdapter.KEY_LON));
-//		// final String lat =
-//		// c.getString(c.getColumnIndexOrThrow(MustardDbAdapter.KEY_LAT));
-//
-//		ActionItem share = new ActionItem();
-//		ActionItem copy2clip = new ActionItem();
-//
-//		Display display = getWindowManager().getDefaultDisplay();
-//
-//		int height = display.getHeight();
-//		View tv = null;
-//		if (height < K_MIN_HEIGHT_QA) {
-//			tv = findViewById(R.id.dent_info);
-//			if (tv == null)
-//				tv = v;
-//		} else {
-//			tv = v;
-//		}
-//
-//		mQuickAction = new QuickAction(tv);
-//
-//		ActionItem iconItem = new ActionItem();
-//		iconItem.setTitle(userName);
-//		iconItem.setIcon(_icon);
-//		iconItem.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				if (isLocal) {
-//					doOpenUsertimeline(accountId, userName);
-//				} else {
-//					doOpenRemoteUserTimeline(accountId, userURL);
-//				}
-//			}
-//		});
-//
-//		mQuickAction.addActionItem(iconItem);
-//
-//		// if(!mLayoutNewButton) {
-//
-//		final String text = c.getString(c
-//				.getColumnIndexOrThrow(MustardDbAdapter.KEY_STATUS));
-//
-//		share.setTitle(getString(R.string.menu_share));
-//		share.setIcon(getResources().getDrawable(R.drawable.n_icon_share));
-//		share.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				doShare(text);
-//			}
-//		});
-//		mQuickAction.addActionItem(share);
-//
-//		if (!isRemoteTimeline) {
-//			copy2clip.setTitle(getString(R.string.menu_copy2clipboard));
-//			copy2clip.setIcon(getResources().getDrawable(
-//					R.drawable.n_icon_clipboard));
-//			copy2clip.setOnClickListener(new OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					doCopy2Clipboard(rowid, statusId, userName);
-//				}
-//			});
-//			mQuickAction.addActionItem(copy2clip);
-//
-//			ActionItem userTimeline = new ActionItem();
-//			userTimeline.setTitle(getString(R.string.menu_timeline));
-//			userTimeline.setIcon(getResources().getDrawable(
-//					R.drawable.n_icon_usertimeline));
-//
-//			userTimeline.setOnClickListener(new OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					if (_sn.isTwitterInstance()) {
-//						doOpenUsertimeline(accountId, userName);
-//					} else {
-//						Log.d("Mustard", "remote profile? " + isLocal);
-//						if (isLocal) {
-//							doOpenUsertimeline(accountId, userName);
-//						} else {
-//							doOpenRemoteUserTimeline(accountId, userURL);
-//						}
-//					}
-//				}
-//			});
-//
-//			mQuickAction.addActionItem(userTimeline);
-//		}
-//
-//		if (usernameId != mStatusNet.getUsernameId()) {
-//			//
-//
-//			if (!isRemoteTimeline) {
-//				boolean following = c.getInt(c
-//						.getColumnIndexOrThrow(MustardDbAdapter.KEY_FOLLOWING)) == 1 ? true
-//						: false;
-//
-//				ActionItem followAction = new ActionItem();
-//
-//				if (following) {
-//
-//					if (isLocal) {
-//						ActionItem dmAction = new ActionItem();
-//						dmAction.setIcon(getResources().getDrawable(
-//								R.drawable.n_icon_dm));
-//						dmAction.setTitle(getString(R.string.menu_dm));
-//						dmAction.setOnClickListener(new OnClickListener() {
-//							@Override
-//							public void onClick(View v) {
-//								DirectMessageNew.actionCompose(mContext,
-//										userName);
-//								dismissQuickAction();
-//							}
-//						});
-//						mQuickAction.addActionItem(dmAction);
-//					}
-//					// menu.add(0, M_UNSUB_ID,0, R.string.menu_unsub);
-//					followAction.setIcon(getResources().getDrawable(
-//							R.drawable.n_icon_unsubscribe));
-//					followAction.setTitle(getString(R.string.menu_unsub));
-//
-//					followAction.setOnClickListener(new OnClickListener() {
-//						@Override
-//						public void onClick(View v) {
-//							doManageSub(false, rowid);
-//						}
-//					});
-//
-//				} else {
-//					followAction.setIcon(getResources().getDrawable(
-//							R.drawable.n_icon_subscribe));
-//					// menuadd(0, M_SUB_ID,0, R.string.menu_sub);
-//					followAction.setTitle(getString(R.string.menu_sub));
-//					followAction.setOnClickListener(new OnClickListener() {
-//						@Override
-//						public void onClick(View v) {
-//							doManageSub(true, rowid);
-//						}
-//					});
-//				}
-//				mQuickAction.addActionItem(followAction);
-//			}
-//			if (!isRemoteTimeline) {
-//				ActionItem blockAction = new ActionItem();
-//
-//				final boolean blocking = c.getInt(c
-//						.getColumnIndexOrThrow(MustardDbAdapter.KEY_BLOCKING)) == 1 ? true
-//						: false;
-//				if (blocking) {
-//					blockAction.setIcon(getResources().getDrawable(
-//							R.drawable.n_icon_unblock));
-//					blockAction.setTitle(getString(R.string.menu_unblock));
-//				} else {
-//					blockAction.setIcon(getResources().getDrawable(
-//							R.drawable.n_icon_block));
-//					blockAction.setTitle(getString(R.string.menu_block));
-//				}
-//				blockAction.setOnClickListener(new OnClickListener() {
-//					@Override
-//					public void onClick(View v) {
-//						doBlock(rowid, !blocking);
-//					}
-//				});
-//				mQuickAction.addActionItem(blockAction);
-//			}
-//		}
-//		//
-//		// } else {
-//		// ActionItem userTimeline = new ActionItem();
-//		// userTimeline.setTitle(getString(R.string.menu_timeline));
-//		// userTimeline.setIcon(getResources().getDrawable(R.drawable.n_icon_usertimeline));
-//		// userTimeline.setOnClickListener(new OnClickListener() {
-//		// @Override
-//		// public void onClick(View v) {
-//		//
-//		// doOpenUsertimeline(accountId, userName);
-//		// }
-//		// });
-//		// mQuickAction.addActionItem(userTimeline);
-//		//
-//		// // menu.add(0, USER_TL_ID, 0, R.string.menu_timeline);
-//		// //
-//		// // if (usernameId != mStatusNet.getUsernameId()) {
-//		//
-//		// if(!isRemoteTimeline) {
-//		// ActionItem followAction = new ActionItem();
-//		// boolean following =
-//		// c.getInt(c.getColumnIndexOrThrow(MustardDbAdapter.KEY_FOLLOWING)) ==
-//		// 1 ? true : false;
-//		//
-//		//
-//		//
-//		// if (following) {
-//		// // menu.add(0, M_UNSUB_ID,0, R.string.menu_unsub);
-//		// followAction.setIcon(getResources().getDrawable(R.drawable.n_icon_unsubscribe));
-//		// followAction.setTitle(getString(R.string.menu_unsub));
-//		//
-//		// followAction.setOnClickListener(new OnClickListener() {
-//		// @Override
-//		// public void onClick(View v) {
-//		// doManageSub(false,rowid);
-//		// }
-//		// });
-//		//
-//		// } else {
-//		// // menuadd(0, M_SUB_ID,0, R.string.menu_sub);
-//		// followAction.setIcon(getResources().getDrawable(R.drawable.n_icon_subscribe));
-//		// followAction.setTitle(getString(R.string.menu_sub));
-//		// followAction.setOnClickListener(new OnClickListener() {
-//		// @Override
-//		// public void onClick(View v) {
-//		// doManageSub(true,rowid);
-//		// }
-//		// });
-//		// }
-//		// mQuickAction.addActionItem(followAction);
-//		// }
-//		//
-//		//
-//		// if(!isRemoteTimeline) {
-//		// ActionItem blockAction = new ActionItem();
-//		//
-//		//
-//		// final boolean blocking =
-//		// c.getInt(c.getColumnIndexOrThrow(MustardDbAdapter.KEY_BLOCKING)) == 1
-//		// ? true : false;
-//		// if (blocking) {
-//		// blockAction.setIcon(getResources().getDrawable(R.drawable.n_icon_unblock));
-//		// blockAction.setTitle(getString(R.string.menu_unblock));
-//		// } else {
-//		// blockAction.setIcon(getResources().getDrawable(R.drawable.n_icon_block));
-//		// blockAction.setTitle(getString(R.string.menu_block));
-//		// }
-//		// blockAction.setOnClickListener(new OnClickListener() {
-//		// @Override
-//		// public void onClick(View v) {
-//		// doBlock(rowid,!blocking);
-//		// }
-//		// });
-//		// mQuickAction.addActionItem(blockAction);
-//		// }
-//		// }
-//		if (usernameId == mStatusNet.getUsernameId()) {
-//			ActionItem deleteAction = new ActionItem();
-//			deleteAction.setTitle(getString(R.string.menu_delete));
-//			deleteAction.setIcon(getResources().getDrawable(
-//					R.drawable.n_icon_delete));
-//			deleteAction.setOnClickListener(new OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					doDelete(rowid, statusId);
-//				}
-//			});
-//			mQuickAction.addActionItem(deleteAction);
-//
-//			// menu.add(0, DELETE_ID, 0,
-//			// R.string.menu_delete).setIcon(android.R.drawable.ic_delete);
-//		}
-//		ActionItem hideToggleAction = new ActionItem();
-//		boolean hidden = isHidden(usernameId);
-//		hideToggleAction.setTitle(getString(hidden ? R.string.menu_unhide
-//				: R.string.menu_hide));
-//		hideToggleAction.setIcon(getResources().getDrawable(
-//				R.drawable.n_icon_delete));
-//		hideToggleAction.setOnClickListener(new OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				dismissQuickAction();
-//				doToggleHide(usernameId);
-//				doRefresh();
-//			}
-//		});
-//		mQuickAction.addActionItem(hideToggleAction);
-//
-//		mQuickAction.show();
-//		try {
-//			c.close();
-//		} catch (Exception e) {
-//		} finally {
-//			mDbHelper.close();
-//		}
-//	}
-//
 	
 	private void doOpenConversation(long rowid) {
 		dismissQuickAction();
@@ -2739,11 +2265,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 			MustardDbAdapter mDbHelper = getDbAdapter();
 			try {
-				// if (mStatusNet==null) {
-				// Log.e(TAG, "Statusnet is null!");
-				// return 0;
-				// }
-
 				MustardApplication _ma = (MustardApplication) getApplication();
 				StatusNet _sn = null;
 				boolean haveAtLeastOneAccount = false;
