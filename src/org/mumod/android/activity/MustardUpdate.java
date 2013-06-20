@@ -371,6 +371,7 @@ public class MustardUpdate extends Activity {
 
 	private void setAccountsSpinner() {
 		Spinner accountsSpinner = (Spinner) findViewById(R.id.account_spinner);
+
 		if (mInReplyTo<0) {
 			Cursor cur = mDbHelper.fetchAllAccountsDefaultFirst();
 			startManagingCursor(cur);

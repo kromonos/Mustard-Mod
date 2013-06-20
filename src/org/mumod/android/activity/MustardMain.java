@@ -66,6 +66,7 @@ public class MustardMain extends MustardBaseActivity {
 			String ThemeSet = mPreferences.getString(Preferences.THEME, getString(R.string.theme_bw));
 			boolean mLayoutLight = ThemeSet.equals( getString(R.string.theme_bw) );
 			mLayoutLight = true;
+			// TODO Themeing
 			if (mLayoutLight) {
 				setTheme(android.R.style.Theme_Holo);
 			}

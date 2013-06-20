@@ -109,7 +109,9 @@ public class StatusNet {
 	private final String API_NOTICE_ADD = "/statuses/update.json";
 	private final String API_NOTICE_DELETE = "/statuses/destroy/%s.json";
 	private final String API_NOTICE_FAVOR = "/favorites/create/%s.json";
+	private final String API_NOTICE_FAVOR_TWITTER = "/favorites/create.json";
 	private final String API_NOTICE_DISFAVOR = "/favorites/destroy/%s.json";
+	private final String API_NOTICE_DISFAVOR_TWITTER = "/favorites/destroy.json";
 	private final String API_NOTICE_REPEAT = "/statuses/retweet/%s.json";
 
 	// GROUP API
@@ -710,24 +712,52 @@ public class StatusNet {
 
 	public boolean doFavour(String id) {	
 		isTwitter();
-		String favorURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_NOTICE_FAVOR.replace("%s", id);
-		try {
-			mHttpManager.getResponseAsString(favorURL, HttpManager.POST);
-		} catch (Exception e) {
-			if (MustardApplication.DEBUG) Log.e(TAG,e.toString());
-			return false;
+
+		if( !isTwitter ) {
+			String favorURL = mURL.toExternalForm() + API_SN_STRING + API_NOTICE_FAVOR.replace("%s", id);
+			try {
+				mHttpManager.getResponseAsString(favorURL, HttpManager.POST);
+			} catch (Exception e) {
+				if (MustardApplication.DEBUG) Log.e(TAG,e.toString());
+				return false;
+			}
+		}
+		else {
+			String favorURL = mURL.toExternalForm() + API_TWITTER_STRING  + API_NOTICE_FAVOR_TWITTER;
+			try {
+				ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+		    	params.add(new BasicNameValuePair("id", id));
+				mHttpManager.getJsonObject(favorURL, HttpManager.POST, params);				
+			} catch (Exception e) {
+				if (MustardApplication.DEBUG) Log.e(TAG,e.toString());
+				return false;
+			}
 		}
 		return true;
 	}
 		
 	public boolean doDisfavour(String id) {	
 		isTwitter();
-		String disfavorURL = mURL.toExternalForm() + (!isTwitter ? API_SN_STRING : API_TWITTER_STRING) + API_NOTICE_DISFAVOR.replace("%s", id);
-		try {
-			mHttpManager.getResponseAsString(disfavorURL, HttpManager.POST);
-		} catch (Exception e) {
-			if (MustardApplication.DEBUG) Log.e(TAG,e.toString());
-			return false;
+		
+		if( !isTwitter ) {
+			String disfavorURL = mURL.toExternalForm() + API_SN_STRING + API_NOTICE_DISFAVOR.replace("%s", id);
+			try {
+				mHttpManager.getResponseAsString(disfavorURL, HttpManager.POST);
+			} catch (Exception e) {
+				if (MustardApplication.DEBUG) Log.e(TAG,e.toString());
+				return false;
+			}
+		}
+		else {
+			String favorURL = mURL.toExternalForm() + API_TWITTER_STRING  + API_NOTICE_DISFAVOR_TWITTER;
+			try {
+				ArrayList<NameValuePair> params = new ArrayList<NameValuePair>();
+		    	params.add(new BasicNameValuePair("id", id));
+				mHttpManager.getJsonObject(favorURL, HttpManager.POST, params);				
+			} catch (Exception e) {
+				if (MustardApplication.DEBUG) Log.e(TAG,e.toString());
+				return false;
+			}
 		}
 		return true;
 	}
@@ -753,7 +783,6 @@ public class StatusNet {
 		} catch (MustardException e) {
 			throw e;
 		} catch (Exception e) { 
-//			e.printStackTrace();
 			if (MustardApplication.DEBUG) Log.e(TAG,e.toString());
 			throw new MustardException(e.getMessage() == null ? e.toString() : e.getMessage());
 		}

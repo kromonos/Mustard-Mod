@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.mumod.android.Account;
 import org.mumod.android.Controller;
 import org.mumod.android.MessagingListener;
 import org.mumod.android.MustardApplication;
@@ -88,11 +89,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.WebView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.TextView.BufferType;
 import android.widget.Toast;
 
@@ -151,8 +155,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 	private QuickAction mQuickAction;
 	private Context mContext;
-
-	// protected MustardDbAdapter mDbHelper;
+	
 	private StatusesLoadMore mLoadMoreTask = null;
 	private StatusesFetcher mFetcherTask = null;
 	private boolean mIsRefresh = false;
@@ -630,7 +633,8 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					mActionMode = startActionMode(mClickActionModeCallback);
 				}
 			});
-			v.setOnLongClickListener(new View.OnLongClickListener() {
+/*			
+ 			v.setOnLongClickListener(new View.OnLongClickListener() {
 				
 				public boolean onLongClick(View view) {
 					// openContextMenu(v);
@@ -646,6 +650,7 @@ public abstract class MustardBaseActivity extends ListActivity implements
 					return true;
 				}
 			});
+*/
 			long inreplyto = status.getInReplyTo();
 			long accountId = status.getAccountId();
 		
@@ -866,7 +871,6 @@ public abstract class MustardBaseActivity extends ListActivity implements
 
 	private boolean mSpinnerInit = true;
 
-	
 	private void setAccountsSpinner(ActionBar actionBar) {
 		MustardDbAdapter mDbHelper = getDbAdapter();
 		Cursor cur = mDbHelper.fetchAllAccountsDefaultFirst();
