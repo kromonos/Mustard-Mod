@@ -1,3 +1,5 @@
+# Mustard Mod is searching for a new maintainer #
+
 # Mustard Mod #
 - 2013-06-20
 	* Twitter fixes and update to Twitter API 1.1
