@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkromonos%2FMustard-Mod.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkromonos%2FMustard-Mod?ref=badge_shield)
+
 # Mustard Mod is searching for a new maintainer #
 
 # Mustard Mod #
@@ -141,3 +143,7 @@
  * 0.1.3
 	* Added Search functions
 	* Added About window
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkromonos%2FMustard-Mod.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkromonos%2FMustard-Mod?ref=badge_large)
